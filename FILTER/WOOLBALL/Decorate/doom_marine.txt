@@ -1,0 +1,13 @@
+ACTOR DoomMarineGuy : DoomPlayer
+{
+  Player.StartItem "Vanilla_Pistol"
+  Player.StartItem "Vanilla_Fist"
+  Player.StartItem "Clip", 100
+  Player.WeaponSlot 1, Vanilla_Fist, Vanilla_Chainsaw
+  Player.WeaponSlot 2, Vanilla_Pistol
+  Player.WeaponSlot 3, Vanilla_Shotgun, Vanilla_SuperShotgun
+  Player.WeaponSlot 4, Vanilla_Chaingun
+  Player.WeaponSlot 5, Vanilla_RocketLauncher
+  Player.WeaponSlot 6, Vanilla_PlasmaRifle
+  Player.WeaponSlot 7, Vanilla_BFG9000
+}

@@ -1,0 +1,3 @@
+Actor Vanilla_Backpack: Backpack
+{
+}

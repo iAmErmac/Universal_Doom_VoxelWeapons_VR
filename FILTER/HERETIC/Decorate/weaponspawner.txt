@@ -1,0 +1,64 @@
+
+Actor Vanilla_ChainsawSpawner : RandomSpawner replaces Gauntlets 2005
+{
+	DropItem "Vanilla_Chainsaw"
+}
+
+Actor Vanilla_PistolSpawner : RandomSpawner replaces GoldWand 9042
+{
+	DropItem "Vanilla_Pistol"
+}
+
+Actor Vanilla_ShotgunSpawner : RandomSpawner replaces Crossbow 2001
+{
+	DropItem "Vanilla_Shotgun", 255, 8
+	DropItem "Vanilla_SuperShotgun", 255, 2
+}
+
+Actor Vanilla_ChaingunSpawner : RandomSpawner replaces Blaster 53
+{
+	DropItem "Vanilla_Chaingun", 255, 9
+	DropItem "Vanilla_SuperShotgun", 255, 1
+}
+
+Actor Vanilla_RocketLauncherSpawner : RandomSpawner replaces PhoenixRod 2003
+{
+	DropItem "Vanilla_RocketLauncher"
+}
+
+Actor Vanilla_PlasmaRifleSpawner : RandomSpawner replaces SkullRod 2004
+{
+	DropItem "Vanilla_PlasmaRifle"
+}
+
+Actor Vanilla_BFGSpawner : RandomSpawner replaces Mace
+{
+	DropItem "Vanilla_BFG9000"
+}
+
+//Replacing tome of power with a custom Rapid Fire Powerup
+
+Actor Vanilla_BerserkPowerup : PowerupGiver replaces ArtiTomeOfPower 86
+{
+  +COUNTITEM
+  +FLOATBOB
+  +INVENTORY.PICKUPFLASH
+  Inventory.Icon "ARTIPWBK"
+  Powerup.Type RapidFire
+  Inventory.PickupMessage "$TXT_ARTITOMEOFPOWER"
+  Tag "$TAG_ARTITOMEOFPOWER"
+  States
+  {
+  Spawn:
+    PWBK A 350
+    Loop
+  }
+}
+
+ACTOR PowerRapidFire : PowerDoubleFiringSpeed
+{
+  Powerup.Duration -40
+  Inventory.Icon "SPINBK0"
+  +INVENTORY.NOTELEPORTFREEZE
+  Powerup.Color 255, 0, 0, 0.3
+}

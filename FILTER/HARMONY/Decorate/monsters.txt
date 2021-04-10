@@ -1,0 +1,100 @@
+//Overriding some of the original classes so weapon drops are not messed up
+
+Actor DH_ZombieMan : ZombieMan replaces ZombieMan 3004
+{
+	Health 150
+	Speed 12
+	Radius 30
+	PainChance 180
+	Mass 400
+	SeeSound "demon/sight"
+	AttackSound "demon/melee"
+	PainSound "demon/pain"
+	DeathSound "demon/death"
+	ActiveSound "demon/active"
+	Scale 0.3
+	States
+	{
+	Spawn:
+		SARG AB 10 A_Look
+		goto Spawn
+	See:
+		SARG AABBCCDD 2 A_Chase
+		goto See
+	Pain:
+		SARG H 2 
+		SARG H 2 A_Pain
+		SARG AABBCCDD 2 A_Chase
+		goto See
+	Melee:
+		SARG EF 8 A_FaceTarget
+		SARG G 8 A_SargAttack
+		SARG AABBCCDD 2 A_Chase
+		goto See
+	Missile:
+		SARG E 10 A_FaceTarget
+		SARG F 4 A_SkullAttack
+		SARG EF 4 
+		goto Missile
+	Death:
+		SARG I 8 
+		SARG J 8 A_Scream
+		SARG K 4 
+		SARG L 4 A_Fall
+		SARG M 4 
+		SARG N -1 
+		stop
+	XDeath:
+		TROO A -1 
+		stop
+	Raise:
+		SARG NMLKJI 5 
+		SARG AABBCCDD 2 A_Chase
+		goto See
+	}
+}
+
+Actor DH_ShotgunGuy : ShotgunGuy replaces ShotgunGuy 9
+{
+	Health 60
+	Mass 75
+	Scale 0.33
+	States
+	{
+	Death:
+		SPOS H 7 
+		SPOS I 7 A_Scream
+		SPOS J 6 A_Fall
+		SPOS KL 5 
+		VILE Z -1 
+		stop
+	Raise:
+		TROO A -1 
+		stop
+	}
+}
+
+Actor DH_ChaingunGuy : ChaingunGuy replaces ChaingunGuy 65
+{
+	Health 150
+	SeeSound "imp/sight"
+	PainSound "vile/pain"
+	Scale 0.3
+	States
+	{
+	Death:
+		CPOS H 5 
+		CPOS I 5 A_Scream
+		CPOS J 5 A_Fall
+		CPOS K 5 
+		CPOS L -1 
+		stop
+	XDeath:
+		SPOS M 5 
+		SPOS N 5 A_XScream
+		SPOS O 5 A_Fall
+		SPOS PQRST 5 
+		SPOS U -1 
+		stop
+	}
+}

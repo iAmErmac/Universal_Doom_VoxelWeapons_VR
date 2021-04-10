@@ -1,0 +1,133 @@
+
+Actor PistolSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("Vanilla_Pistol", 1, "DropClip", AAPTR_PLAYER1)
+		TNT1 A 0 A_DropItem("Vanilla_Pistol")
+		Stop
+	DropClip:
+		TNT1 A 0 A_DropItem("Vanilla_Clip")
+		Stop
+	}
+}
+
+Actor Vanilla_PistolSpawner : PistolSpawner replaces RocketRifle
+{
+}
+
+Actor Vanilla_PistolSpawner2 : PistolSpawner replaces RocketRifleGiver 8020
+{
+}
+
+Actor Vanilla_ShotgunSpawner : RandomSpawner replaces FateCrossbow
+{
+	DropItem "Vanilla_Shotgun"
+}
+
+Actor Vanilla_ShotgunSpawner2 : Vanilla_ShotgunSpawner replaces CrossbowGiver 8034
+{
+}
+
+Actor SuperShotgunSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("Vanilla_SuperShotgun", 1, "DropShell", AAPTR_PLAYER1)
+		TNT1 A 0 A_DropItem("Vanilla_SuperShotgun")
+		Stop
+	DropShell:
+		TNT1 A 0 A_DropItem("Vanilla_Shell")
+		Stop
+	}
+}
+
+Actor Vanilla_SuperShotgunSpawner : SuperShotgunSpawner replaces PoisonStaff
+{
+}
+
+Actor Vanilla_SuperShotgunSpawner2 : SuperShotgunSpawner replaces PoisonStaffGiver 8057
+{
+}
+
+Actor Vanilla_ChaingunSpawner : RandomSpawner replaces ShockGrenadeWeapon 8040
+{
+	DropItem "Vanilla_Chaingun", 256, 3
+	DropItem "Vanilla_RocketLauncher", 256, 2
+}
+
+Actor DestroyerPiece1_replacer: DestroyerPiece1 replaces DestroyerPiece1 8044
+{
+	WeaponPiece.Weapon "Vanilla_PlasmaRifle"
+}
+
+Actor DestroyerPiece2_replacer: DestroyerPiece2 replaces DestroyerPiece2 8045
+{
+	WeaponPiece.Weapon "Vanilla_PlasmaRifle"
+}
+
+Actor DestroyerPiece3_replacer: DestroyerPiece3 replaces DestroyerPiece3 8046
+{
+	WeaponPiece.Weapon "Vanilla_PlasmaRifle"
+}
+
+Actor Vanilla_PlasmaRifleSpawner : RandomSpawner replaces Destroyer
+{
+	DropItem "Vanilla_PlasmaRifle"
+}
+
+Actor Vanilla_PlasmaRifleSpawner2 : Vanilla_PlasmaRifleSpawner replaces DestroyerGiver 8065
+{
+}
+
+Actor PortalCrossbowPiece1_replacer : PortalCrossbowPiece1 replaces PortalCrossbowPiece1 8050
+{
+	WeaponPiece.Weapon "Vanilla_BFG9000"
+}
+
+Actor PortalCrossbowPiece2_replacer : PortalCrossbowPiece2 replaces PortalCrossbowPiece2 8051
+{
+	WeaponPiece.Weapon "Vanilla_BFG9000"
+}
+
+Actor PortalCrossbowPiece3_replacer : PortalCrossbowPiece3 replaces PortalCrossbowPiece3 8052
+{
+	WeaponPiece.Weapon "Vanilla_BFG9000"
+}
+
+Actor Vanilla_BFGSpawner : RandomSpawner replaces PortalCrossbow 8049
+{
+	DropItem "Vanilla_BFG9000"
+}
+
+Actor Vanilla_BFGSpawner2 : RandomSpawner replaces FlailCannonPiece
+{
+	DropItem "Vanilla_BFG9000", 256, 2
+	DropItem "Vanilla_PlasmaRifle", 256, 1
+}
+
+Actor Vanilla_BFGSpawner3 : RandomSpawner replaces FlailCannonPiece1
+{
+	DropItem "Vanilla_BFG9000", 256, 2
+	DropItem "Vanilla_PlasmaRifle", 256, 1
+}
+
+Actor Vanilla_BFGSpawner4 : RandomSpawner replaces FlailCannonPiece2
+{
+	DropItem "Vanilla_BFG9000", 256, 3
+	DropItem "Vanilla_PlasmaRifle", 256, 2
+}
+
+Actor Vanilla_BFGSpawner5 : RandomSpawner replaces FlailCannonPiece3
+{
+	DropItem "Vanilla_BFG9000", 256, 3
+	DropItem "Vanilla_PlasmaRifle", 256, 2
+}
+
+Actor Vanilla_BFGSpawner6 : Vanilla_BFGSpawner replaces FlailCannon
+{
+}

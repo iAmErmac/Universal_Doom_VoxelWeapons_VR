@@ -1,0 +1,23 @@
+Actor _Mana1 : RandomSpawner replaces Mana1 122
+{
+	DropItem "Vanilla_Clip"
+	DropItem "Vanilla_Shell"
+}
+
+Actor _Mana2 : RandomSpawner replaces Mana2 124
+{
+	DropItem "Vanilla_RocketAmmo"
+	DropItem "Vanilla_Cell"
+}
+
+Actor _Mana3 : RandomSpawner replaces Mana3 8004
+{
+	DropItem "Vanilla_ClipBox"
+	DropItem "Vanilla_ShellBox"
+	DropItem "Vanilla_RocketBox"
+	DropItem "Vanilla_CellPack"
+}
+
+Actor _ArtiBoostMana : Vanilla_Backpack replaces ArtiBoostMana 8003
+{
+}

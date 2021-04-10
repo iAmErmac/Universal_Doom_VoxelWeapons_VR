@@ -1,0 +1,116 @@
+Actor Vanilla_Clip : Clip
+{
+  Inventory.PickupMessage "$GOTCLIP" // "Picked up a clip."
+  Inventory.Amount 20
+  Inventory.MaxAmount 300
+  Ammo.BackpackAmount 20
+  Ammo.BackpackMaxAmount 400
+  Inventory.Icon "CLIPA0"
+  States
+  {
+  Spawn:
+    CLIP A -1
+    Stop
+  }
+}
+
+Actor Vanilla_ClipBox : ClipBox
+{
+  Inventory.PickupMessage "$GOTCLIPBOX" // "Picked up a box of bullets."
+  Inventory.Amount 80
+  States
+  {
+  Spawn:
+    AMMO A -1
+    Stop
+  }
+}
+
+Actor Vanilla_Shell : Shell
+{
+  Inventory.PickupMessage "Picked up shotgun shells." // "Picked up 4 shotgun shells."
+  Inventory.Amount 10
+  Inventory.MaxAmount 100
+  Ammo.BackpackAmount 10
+  Ammo.BackpackMaxAmount 200
+  Inventory.Icon "SHELA0"
+  States
+  {
+  Spawn:
+    SHEL A -1
+    Stop
+  }
+}
+
+Actor Vanilla_ShellBox : ShellBox
+{
+  Inventory.PickupMessage "$GOTSHELLBOX" // "Picked up a box of shotgun shells."
+  Inventory.Amount 30
+  States
+  {
+  Spawn:
+    SBOX A -1
+    Stop
+  }
+}
+
+Actor Vanilla_RocketAmmo : RocketAmmo
+{
+  Inventory.PickupMessage "Picked up rockets." // "Picked up a rocket."
+  Inventory.Amount 4
+  Inventory.MaxAmount 100
+  Ammo.BackpackAmount 4
+  Ammo.BackpackMaxAmount 200
+  Ammo.BackpackMaxAmount 100
+  Inventory.Icon "ROCKA0"
+  States
+  {
+  Spawn:
+    ROCK A -1
+    Stop
+  }
+}
+
+Actor Vanilla_RocketBox : RocketBox
+{
+  Inventory.PickupMessage "$GOTROCKBOX" // "Picked up a box of rockets."
+  Inventory.Amount 10
+  States
+  {
+  Spawn:
+    BROK A -1
+    Stop
+  }
+}
+
+Actor Vanilla_Cell : Cell
+{
+  Inventory.PickupMessage "$GOTCELL" // "Picked up an energy cell."
+  Inventory.Amount 30
+  Inventory.MaxAmount 400
+  Ammo.BackpackAmount 30
+  Ammo.BackpackMaxAmount 800
+  Inventory.Icon "CELLA0"
+  States
+  {
+  Spawn:
+    CELL A -1
+    Stop
+  }
+}
+
+Actor Vanilla_CellPack : CellPack
+{
+  Inventory.PickupMessage "$GOTCELLBOX" // "Picked up an energy cell pack."
+  Inventory.Amount 150
+  States
+  {
+  Spawn:
+    CELP A -1
+    Stop
+  }
+}
+
+Actor Vanilla_Backpack : Backpack replaces Backpack
+{
+}

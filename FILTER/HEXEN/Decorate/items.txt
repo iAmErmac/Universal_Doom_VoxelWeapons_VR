@@ -1,0 +1,255 @@
+Actor BasicArsenalSpawner
+{
+	Speed 15
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Gravity
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Jump(32, "SpawnA", "SpawnB")
+		TNT1 AAAAAAAAAA 0 A_Warp(AAPTR_DEFAULT, random(1,4), random(1,4)) //a simple hack to move spawn spot, emulate a scattered spawning
+		Goto SpawnBonusAmmo
+	SpawnA:
+		TNT1 AAAAAAAAAA 0 A_Warp(AAPTR_DEFAULT, random(1,4), random(1,4))
+		TNT1 A 0 A_DropItem("Vanilla_Chainsaw")
+		Goto SpawnBonusAmmo
+	SpawnB:
+		TNT1 AAAAAAAAAA 0 A_Warp(AAPTR_DEFAULT, random(1,4), random(1,4))
+		TNT1 A 0 A_DropItem("Vanilla_SuperShotgun")
+	SpawnBonusAmmo:
+		TNT1 A 0 A_DropItem("BasicAmmoSpawner")
+		Stop
+	}
+}
+
+Actor AdvancedArsenalSpawner
+{
+	Speed 15
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Fall
+		TNT1 A 1 A_Jump(32, "SpawnA")
+		TNT1 AAAAAAAAAA 0 A_Warp(AAPTR_DEFAULT, random(1,4), random(1,4))
+		Goto SpawnBonusAmmo
+	SpawnA:
+		TNT1 AAAAAAAAAA 0 A_Warp(AAPTR_DEFAULT, random(1,4), random(1,4))
+		TNT1 A 1 A_DropItem("Vanilla_PlasmaRifle")
+	SpawnBonusAmmo:
+		TNT1 A 1 A_DropItem("AdvancedAmmoSpawner")
+		Stop
+	}
+}
+
+
+Actor BasicAmmoSpawner
+{
+	Speed 15
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_Jump(16, "SpawnA")
+		TNT1 A 1 A_Jump(32, "SpawnB")
+		TNT1 A 1 A_Jump(64, "SpawnC")
+		TNT1 A 1 A_Jump(128, "SpawnD")
+		Stop
+	SpawnA:
+		TNT1 A 1 A_SpawnItemEx("Vanilla_CellPack")
+		Stop
+	SpawnB:
+		TNT1 A 1 A_SpawnItemEx("Vanilla_RocketAmmo")
+		Stop
+	SpawnC:
+		TNT1 A 1 A_SpawnItemEx("Vanilla_Shell")
+		Stop
+	SpawnD:
+		TNT1 A 1 A_SpawnItemEx("Vanilla_Clip")
+		Stop
+	}
+}
+
+Actor AdvancedAmmoSpawner
+{
+	Speed 15
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_Jump(16, "SpawnA")
+		TNT1 A 1 A_Jump(32, "SpawnB")
+		TNT1 A 1 A_Jump(64, "SpawnC")
+		TNT1 A 1 A_Jump(128, "SpawnD")
+		Stop
+	SpawnA:
+		TNT1 A 1 A_SpawnItemEx("Vanilla_CellPack")
+		Stop
+	SpawnB:
+		TNT1 A 1 A_SpawnItemEx("Vanilla_RocketBox")
+		Stop
+	SpawnC:
+		TNT1 A 1 A_SpawnItemEx("Vanilla_ShellBox")
+		Stop
+	SpawnD:
+		TNT1 A 1 A_SpawnItemEx("Vanilla_ClipBox")
+		Stop
+	}
+}
+
+Actor QuartzFlaskSpawner
+{
+	Speed 15
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItem("ArtiHealth2")
+		TNT1 A 0 A_Jump(80, 1)
+		Stop
+		TNT1 AAAAAAAAAA 0 A_Warp(AAPTR_DEFAULT, random(1,4), random(1,4))
+		TNT1 A 1 A_DropItem("Vanilla_Shotgun")
+		Stop
+	}
+}
+
+Actor AmuletSpawner
+{
+	Speed 15
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItem("AmuletOfWarding2")
+		POT1 A 0 A_JumpIfInventory("Vanilla_SuperShotgun", 1, "NoSSGSpawn", AAPTR_PLAYER1)
+		TNT1 AAAAAAAAAA 0 A_Warp(AAPTR_DEFAULT, random(1,4), random(1,4))
+		TNT1 A 0 A_DropItem("Vanilla_SuperShotgun")
+		Stop
+	NoSSGSpawn:
+		Stop
+	}
+}
+
+Actor HelmSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("PlatinumHelm2")
+		TNT1 A 1 A_DropItem("BasicArsenalSpawner")
+		Stop
+	}
+}
+
+Actor ShieldSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("FalconShield2")
+		TNT1 A 1 A_DropItem("BasicArsenalSpawner")
+		Stop
+	}
+}
+
+Actor MeshArmorSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("MeshArmor2")
+		TNT1 A 1 A_DropItem("AdvancedArsenalSpawner")
+		Stop
+	}
+}
+
+Actor PorkalatorSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("ArtiPork2")
+		TNT1 A 1 A_DropItem("BasicArsenalSpawner") //adding drop chance of arsenal for better spawning result
+		Stop
+	}
+}
+
+Actor SuperHealthSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("ArtiSuperHealth2")
+		TNT1 A 1 A_DropItem("AdvancedArsenalSpawner") //adding drop chance for arsenal for better spawning result
+		Stop
+	}
+}
+
+Actor SittingCorpseSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("HexenSittingCorpse")
+		TNT1 A 1 A_DropItem("BasicArsenalSpawner") //adding drop chance for arsenal for better spawning result
+		Stop
+	}
+}
+
+Actor SleepingCorpseSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("HexenSleepingCorpse")
+		TNT1 A 1 A_DropItem("AdvancedArsenalSpawner") //adding drop chance for arsenal for better spawning result
+		Stop
+	}
+}
+
+Actor BarrelLoots
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(30, "SpawnA", "SpawnB")
+		Goto SpawnBonusAmmo
+	SpawnA:
+		TNT1 A 0 A_SpawnItem("Vanilla_SuperShotgun")
+		Goto SpawnBonusAmmo
+	SpawnB:
+		TNT1 A 0 A_SpawnItem("Vanilla_PlasmaRifle")
+	SpawnBonusAmmo:
+		TNT1 A 0 A_Jump(128, "SpawnAmmoA", "SpawnAmmoB", "SpawnAmmoC", "SpawnAmmoD", "SpawnAmmoE", "SpawnAmmoF")
+		Goto Death
+	SpawnAmmoA:
+		TNT1 A 0 A_SpawnItem("Vanilla_ShellBox")
+		Goto Death
+	SpawnAmmoB:
+		TNT1 A 0 A_SpawnItem("Vanilla_ClipBox")
+		Goto Death
+	SpawnAmmoC:
+		TNT1 A 0 A_SpawnItem("Vanilla_RocketAmmo")
+		Goto Death
+	SpawnAmmoD:
+		TNT1 A 0 A_SpawnItem("Vanilla_Cell")
+		Goto Death
+	SpawnAmmoE:
+		TNT1 A 0 A_SpawnItem("Vanilla_ClipBox")
+		Goto Death
+	SpawnAmmoF:
+		TNT1 A 0 A_SpawnItem("Vanilla_Shell")
+	Death:
+		TNT1 A 1
+		Stop
+	}
+}

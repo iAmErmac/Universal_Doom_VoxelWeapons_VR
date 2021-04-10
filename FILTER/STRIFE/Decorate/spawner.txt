@@ -1,0 +1,219 @@
+//Weapon spawner
+
+ACTOR _StrifeCrossbow : ShotgunSpawner replaces StrifeCrossbow 2001
+{
+	ConversationID 194
+}
+
+ACTOR _StrifeCrossbow2 : _StrifeCrossbow replaces StrifeCrossbow2 
+{
+}
+
+ACTOR _AssaultGun : ChaingunSpawner replaces AssaultGun 2002 //replaces rifle
+{
+	ConversationID 188 //250 Gold
+}
+
+ACTOR _AssaultGunStanding : RandomSpawner replaces AssaultGunStanding 2006
+{
+	ConversationID 189
+	DropItem "SuperShotgunSpawner", 256, 2
+	DropItem "ShotgunSpawner", 256, 1
+}
+
+ACTOR _Flamethrower : PlasmaRifleSpawner replaces Flamethrower 2005
+{
+	ConversationID 190
+}
+
+ACTOR _MiniMissileLauncher : RocketLauncherSpawner replaces MiniMissileLauncher 2003
+{
+	ConversationID 192
+}
+
+ACTOR _StrifeGrenadeLauncher : _MiniMissileLauncher replaces StrifeGrenadeLauncher 154
+{
+	ConversationID 195
+}
+
+ACTOR _StrifeGrenadeLauncher2 : _MiniMissileLauncher replaces StrifeGrenadeLauncher2
+{
+}
+
+ACTOR _Mauler : BFGSpawnerSpawner replaces Mauler 2004
+{
+	ConversationID 193
+}
+
+ACTOR _Mauler2 : _Mauler replaces Mauler2
+{
+}
+
+
+//Ammo spawner
+
+ACTOR _ElectricBolts : ShellSpawner replaces ElectricBolts 114
+{
+	ConversationID 186
+}
+
+ACTOR _PoisonBolts : ShellBoxSpawner replaces PoisonBolts 115
+{
+	ConversationID 102
+}
+
+ACTOR _ClipOfBullets : EssentialAmmoSpawner replaces ClipOfBullets 2007
+{
+	ConversationID 179
+}
+
+ACTOR _BoxofBullets : ClipBoxSpawner replaces BoxofBullets 2048
+{
+	ConversationID 180
+}
+
+ACTOR _EnergyPod : CellSpawner replaces EnergyPod 2047
+{
+	ConversationID 183
+}
+
+ACTOR _EnergyPack : CellPackSpawner replaces EnergyPack 17
+{
+	ConversationID 184
+}
+
+ACTOR _MiniMissiles : RocketAmmoSpawner replaces MiniMissiles 2010
+{
+	ConversationID 181
+}
+
+ACTOR _CrateOfMissiles : RocketBoxSpawner replaces CrateOfMissiles 2046
+{
+	ConversationID 182
+}
+
+ACTOR _HEGrenadeRounds : BasicAmmoSpawner replaces HEGrenadeRounds 152
+{
+	ConversationID 177
+}
+
+ACTOR _PhosphorusGrenadeRounds : AdvancedAmmoSpawner replaces PhosphorusGrenadeRounds 153
+{
+	ConversationID 178
+}
+
+
+//Item spawner
+
+Actor _AmmoFillup : DoomAmmoRefill replaces AmmoFillup
+{
+	ConversationID 298
+}
+
+Actor _AmmoSatchel : Vanilla_Backpack replaces AmmoSatchel 183
+{
+	ConversationID 187
+}
+
+
+//Weapon spawner for map or quest specific objects
+
+//Drop additional stuff when Beldin is killed
+ACTOR BeldinsNewRing : Inventory
+{
+  +NOTDMATCH
+  +FLOORCLIP
+  +INVENTORY.INVBAR
+  Tag "$TAG_BELDINSRING" // "Ring"
+  Inventory.Icon "I_RING"
+  Inventory.GiveQuest 1
+  Inventory.PickupMessage "$TXT_BELDINSRING" // "You picked up the ring."
+  ConversationID 173
+  States
+  {
+  Spawn:
+    RING A -1
+    Stop
+  }
+}
+
+Actor _BeldinsRing : BeldinDropItems replaces BeldinsRing
+{
+	ConversationID 173
+}
+
+//Chalice
+ACTOR StrifeOfferingChalice : Inventory
+{
+  +DROPPED
+  +FLOORCLIP
+  +INVENTORY.INVBAR
+  +FIXMAPTHINGPOS
+  Radius 10
+  Height 16
+  Tag "$TAG_OFFERINGCHALICE" // "Offering Chalice"
+  Inventory.Icon "I_RELC"
+  Inventory.PickupMessage "$TXT_OFFERINGCHALICE" // "You picked up the Offering Chalice."
+  Inventory.GiveQuest 2
+  ConversationID 174
+  States
+  {
+  Spawn:
+    RELC A -1
+    Stop
+  }
+}
+Actor _OfferingChalice : ChaliceItemSpawner replaces OfferingChalice
+{
+  ConversationID 174
+}
+
+//Targeter item
+/* //Targeter is useless in VR
+ACTOR StrifeTargeter : PowerupGiver
+{
+  +FLOORCLIP
+  +INVENTORY.INVBAR
+  -INVENTORY.FANCYPICKUPSOUND
+  +FIXMAPTHINGPOS
+  Tag "$TAG_TARGETER" // "Targeter"
+  Powerup.Type "Targeter"
+  Inventory.MaxAmount 5
+  Inventory.Icon "I_TARG"
+  Inventory.PickupSound "misc/i_pkup"
+  Inventory.PickupMessage "$TXT_TARGETER" // "You picked up the Targeter."
+  ConversationID 167
+  States
+  {
+  Spawn:
+    TARG A -1
+    Stop
+  }
+}
+*/
+Actor TargeterReplacer replaces Targeter 207 
+{
+	ConversationID 167
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 AAAA 0 A_Warp(AAPTR_DEFAULT, random(1,4), random(1,4))
+		TNT1 A 1 A_JumpIfInventory("Vanilla_Chainsaw", 1, "SpawnSSG", AAPTR_PLAYER1)
+		TNT1 A 1 A_DropItem("ChainsawSpawner")
+		TNT1 AAAA 0 A_Warp(AAPTR_DEFAULT, random(1,4), random(1,4))
+		TNT1 A 1 A_Jump(100, "SpawnA", "SpawnB")
+		Stop
+	SpawnSSG:
+		TNT1 A 1 A_DropItem("SuperShotgunSpawner")
+		TNT1 AAAA 0 A_Warp(AAPTR_DEFAULT, random(1,4), random(1,4))
+		TNT1 A 1 A_Jump(100, "SpawnA", "SpawnB")
+		Stop
+	SpawnA:
+		TNT1 A 1 A_DropItem("BasicAmmoSpawner")
+		Stop
+	SpawnB:
+		TNT1 A 1 A_DropItem("AdvancedAmmoSpawner")
+		Stop
+	}
+}

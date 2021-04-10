@@ -1,0 +1,181 @@
+
+//Ammo
+
+Actor ClipSpawner: CustomInventory
+{
+  inventory.pickupmessage "Picked up a clip."
+  inventory.pickupsound "dsammoup"
+  states
+  {
+	Spawn:
+		CLIP A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Clip", 10)
+		Stop
+  }
+}
+
+Actor ClipBoxSpawner: CustomInventory
+{
+  inventory.pickupmessage "Picked up a box of bullets."
+  inventory.pickupsound "dsammoup"
+  states
+  {
+	Spawn:
+		AMMO A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Clip", 50)
+		Stop
+  }
+}
+
+Actor ShellSpawner: CustomInventory
+{
+	Inventory.PickupMessage "Picked up 4 shotgun shells."
+	inventory.pickupsound "dsammoup"
+	States
+	{
+	Spawn:
+		SHEL A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Shell", 4)
+		Stop
+	}
+}
+
+Actor ShellBoxSpawner: CustomInventory
+{
+	Inventory.PickupMessage "Picked up a box of shotgun shells."
+	inventory.pickupsound "dsammoup"
+	States
+	{
+	Spawn:
+		SBOX A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Shell", 20)
+		Stop
+	}
+}
+
+Actor RocketAmmoSpawner: CustomInventory
+{
+	Inventory.PickupMessage "Picked up a couple of rockets."
+	inventory.pickupsound "dsammoup"
+	States
+	{
+	Spawn:
+		ROCK A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("RocketAmmo", 2)
+		Stop
+	}
+}
+
+Actor RocketBoxSpawner: CustomInventory
+{
+	Inventory.PickupMessage "Picked up a box of rockets."
+	inventory.pickupsound "dsammoup"
+	States
+	{
+	Spawn:
+		BROK A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("RocketAmmo", 8)
+		Stop
+	}
+}
+
+Actor CellSpawner: CustomInventory
+{
+	Inventory.PickupMessage "Picked up an energy cell."
+	inventory.pickupsound "dsammoup"
+	States
+	{
+	Spawn:
+		CELL A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Cell", 20)
+		Stop
+	}
+}
+
+Actor CellPackSpawner: CustomInventory
+{
+	Inventory.PickupMessage "Picked up an energy cell pack."
+	inventory.pickupsound "dsammoup"
+	States
+	{
+	Spawn:
+		CELP A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Cell", 100)
+		Stop
+	}
+}
+
+Actor EssentialAmmoSpawner
+{
+   States
+   {
+   Spawn:
+		TNT1 A 1 A_Jump(64, "SpawnB")
+		TNT1 A 1 A_Jump(128, "SpawnA")
+		TNT1 A 1 A_Jump(256, "SpawnC")
+	SpawnA:
+		TNT1 A 1 A_DropItem("ShellSpawner")
+		Stop
+	SpawnB:
+		TNT1 A 1 A_DropItem("ClipBoxSpawner")
+		Stop
+	SpawnC:
+		TNT1 A 1 A_DropItem("ClipSpawner")
+		Stop
+	}
+}
+
+Actor BasicAmmoSpawner
+{
+   States
+   {
+   Spawn:
+		TNT1 A 1 A_Jump(32, "SpawnA")
+		TNT1 A 1 A_Jump(64, "SpawnB")
+		TNT1 A 1 A_DropItem("ClipBoxSpawner")
+		Stop
+	SpawnA:
+		TNT1 A 1 A_DropItem("ShellSpawner")
+		Stop
+	SpawnB:
+		TNT1 A 1 A_DropItem("CellSpawner")
+		Stop
+	}
+}
+
+Actor AdvancedAmmoSpawner
+{
+   States
+   {
+   Spawn:
+		TNT1 A 1 A_Jump(20, "SpawnA", "SpawnB")
+		TNT1 A 1 A_Jump(80, "SpawnC")
+		TNT1 A 1 A_DropItem("CellPackSpawner")
+		Stop
+	SpawnA:
+		TNT1 A 1 A_DropItem("CellSpawner")
+		Stop
+	SpawnB:
+		TNT1 A 1 A_DropItem("RocketAmmoSpawner")
+		Stop
+	SpawnC:
+		TNT1 A 1 A_DropItem("ShellBoxSpawner")
+		Stop
+	}
+}

@@ -1,0 +1,68 @@
+Class ExtraAmmoDrops: EventHandler
+{
+	override void WorldThingDied (WorldEvent e)
+	{
+		if(e.thing.getClassName() == "WoodenBarrel")
+		{
+			e.thing.A_SpawnItemEx("ExtraGoodies");
+		}
+	}
+}
+
+Class ExtraGoodies: Actor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_Jump(50, "SpawnA", "SpawnB");		
+		TNT1 A 0 A_SpawnItemEx("StrifeUsefulItems");
+		Stop;
+	SpawnA:
+		TNT1 A 0 A_SpawnItemEx("BasicAmmoSpawner");
+		Stop;
+	SpawnB:
+		TNT1 A 0 A_SpawnItemEx("AdvancedAmmoSpawner");
+		Stop;
+	}
+}
+
+Class StrifeUsefulItems: Actor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_Jump(190, "SpawnA", "SpawnB", "SpawnC", "SpawnD");
+		TNT1 A 0 A_Jump(256, "SpawnE", "SpawnF", "SpawnG", "SpawnH");
+		Stop;
+	SpawnA:
+		TNT1 A 0 A_SpawnItemEx("Coin");
+		Stop;
+	SpawnB:
+		TNT1 A 0 A_SpawnItemEx("Coin");
+		TNT1 A 0 A_DropItem("Coin");
+		TNT1 A 0 A_DropItem("Coin");
+		Stop;
+	SpawnC:
+		TNT1 A 0 A_SpawnItemEx("Coin");
+		TNT1 A 0 A_DropItem("Coin");
+		TNT1 A 0 A_DropItem("Coin");
+		TNT1 A 0 A_DropItem("Coin");
+		TNT1 A 0 A_DropItem("Coin");
+		Stop;
+	SpawnD:
+		TNT1 A 0 A_SpawnItemEx("Gold10");
+		Stop;
+	SpawnE:
+		TNT1 A 0 A_SpawnItemEx("MedPatch");
+		Stop;
+	SpawnF:
+		TNT1 A 0 A_SpawnItemEx("Gold25");
+		Stop;
+	SpawnG:
+		TNT1 A 0 A_SpawnItemEx("Vanilla_Clip");
+		Stop;
+	SpawnH:
+		TNT1 A 0 A_SpawnItemEx("Vanilla_Shell");
+		Stop;
+	}
+}

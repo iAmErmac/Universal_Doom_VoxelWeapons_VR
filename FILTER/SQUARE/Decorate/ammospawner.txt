@@ -1,0 +1,124 @@
+Actor Vanilla_ClipSpawner : RandomSpawner replaces PaintAmmo
+{
+	DropItem "Vanilla_Clip"
+}
+
+Actor Vanilla_ClipSpawner2 : RandomSpawner replaces PaintAmmo2
+{
+	DropItem "Vanilla_Clip2"
+}
+
+Actor Vanilla_ClipBoxSpawner : RandomSpawner replaces PaintAmmoBig
+{
+	DropItem "Vanilla_ClipBox"
+}
+
+Actor Vanilla_ClipBoxSpawner2 : RandomSpawner replaces PaintAmmoBig2
+{
+	DropItem "Vanilla_ClipBox2"
+}
+
+Actor Vanilla_ClipSpawner3 : RandomSpawner replaces OoziAmmo
+{
+	DropItem "Vanilla_Clip"
+}
+
+Actor Vanilla_ClipSpawner4 : RandomSpawner replaces OoziAmmo2
+{
+	DropItem "Vanilla_Clip2"
+}
+
+Actor Vanilla_ClipBoxSpawner3 : RandomSpawner replaces OoziAmmoBig
+{
+	DropItem "Vanilla_ClipBox3"
+}
+
+Actor Vanilla_ClipBoxSpawner4 : RandomSpawner replaces OoziAmmoBig2
+{
+	DropItem "Vanilla_ClipBox4"
+}
+
+Actor Vanilla_ShellSpawner : RandomSpawner replaces ShotboltAmmo
+{
+	DropItem "Vanilla_Shell"
+}
+
+Actor Vanilla_ShellBoxSpawner2 : RandomSpawner replaces ShotboltAmmo2
+{
+	DropItem "Vanilla_Shell2"
+}
+
+Actor Vanilla_ShellBoxSpawner : RandomSpawner replaces ShotboltAmmoBig
+{
+	DropItem "Vanilla_ShellBox"
+}
+
+Actor Vanilla_ShellBoxSpawner2 : RandomSpawner replaces ShotboltAmmoBig2
+{
+	DropItem "Vanilla_ShellBox2"
+}
+
+Actor Vanilla_RocketAmmoSpawner : RandomSpawner replaces HellshellAmmo
+{
+	DropItem "Vanilla_RocketAmmo"
+}
+
+Actor Vanilla_RocketBoxSpawner : RandomSpawner replaces HellShellAmmoBig
+{
+	DropItem "Vanilla_RocketBox"
+}
+
+Actor Vanilla_RocketAmmoSpawner2 : Actor replaces Goonades 2119
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIfInventory("Vanilla_SuperShotgun", 1, "SpawnAmmo")
+		TNT1 A 0 A_DropItem("Vanilla_SuperShotgun")
+		TNT1 A 0 A_DropItem("Vanilla_ShellBox")
+		Stop
+	SpawnAmmo:
+		TNT1 A 0 A_Jump(256, "SpawnA", "SpawnB", "SpawnC")
+	SpawnA:
+		TNT1 A 0 A_DropItem("Vanilla_ClipBox")
+		Stop
+	SpawnA:
+		TNT1 A 0 A_DropItem("Vanilla_ShellBox")
+		Stop
+	SpawnA:
+		TNT1 A 0 A_DropItem("Vanilla_RocketAmmo")
+		Stop
+	}
+}
+
+Actor Vanilla_CellSpawner : RandomSpawner replaces MarbleAmmo
+{
+	DropItem "Vanilla_Cell"
+}
+
+Actor Vanilla_CellSpawner2 : RandomSpawner replaces MarbleAmmo2
+{
+	DropItem "Vanilla_Cell2"
+}
+
+Actor Vanilla_CellPackSpawner : RandomSpawner replaces MarbleAmmoBig
+{
+	DropItem "Vanilla_CellPack"
+}
+
+Actor Vanilla_CellPackSpawner2 : RandomSpawner replaces MarbleAmmoBig2
+{
+	DropItem "Vanilla_CellPack2"
+}
+
+Actor Vanilla_BackpackSpawner : Vanilla_Backpack replaces SquareBackpack
+{
+}
+
+Actor AmmoCaseSpawner : SmallAmmoCase replaces AmmoCase
+{
+}
+
+Actor AmmoCase2Spawner : BigAmmoCase replaces AmmoCase2
+{
+}

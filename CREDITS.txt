@@ -1,0 +1,12 @@
+Universal Doom Voxel Weapons for VR
+
+A GZDoom voxel weapon mod for Doom/Heretic/Hexen/Strife/Chex by Ermac (https://www.reddit.com/user/iAmErmac)
+
+Resource credits:
+=================
+Id Software: For the amazing game, the engine and all the wonderful sprites and sounds
+-Chell: for voxel weapon set
+Rogue_Steve: for the alternate voxel weapon set
+Sgt Mark IV (Brutal Doom): for enhanced effect sprites and codes
+Jekyll Grim Payne (Beautiful Doom): for enhanced effect sprites, sounds, codes and ideas on zscript
+Ryuhi (Heretical Doom): for ideads on wad support (filter) codes

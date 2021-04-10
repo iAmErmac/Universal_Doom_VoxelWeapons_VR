@@ -1,0 +1,41 @@
+
+Actor Vanilla_ChainsawSpawner : RandomSpawner replaces SuperFistNew 2005
+{
+	DropItem "Vanilla_Chainsaw"
+}
+
+Actor Vanilla_PistolSpawner : RandomSpawner replaces PistolNew 5010
+{
+	DropItem "Vanilla_Pistol"
+}
+
+Actor Vanilla_PistolSpawner2 : Vanilla_PistolSpawner replaces LowResPistolNew
+{
+}
+
+Actor Vanilla_ShotgunSpawner : RandomSpawner replaces ShotgunNew 2001
+{
+	DropItem "Vanilla_Shotgun", 256, 4
+	DropItem "Vanilla_SuperShotgun", 256, 1
+}
+
+Actor Vanilla_ShotgunSpawner2 : RandomSpawner replaces LowResShotgunNew 82
+{
+	DropItem "Vanilla_SuperShotgun"
+}
+
+Actor Vanilla_ChaingunSpawner : RandomSpawner replaces ChaingunNew 2002
+{
+	DropItem "Vanilla_Chaingun"
+}
+
+Actor Vanilla_RocketLauncherSpawner : RandomSpawner replaces RocketLauncherNew 2003
+{
+	DropItem "Vanilla_RocketLauncher"
+}
+
+Actor Vanilla_PlasmaRifleSpawner : RandomSpawner replaces PewpRifle 2004
+{
+	DropItem "Vanilla_PlasmaRifle", 256, 9
+	DropItem "Vanilla_BFG9000", 256, 1
+}

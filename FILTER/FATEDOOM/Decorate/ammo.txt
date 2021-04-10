@@ -1,0 +1,48 @@
+Actor Vanilla_Clip : Clip
+{
+}
+
+Actor Vanilla_Clip2 : Clip
+{
+	Scale 1.3
+	Inventory.Amount 20
+}
+
+Actor Vanilla_ClipBox : ClipBox
+{
+}
+
+Actor Vanilla_Shell : Shell
+{
+}
+
+Actor Vanilla_Shell2 : Shell
+{
+	Scale 1.3
+	Inventory.PickupMessage "Picked up a bunch of shotgun shells."
+	Inventory.Amount 10
+}
+
+Actor Vanilla_ShellBox : ShellBox
+{
+}
+
+Actor Vanilla_RocketAmmo : RocketAmmo
+{
+}
+
+Actor Vanilla_RocketBox : RocketBox
+{
+}
+
+Actor Vanilla_Cell : Cell
+{
+}
+
+Actor Vanilla_CellPack : CellPack
+{
+}
+
+Actor Vanilla_Backpack : Backpack
+{
+}

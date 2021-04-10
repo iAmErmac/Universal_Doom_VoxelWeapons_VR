@@ -1,0 +1,51 @@
+
+Actor Vanilla_ChainsawSpawner : RandomSpawner replaces Chainsaw 2101
+{
+	DropItem "Vanilla_Chainsaw"
+}
+
+Actor Vanilla_PistolSpawner : RandomSpawner replaces PaintGun 5010
+{
+	DropItem "Vanilla_Pistol"
+}
+
+Actor Vanilla_ShotgunSpawner : RandomSpawner replaces Shotbow 2103
+{
+	DropItem "Vanilla_Shotgun"
+}
+
+Actor Vanilla_SuperShotgunSpawner : RandomSpawner replaces QuadCannon 2104
+{
+	DropItem "Vanilla_SuperShotgun"
+}
+
+Actor Vanilla_ChaingunSpawner : RandomSpawner replaces Oozi 2102
+{
+	DropItem "Vanilla_Chaingun"
+}
+
+Actor Vanilla_ChaingunSpawner2 : RandomSpawner replaces Oozis 2130
+{
+	DropItem "Vanilla_Chaingun"
+}
+
+Actor Vanilla_ChaingunSpawner3 : RandomSpawner replaces PaintCannon 2105
+{
+	DropItem "Vanilla_Chaingun"
+	DropItem "Vanilla_SuperShotgun"
+}
+
+Actor Vanilla_RocketLauncherSpawner : RandomSpawner replaces HellshellLauncher 2106
+{
+	DropItem "Vanilla_RocketLauncher"
+}
+
+Actor Vanilla_PlasmaRifleSpawner : RandomSpawner replaces Sceptre 2107
+{
+	DropItem "Vanilla_PlasmaRifle"
+}
+
+Actor Vanilla_BFGSpawner : RandomSpawner replaces Defibrillator 2116
+{
+	DropItem "Vanilla_BFG9000"
+}

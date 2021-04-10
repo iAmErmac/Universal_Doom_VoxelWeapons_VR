@@ -1,0 +1,74 @@
+Actor Vanilla_ClipSpawner : RandomSpawner replaces MiniRocket
+{
+	DropItem "Vanilla_Clip"
+}
+
+Actor Vanilla_ClipSpawner2 : RandomSpawner replaces MiniRockets 8021
+{
+	DropItem "Vanilla_Clip2"
+}
+
+Actor Vanilla_ClipBoxSpawner : RandomSpawner replaces MiniRocketMagazines 8022
+{
+	DropItem "Vanilla_ClipBox"
+}
+
+Actor Vanilla_ShellSpawner : RandomSpawner replaces FireArrow 8038
+{
+	DropItem "Vanilla_Shell"
+}
+
+Actor Vanilla_ShellSpawner : RandomSpawner replaces PoisonMana 8060
+{
+	DropItem "Vanilla_Shell2"
+}
+
+Actor Vanilla_ShellBoxSpawner : RandomSpawner replaces FireArrowQuiver 8048
+{
+	DropItem "Vanilla_ShellBox"
+}
+
+Actor Vanilla_ShellBoxSpawner : RandomSpawner replaces FlailBalls 8039
+{
+	DropItem "Vanilla_ShellBox"
+}
+
+Actor Vanilla_RocketAmmoSpawner : RandomSpawner replaces DestroyerRockets 8041
+{
+	DropItem "Vanilla_RocketAmmo"
+}
+
+Actor Vanilla_RocketAmmoSpawner2 : RandomSpawner replaces ShockGrenade 8032 
+{
+	DropItem "Vanilla_RocketAmmo"
+}
+
+Actor Vanilla_RocketAmmoSpawner3 : RandomSpawner replaces ShockGrenades 8033
+{
+	DropItem "Vanilla_RocketAmmo"
+}
+
+Actor Vanilla_RocketAmmoSpawner4 : RandomSpawner 8042
+{
+	DropItem "Vanilla_RocketAmmo"
+}
+
+Actor Vanilla_RocketBoxSpawner : RandomSpawner replaces RocketCrate 8023
+{
+	DropItem "Vanilla_RocketBox"
+}
+
+Actor Vanilla_CellSpawner : RandomSpawner replaces MachineGunAmmo 8503
+{
+	DropItem "Vanilla_Cell"
+}
+
+Actor Vanilla_CellPackSpawner : RandomSpawner replaces MachineGunAmmoLot 8505
+{
+	DropItem "Vanilla_CellPack"
+}
+
+Actor Vanilla_BackpackSpawner : RandomSpawner replaces FateBackpack 8145
+{
+	DropItem "Vanilla_Backpack"
+}

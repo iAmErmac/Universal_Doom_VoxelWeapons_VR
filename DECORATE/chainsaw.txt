@@ -1,0 +1,101 @@
+ACTOR Vanilla_Chainsaw : ZChainsaw
+{
+	Weapon.Kickback 0
+	Weapon.SelectionOrder 2200
+	Weapon.UpSound "weapons/sawup"
+	Weapon.ReadySound "weapons/sawidle"
+	Inventory.PickupMessage "$GOTCHAINSAW"
+	Obituary "$OB_MPCHAINSAW"
+	Tag "$TAG_CHAINSAW"
+	+WEAPON.MELEEWEAPON
+	
+	States
+	{
+	Ready:
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_weapons")==1, "Ready.Enhanced")
+		TNT1 A 0 A_PlaySound("weapons/sawidle")
+		SAWG A 0 A_ReplaceSprite("vvw_models","SAWA")
+		"####" CD 4 A_WeaponReady
+		Loop
+	Ready.Enhanced:
+		TNT1 A 0 A_PlaySound("weapons/chainsaw/idle",5)
+		SAWG A 0 A_ReplaceSprite("vvw_models","SAWA")
+		"####" CD 4 A_WeaponReady
+		TNT1 A 0 A_FireProjectile("ChainSawSmoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		Loop
+	Deselect:
+		TNT1 A 0 A_StopSoundEx("Weapon")
+		SAWG A 0 A_ReplaceSprite("vvw_models","SAWA")
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_fastswitch")==0, 2)
+		"####" C 1 A_Lower(60)
+		Loop
+		"####" C 1 A_Lower
+		Loop
+	Select:
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_weapons")==1, "Select.Enhanced")
+		TNT1 A 0 A_PlaySound("weapons/sawup")
+		SAWG A 0 A_ReplaceSprite("vvw_models","SAWA")
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_fastswitch")==0, 2)
+		"####" C 1 A_Raise(60)
+		Loop
+		"####" C 1 A_Raise
+		Loop
+	Select.Enhanced:
+		TNT1 A 0 A_PlaySound("weapons/chainsaw/draw")
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_fastswitch")==0, 2)
+		SAWG A 0 A_ReplaceSprite("vvw_models","SAWA")
+		"####" C 1
+		TNT1 AAAAAAAA 0 A_Raise(60)
+		SAWG A 0 A_ReplaceSprite("vvw_models","SAWA")
+		"####" C 1
+		TNT1 AAAAAAAA 0 A_Raise
+		SAWG A 0 A_ReplaceSprite("vvw_models","SAWA")
+		"####" C 1 A_WeaponReady(WRF_NOFIRE)
+		goto ready
+	Fire:
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_weapons")==1, "Fire.Enhanced")
+		TNT1 A 0 A_Saw("","weapons/sawhit",2,"BulletPuff")
+		SAWG A 0 A_ReplaceSprite("vvw_models","SAWA")
+		"####" A 4 //shows preparation animation but the firing function has already begun (to coincide with vanilla attack speed)
+		"####" A 0 A_playsound("weapons/sawfull",4,1.0,TRUE)
+		"####" A 0 A_Saw("","weapons/sawhit",2,"BulletPuff")
+		"####" B 4 //A_WeaponOffset(random(-2,2),random(32,34),WOF_INTERPOLATE)
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_Stopsound(4)
+		TNT1 A 0 A_WeaponReady
+		Goto Ready
+	Fire.Enhanced:
+		TNT1 A 0 A_Saw("","weapons/sawhit",2,"ChainsawPuff") 
+		SAWG A 0 A_ReplaceSprite("vvw_models","SAWA")
+		"####" A 4
+		"####" A 0 A_playsound("weapons/sawfull",4,1.0,TRUE)
+		"####" A 0 A_Saw("","weapons/sawhit",2,"ChainsawPuff")
+		"####" B 4 //A_WeaponOffset(random(-2,2),random(32,34),WOF_INTERPOLATE)
+		TNT1 A 0 A_ReFire
+		TNT1 A 0 A_Stopsound(4)
+		TNT1 A 0 A_WeaponReady
+		Goto Ready
+	Hold:
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_weapons")==1, "Hold.Enhanced")
+		Goto Fire
+	Hold.Enhanced:
+		SAWG A 0 A_ReplaceSprite("vvw_models","SAWA")
+		"####" A 0 A_Saw("","weapons/sawhit",2,"ChainsawPuff")
+		"####" ABAB 1 A_WeaponOffset(random(-2,2),random(32,34),WOF_INTERPOLATE)
+		"####" A 0 A_Saw("","weapons/sawhit",2,"ChainsawPuff")
+		"####" ABAB 1 A_WeaponOffset(random(-2,2),random(32,34),WOF_INTERPOLATE)
+		TNT1 A 0 A_Refire
+		TNT1 A 0 A_Stopsound(4)
+		TNT1 A 0 A_WeaponReady
+		goto ready
+		
+	Spawn:
+		CSAW A 0 A_ReplaceSprite("vvw_pickupmodel","VCSW", true, 1)
+		"####" "#" 1
+		Loop
+	Dummy:
+		SAWA ABCD 0
+		VCSW A 0
+		Stop
+	}
+}

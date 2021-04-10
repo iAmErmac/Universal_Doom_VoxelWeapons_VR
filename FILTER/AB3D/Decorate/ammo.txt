@@ -1,0 +1,35 @@
+Actor Vanilla_Clip : Clip
+{
+}
+
+Actor Vanilla_ClipBox : ClipBox
+{
+}
+
+Actor Vanilla_Shell : Shell
+{
+}
+
+Actor Vanilla_ShellBox : ShellBox
+{
+}
+
+Actor Vanilla_RocketAmmo : RocketAmmo
+{
+}
+
+Actor Vanilla_RocketBox : RocketBox
+{
+}
+
+Actor Vanilla_Cell : Cell
+{
+}
+
+Actor Vanilla_CellPack : CellPack
+{
+}
+
+Actor Vanilla_Backpack : Backpack
+{
+}

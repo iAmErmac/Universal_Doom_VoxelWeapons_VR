@@ -1,0 +1,64 @@
+Actor Vanilla_ClipSpawner : RandomSpawner replaces GoldWandAmmo 10
+{
+	DropItem "Vanilla_Clip"
+}
+
+Actor Vanilla_ClipBoxSpawner : RandomSpawner replaces GoldWandHefty 12
+{
+	DropItem "Vanilla_ClipBox"
+}
+
+Actor Vanilla_ClipBoxSpawner2 : RandomSpawner replaces BlasterAmmo 54
+{
+	DropItem "Vanilla_ClipBox"
+}
+
+Actor Vanilla_ShellSpawner : RandomSpawner replaces CrossbowAmmo 18
+{
+	DropItem "Vanilla_Shell"
+}
+
+Actor Vanilla_ShellBoxSpawner : RandomSpawner replaces CrossbowHefty 19
+{
+	DropItem "Vanilla_ShellBox"
+}
+
+Actor Vanilla_ShellBoxSpawner2 : RandomSpawner replaces BlasterHefty 55
+{
+	DropItem "Vanilla_ShellBox"
+}
+
+Actor Vanilla_RocketAmmoSpawner : RandomSpawner replaces PhoenixRodAmmo 22
+{
+	DropItem "Vanilla_RocketAmmo"
+}
+
+Actor Vanilla_RocketBoxSpawner : RandomSpawner replaces PhoenixRodHefty 23
+{
+	DropItem "Vanilla_RocketBox"
+}
+
+Actor Vanilla_RocketBoxSpawner2 : RandomSpawner replaces MaceAmmo 13
+{
+	DropItem "Vanilla_RocketBox"
+}
+
+Actor Vanilla_CellSpawner : RandomSpawner replaces SkullRodAmmo 20
+{
+	DropItem "Vanilla_Cell"
+}
+
+Actor Vanilla_CellPackSpawner : RandomSpawner replaces SkullRodHefty 21
+{
+	DropItem "Vanilla_CellPack"
+}
+
+Actor Vanilla_CellPackSpawner2 : RandomSpawner replaces MaceHefty 16
+{
+	DropItem "Vanilla_CellPack"
+}
+
+Actor Vanilla_BackpackSpawner : RandomSpawner replaces BagOfHolding 8
+{
+	DropItem "Vanilla_Backpack"
+}

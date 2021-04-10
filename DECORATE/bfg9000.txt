@@ -1,0 +1,236 @@
+ACTOR Vanilla_BFG9000 : ZWeapon
+{
+	Height 20
+	Weapon.SelectionOrder 2800
+	Weapon.AmmoUse 40
+	Weapon.AmmoGive 40
+	Weapon.AmmoType "Cell"
+	+WEAPON.NOAUTOFIRE
+	Inventory.PickupMessage "$GOTBFG9000"
+	Tag "$TAG_BFG9000"
+	Weapon.AmmoType2 "Cell"
+	Weapon.AmmoUse2 1
+	
+	States
+	{
+	Ready:
+		BFGG A 0 A_ReplaceSprite("vvw_models","BFGA")
+		"####" A 1 A_WeaponReady
+		Loop
+	Deselect:
+		TNT1 A 0 A_StopSound(5)
+		BFGG A 0 A_ReplaceSprite("vvw_models","BFGA")
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_fastswitch")==0, 2)
+		"####" A 1 A_Lower(60)
+		Loop
+		"####" A 1 A_Lower
+		Loop
+	Select:
+		BFGG A 0 A_ReplaceSprite("vvw_models","BFGA")
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_fastswitch")==0, 2)
+		"####" A 1 A_Raise(60)
+		Loop
+		"####" A 1 A_Raise
+		Loop
+	Flash:
+		BFGF A 11 Bright A_Light1
+		BFGF B 6 Bright A_Light2
+		Goto LightDone
+	OldFire:
+		BFGG A 10 A_BFGSound
+		BFGG BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB 1 A_FireOldBFG
+		BFGG B 0 A_Light0
+		BFGG B 20 A_ReFire
+		Goto Ready
+	Spawn:
+		BFUG A 0 A_ReplaceSprite("vvw_pickupmodel","VBFG", true, 1)
+		"####" "#" 1
+		Loop
+	
+	Fire:
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_weapons")==1, "Fire.Enhanced")
+		BFGG A 0 A_ReplaceSprite("vvw_models","BFGA")
+		"####" A 20 A_BFGSound
+		"####" B 10 A_GunFlash
+		"####" B 10 A_FireBFG
+		"####" B 20 A_ReFire
+		Goto Ready
+	Fire.Enhanced:
+		TNT1 A 0 A_PlaySound("weapons/bfg/start",5)
+		BFGG A 0 A_ReplaceSprite("vvw_models","BFGA")
+		"####" A 30
+		"####" "#" 0 Radius_Quake(1,20,0,2,0)
+		"####" "#" 0 A_GunFlash
+		"####" "#" 0 A_PlaySound("weapons/bfg/fire",5)
+		"####" B 5 bright A_FireCustomMissile("BD_BFGBall",0,1)
+		"####" B 5
+		"####" "#" 0 A_ReFire
+		"####" "#" 0 A_Playsound("weapons/bfg/cool")
+		"####" "#" 0 A_FireProjectile("PlasmaBarrelSmoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		"####" AA 2
+		Goto Ready
+	Altfire:
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_weapons")==0, "OldFire") //Since there is a "vanilla" altfire is already available
+		TNT1 A 0 A_CheckReload
+		TNT1 A 0 A_PlaySound("weapons/bfg/railcharge",5,1,0)
+		BFGG A 0 A_ReplaceSprite("vvw_models","BFGA")
+		"####" BBBB 5
+		TNT1 A 0 A_PlaySound("weapons/bfg/railfire",5,1,0)
+	Altfire.Enhanced:
+		TNT1 A 0 A_JumpIfInventory("BFGRailCounter",100,"AltFire.EndLonger")
+		//TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_JumpIfInventory("BFGRailCounter",30,2)
+		TNT1 A 0 A_Jump(256,3)
+		TNT1 A 0 Radius_Quake(1,2,0,1,0)
+		TNT1 A 0 A_GiveInventory("BFGRailCounter",1)
+		BFGG A 0 A_ReplaceSprite("vvw_models","BFGA")
+		"####" A 1 A_FireCustomMissile ("BFBeam", 0, 1)
+		"####" A 1 A_ReFire ("Altfire.Enhanced")
+	AltFire.End:
+		TNT1 A 0 A_FireProjectile("PlasmaBarrelSmoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		BFGG A 0 A_ReplaceSprite("vvw_models","BFGA")
+		"####" A 1 A_FireCustomMissile ("BFBeam_Longer", 0, 1)
+		"####" "#" 0 A_StopSound(5)
+		"####" "#" 0 A_Playsound("weapons/bfg/railcool")
+		"####" "#" 0 A_FireProjectile("BigFuckingBarrelSmoke2",0,0,0,0,FPF_NOAUTOAIM,0)
+		"####" "#" 0 A_TakeInventory("BFGRailCounter",500)
+		"####" A 5
+		goto Ready
+	AltFire.EndLonger: //Played only if you held the button until the end
+		TNT1 A 0 A_FireProjectile("PlasmaBarrelSmoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		BFGG A 0 A_ReplaceSprite("vvw_models","BFGA")
+		"####" A 1 A_FireCustomMissile ("BFBeam_Longer", 0, 1)
+		"####" "#" 0 A_StopSound(5)
+		"####" "#" 0 A_Playsound("weapons/bfg/railcool")
+		"####" "#" 0 A_FireProjectile("BigFuckingBarrelSmoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		"####" "#" 0 A_TakeInventory("BFGRailCounter",500)
+		"####" A 5
+		goto ready
+	Dummy:
+		BFGA AB 0
+		VBFG A 0
+		Stop
+	}
+}
+
+
+Actor BD_BFGBall : BFGBall
+{
++DONTBLAST
+damagetype BFGSplash
++BLOODLESSIMPACT
++FORCEXYBILLBOARD
++THRUGHOST
++SKYEXPLODE
+renderstyle ADD
+alpha 0.7
+decal "" //BFGLightning //so thatits rays don't leave decals
+seesound ""
+DeathSound ""
+translation "192:207=112:127"
+scale .4
+States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay A_PlaySound("weapons/bfg/fly",6,1.0,TRUE)
+		TNT1 A 0 A_JumpIf(GetCVAR("Bdoom_debris")==0,2)
+		TNT1 A 0 A_SpawnItemEx("BFGTrail",0,0,0,velx,vely,velz,0,SXF_SETMASTER|SXF_ORIGINATOR|SXF_ABSOLUTEVELOCITY)
+		BFGB ABCDEFGH 1 bright A_CustomRailGun(0,0,none,green,RGF_SILENT|RGF_NOPIERCING,0,4,"BFGBallRayPuff",random(0,360),random(0,360),64,20,0,4,"BFGBallRay")
+		goto spawn+3
+	Death.Sky:
+		TNT1 A 0 A_RemoveChildren(1,RMVF_EVERYTHING)
+		stop
+	Death:
+		TNT1 A 0 A_RemoveChildren(1,RMVF_EVERYTHING)
+		TNT1 A 0 A_SprayDecal("BFGLightning",32)
+		TNT1 A 0 A_StopSound(6)
+		TNT1 A 0 A_SetScale(1.0,1.0)
+		TNT1 A 0 A_JumpIf(GetCVAR("bdoom_shakes") == 0, 2)
+		TNT1 A 0 Radius_Quake(4,34,0,4,0)
+		TNT1 A 0 A_JumpIf(GetCVAR("bdoom_weapons")==1,3)
+		TNT1 A 0 A_PlaySound("weapons/bfgx",6)
+		TNT1 A 0 A_Jump(256,2)
+		TNT1 A 0 A_PlaySound("weapons/bfg/explosion",6)
+		BFGX ABCD 4 bright
+		BFGX E 4 bright A_BFGSpray
+		BFGX FGHIJK 4 bright
+		stop
+	}
+}
+
+ACTOR BFBeam : BD_BFGBall
+{
+	renderstyle Add
+	alpha 0.9
+	Speed 25
+	Radius 13
+	Height 8
+	Damage 7
+	scale .3
+	Decal BigScorch
+	damagetype "PlasmaDamage"
+	-RIPPER
+	-CANNOTPUSH
+	-NODAMAGETHRUST
+	-NOEXTREMEDEATH
+	+SPAWNSOUNDSOURCE
+	translation "192:207=112:127"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_PlaySound("weapons/plasma/fire")
+		TNT1 A 0 A_SetScale(scalex*randompick(-1,1),scaley*randompick(-1,1))
+		TNT1 AAAAAAAAAA 3 A_SpawnItemEx("GreenFlareBFG",0,0,0,velx,vely,velz,0,SXF_SETMASTER|SXF_ORIGINATOR|SXF_ABSOLUTEVELOCITY)
+		LENG AAAAAAAA 2 bright
+		goto spawn+4
+	Death:
+	Explosion:
+		TNT1 A 0 
+		stop
+	}
+}
+
+ACTOR BFBeam_Longer : BFBeam
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_SetScale(scalex*randompick(-1,1),scaley*randompick(-1,1))
+		TNT1 AAAA 1 A_SpawnItemEx("GreenFlareBFG",0,0,0,velx,vely,velz,0,SXF_SETMASTER|SXF_ORIGINATOR|SXF_ABSOLUTEVELOCITY)
+		LENG AAAAAAAA 2 bright A_FadeOut(0.2)
+		goto spawn+4
+	Death:
+	Explosion:
+		TNT1 A 0 A_SpawnItemEx("BFGRailPuff")
+		stop
+	}
+}
+
+Actor GreenFlareBFG : Flare_General
+{
+renderstyle Add
+alpha 0.9
+scale 0.3
+states
+	{
+	Spawn:
+		TNT1 A 0 A_Warp(AAPTR_MASTER)
+	Spawn1:
+		TNT1 A 0 A_JumpIfMasterCloser(1,"Spawn1")
+		TNT1 A 0 A_Jump(100, 3)
+		TNT1 A 0 A_CustomMissile ("BluePlasmaShred", 0, 0, random (0, 360), 2, random (0, 360))
+		TNT1 A 0 A_CustomMissile ("BluePlasmaShred", 0, 0, random (0, 360), 2, random (0, 360))
+		TNT1 A 0 A_Jump(150, 3)
+		TNT1 A 0 A_CustomMissile ("BluePlasmaShred", 0, 0, random (0, 360), 2, random (0, 360))
+		TNT1 A 0 A_CustomMissile ("BluePlasmaShred", 0, 0, random (0, 360), 2, random (0, 360))
+		LENG A 1 bright A_Fadeout(0.1)
+		wait
+	}
+}
+
+Actor BFGRailCounter : DummyChecker
+{
+inventory.maxamount 500
+}

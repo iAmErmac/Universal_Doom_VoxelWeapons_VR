@@ -1,0 +1,137 @@
+//===========================================================================
+//
+// Doom-specific player sounds
+//
+//===========================================================================
+
+$playersound	player	male	*death		dspldeth
+$playersound	player	male	*xdeath		dspdiehi
+$playersound	player	male	*gibbed		dsslop
+$playersound	player	male	*pain100	dsplpain
+$playersounddup	player	male	*pain75		*pain100
+$playersounddup	player	male	*pain50		*pain100
+$playersounddup	player	male	*pain25		*pain100
+$playersound	player	male	*grunt		dsoof
+$playersounddup	player	male	*land		*grunt
+$playersound	player	male	*jump		dsjump
+$playersound	player	male	*fist		dspunch
+$playersound	player	male	*usefail	dsnoway
+
+$playersound	player	female	*death		dsfldeth
+$playersound	player	female	*xdeath		dsfdiehi
+$playersound	player	female	*gibbed		dsslop
+$playersound	player	female	*pain100	dsflpain
+$playersounddup	player	female	*pain75		*pain100
+$playersounddup	player	female	*pain50		*pain100
+$playersounddup	player	female	*pain25		*pain100
+$playersound	player	female	*grunt		dsfoof
+$playersounddup	player	female	*land		*grunt
+$playersound	player	female	*jump		dsfjump
+$playersound	player	female	*fist		dspunch
+$playersound	player	female	*usefail	dsfnoway
+
+$playersound	player	other	*death		dscldeth
+$playersound	player	other	*xdeath		dscdiehi
+$playersound	player	other	*gibbed		dsslop
+$playersound	player	other	*pain100	dsclpain
+$playersounddup	player	other	*pain75		*pain100
+$playersounddup	player	other	*pain50		*pain100
+$playersounddup	player	other	*pain25		*pain100
+$playersound	player	other	*grunt		dscoof
+$playersounddup	player	other	*land		*grunt
+$playersound	player	other	*jump		dscjump
+$playersound	player	other	*fist		dspunch
+$playersound	player	other	*usefail	dscnoway
+
+// Alternate names for some player sounds needed for ZDoom <= 1.22 compatibility
+//
+// If any sounds with these names are defined later, they will redefine
+// the corresponding player sounds instead. Likewise, if they are played,
+// they will play the corresponding player sound instead.
+
+$playercompat	player	male	*death		player/male/death1
+$playercompat	player	male	*death		player/male/death2
+$playercompat	player	male	*death		player/male/death3
+$playercompat	player	male	*death		player/male/death4
+$playercompat	player	male	*xdeath		player/male/xdeath1
+$playercompat	player	male	*pain100	player/male/pain100_1
+$playercompat	player	male	*pain100	player/male/pain100_2
+$playercompat	player	male	*pain75		player/male/pain75_1
+$playercompat	player	male	*pain75		player/male/pain75_2
+$playercompat	player	male	*pain50		player/male/pain50_1
+$playercompat	player	male	*pain50		player/male/pain50_2
+$playercompat	player	male	*pain25		player/male/pain25_1
+$playercompat	player	male	*pain25		player/male/pain25_2
+$playercompat	player	male	*grunt		player/male/grunt1
+$playercompat	player	male	*land		player/male/land1
+$playercompat	player	male	*jump		player/male/jump1
+$playercompat	player	male	*gibbed		player/male/gibbed
+$playercompat	player	male	*fist		player/male/fist
+
+$playercompat	player	female	*death		player/female/death1
+$playercompat	player	female	*death		player/female/death2
+$playercompat	player	female	*death		player/female/death3
+$playercompat	player	female	*death		player/female/death4
+$playercompat	player	female	*xdeath		player/female/xdeath1
+$playercompat	player	female	*pain100	player/female/pain100_1
+$playercompat	player	female	*pain100	player/female/pain100_2
+$playercompat	player	female	*pain75		player/female/pain75_1
+$playercompat	player	female	*pain75		player/female/pain75_2
+$playercompat	player	female	*pain50		player/female/pain50_1
+$playercompat	player	female	*pain50		player/female/pain50_2
+$playercompat	player	female	*pain25		player/female/pain25_1
+$playercompat	player	female	*pain25		player/female/pain25_2
+$playercompat	player	female	*grunt		player/female/grunt1
+$playercompat	player	female	*land		player/female/land1
+$playercompat	player	female	*jump		player/female/jump1
+$playercompat	player	female	*gibbed		player/female/gibbed
+$playercompat	player	female	*fist		player/female/fist
+
+$playercompat	player	other	*death		player/cyborg/death1
+$playercompat	player	other	*death		player/cyborg/death2
+$playercompat	player	other	*death		player/cyborg/death3
+$playercompat	player	other	*death		player/cyborg/death4
+$playercompat	player	other	*xdeath		player/cyborg/xdeath1
+$playercompat	player	other	*pain100	player/cyborg/pain100_1
+$playercompat	player	other	*pain100	player/cyborg/pain100_2
+$playercompat	player	other	*pain75		player/cyborg/pain75_1
+$playercompat	player	other	*pain75		player/cyborg/pain75_2
+$playercompat	player	other	*pain50		player/cyborg/pain50_1
+$playercompat	player	other	*pain50		player/cyborg/pain50_2
+$playercompat	player	other	*pain25		player/cyborg/pain25_1
+$playercompat	player	other	*pain25		player/cyborg/pain25_2
+$playercompat	player	other	*grunt		player/cyborg/grunt1
+$playercompat	player	other	*land		player/cyborg/land1
+$playercompat	player	other	*jump		player/cyborg/jump1
+$playercompat	player	other	*gibbed		player/cyborg/gibbed
+$playercompat	player	other	*fist		player/cyborg/fist
+
+//
+// Weapons
+//
+
+$pitchshiftrange 3
+weapons/sawup			dssawup
+weapons/sawidle			dssawidl
+weapons/sawfull			dssawful
+weapons/sawhit			dssawhit
+$pitchshiftrange 4
+
+weapons/pistol			dspistol
+weapons/shotgf			dsshotgn
+weapons/shotgr			dssgcock
+weapons/sshotf			dsdshtgn
+weapons/sshoto			dsdbopn
+weapons/sshotc			dsdbcls
+weapons/sshotl			dsdbload
+weapons/chngun			dspistol
+weapons/rocklx			dsbarexp
+weapons/rocklf			dsrlaunc
+weapons/plasmaf			dsplasma
+weapons/plasmax			dsfirxpl
+weapons/bfgf			dsbfg
+weapons/bfgx			dsrxplod
+weapons/railgf			railgf1
+weapons/grbnce          	dsbounce
+weapons/grenlx			dsgrnexp
+weapons/grenlf			dsglaunc

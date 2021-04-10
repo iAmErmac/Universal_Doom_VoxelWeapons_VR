@@ -1,0 +1,132 @@
+//Quest Fixes (NO DEAD ENDS!)-------------------------------------//
+//Credits: Author of StrifeUncut mod
+
+Actor Ready2Die : Inventory {}//flag item given to key characters when they are no longer needed
+
+Actor PersonHarris : Peasant4 Replaces Peasant4
+{ ConversationID 9 //map02
+  //won't talk to you until prison mission is given
+  States
+  {
+  Mortal: //in this case does not set to mortal - makes dialog possible
+  TNT1 A 0 A_ChangeFlag("INCOMBAT", FALSE)
+  TNT1 A 0 A_GiveInventory("Ready2Die")
+  
+  Spawn:
+  TNT1 A 0 A_JumpIfInventory("Ready2Die",1,"LookAround")
+  TNT1 A 0 A_JumpIfInTargetInventory("GovsKey",1,"Mortal",AAPTR_PLAYER1)
+  TNT1 A 0 A_ChangeFlag("INCOMBAT", TRUE)
+  
+  LookAround: //frame is 10x quicker so the flag will change right away
+  PEAS A 1 A_Look2 
+  Goto Spawn
+  }
+}
+
+Actor PersonMourel : Peasant22 Replaces Peasant22
+{ ConversationID 27 //map02
+  //cannot be killed until prison door is opened
+  States
+  {
+  Mortal:
+  TNT1 A 0 A_ChangeFlag("NODAMAGE", FALSE)
+  TNT1 A 0 A_GiveInventory("Ready2Die")
+  
+  Spawn:
+  TNT1 A 0 A_JumpIfInventory("Ready2Die",1,"LookAround")
+  TNT1 A 0 A_JumpIfInTargetInventory("PrisonPass",1,"Mortal",AAPTR_PLAYER1)
+  TNT1 A 0 A_ChangeFlag("NODAMAGE", TRUE)
+  
+  LookAround:
+  PEAS A 1 A_Look2	
+  Goto Spawn
+  }
+}
+
+
+Actor PersonWeran : Peasant14 Replaces Peasant14
+{ ConversationID 19 //map06
+  //cannot be killed until flamer parts are obtained
+  States
+  {
+  Mortal:
+  TNT1 A 0 A_ChangeFlag("NODAMAGE", FALSE)
+  TNT1 A 0 A_GiveInventory("Ready2Die")
+  
+  Spawn:
+  TNT1 A 0 A_JumpIfInventory("Ready2Die",1,"LookAround")
+  TNT1 A 0 A_JumpIfInTargetInventory("FlameThrowerParts",1,"Mortal",AAPTR_PLAYER1)
+  TNT1 A 0 A_ChangeFlag("NODAMAGE", TRUE)
+  
+  LookAround:
+  PEAS A 1 A_Look2	
+  Goto Spawn
+  }
+}
+
+Actor PersonKeyMaster : Peasant19 Replaces Peasant19
+{ ConversationID 24 //map11
+  //cannot be killed until Military key is obtained
+  States
+  {
+  Mortal:
+  TNT1 A 0 A_ChangeFlag("NODAMAGE", FALSE)
+  TNT1 A 0 A_GiveInventory("Ready2Die")
+  
+  Spawn:
+  TNT1 A 0 A_JumpIfInventory("Ready2Die",1,"LookAround")
+  TNT1 A 0 A_JumpIfInTargetInventory("MilitaryID",1,"Mortal",AAPTR_PLAYER1)
+  TNT1 A 0 A_ChangeFlag("NODAMAGE", TRUE)
+  
+  LookAround:
+  PEAS A 1 A_Look2	
+  Goto Spawn
+  }
+}
+
+Actor PersonRichter : Peasant13 Replaces Peasant13
+{ ConversationID 18 //map23
+  //cannot be killed until Catacomb key is obtained
+  States
+  {
+  Mortal:
+  TNT1 A 0 A_ChangeFlag("NODAMAGE", FALSE)
+  TNT1 A 0 A_GiveInventory("Ready2Die")
+  
+  Spawn:
+  TNT1 A 0 A_JumpIfInventory("Ready2Die",1,"LookAround")
+  TNT1 A 0 A_JumpIfInTargetInventory("CatacombKey",1,"Mortal",AAPTR_PLAYER1)
+  TNT1 A 0 A_ChangeFlag("NODAMAGE", TRUE)
+  
+  LookAround:
+  PEAS A 1 A_Look2	
+  Goto Spawn
+  }
+}
+
+Actor PersonFortuneTeller : Oracle Replaces Oracle 199
+{ ConversationID 65, 62, 63 //map12
+  +NODAMAGE //cannot be killed until Bishop is dead
+  States    
+  {
+  Mortal:
+	TNT1 A 0 A_ChangeFlag("NODAMAGE", FALSE)
+    TNT1 A 0 A_GiveInventory("Ready2Die")
+	
+  Spawn:
+    ORCL A 1 A_ChangeFlag("INCOMBAT", FALSE)
+    TNT1 A 0 A_JumpIfInventory("Ready2Die",1,1)
+	TNT1 A 0 A_JumpIfInTargetInventory("QuestItem21",1,"Mortal",AAPTR_PLAYER1)
+    Loop
+  }
+}
+
+Actor PersonRowan : Peasant10 Replaces Peasant10
+{ ConversationID 15 //map02
+  States //will still set off alarm if killed..
+  {
+  Death:  //but lets you progress anyway!
+  TNT1 A 0 A_Spawnitem("RowanDrops")
+  Goto Super::Death
+  }
+ }

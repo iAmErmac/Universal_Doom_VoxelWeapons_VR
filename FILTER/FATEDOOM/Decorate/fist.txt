@@ -1,0 +1,35 @@
+ACTOR Vanilla_Fist : Fist
+{
+	+WEAPON.NOALERT
+	States
+	{
+	Fire:
+		PUNG B 2
+		PUNG C 2 A_CustomPunch(20 * random(1, 1.25), TRUE, 0, "FistPuff", 65)
+		PUNG D 5
+		PUNG C 4
+		PUNG B 5 A_ReFire
+		Goto Ready
+	}
+}
+
+Actor FistPuff
+{
++NOBLOCKMAP
++NOGRAVITY
++PUFFONACTORS
+-ALLOWPARTICLES
++NOEXTREMEDEATH
+attacksound "weapons/fist/hitwall"
+seesound "weapons/fist/punch"
+mass 1
+	States
+	{
+	Spawn:
+		PUFF A 4 Bright
+		PUFF B 4
+	Melee:
+		PUFF CD 4
+		Stop
+	}
+}

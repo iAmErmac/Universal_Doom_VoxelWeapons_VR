@@ -1,0 +1,152 @@
+
+//Items
+
+Actor DoomAmmoRefill : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_JumpIfInventory("Clip", 50, "NoRefill")
+		TNT1 A 1 A_TakeInventory("Clip", 50) //Make sure refll don't go over 50
+		TNT1 A 1 A_GiveInventory("Clip", 50)
+		Stop
+	NoRefill:
+		TNT1 A 0
+		Stop
+	}
+}
+
+//modified weapons drops
+Actor RowanRewards : Custominventory
+{
+	ConversationID 171
+	
+	States //additional rewards are given when talked to Macil
+	{
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Gold",50)//always give monetary reward	
+		//additional rewards given in sequence (last to first):
+		TNT1 A 0 A_JumpIfInventory("Communicator",1,"NoMoreReward",AAPTR_PLAYER1)
+		TNT1 A 0 A_JumpIfInventory("BeldinsNewRing",1,"GiveReward",AAPTR_PLAYER1)//brought back Beldin's ring
+		Goto NoMoreReward
+	GiveReward:
+		TNT1 A 0 A_TakeInventory("BeldinsNewRing",1)//Remove the ring
+		TNT1 A 0 A_GiveInventory("Communicator")//given to be able to hear Blackbird
+		TNT1 A 0 A_GiveInventory("QuestItem1")//required for Blackbird's "bridge clue"
+		TNT1 A 0 A_GiveInventory("BaseKey")//required for "I need gold" dialog to appear
+		Stop
+	NoMoreReward: //no more rewards available
+		TNT1 A 0
+		Stop
+	}
+}
+
+//Rowan drop stuff to continue progress if Rowan is killed early
+Actor RowanDrops : CustomInventory
+{
+	+FIXMAPTHINGPOS
+	Inventory.PickupMessage "$TXT_COMMUNICATOR"
+	States
+	{
+	Spawn:
+		TNT1 A 0 //if player already has the comm unit, its not spawned
+		TNT1 A 0 A_JumpIfInTargetInventory("Communicator",1,"NoSpawn",AAPTR_PLAYER1)
+		TNT1 A 1 A_DropItem("ShotgunSpawner")//the only way to obtain it other than with the dialogs
+		COMM A -1
+		Stop
+	Pickup:
+		TNT1 A 0 //the items below are needed for story progression:
+		TNT1 A 0 A_GiveInventory("Communicator")//given to be able to hear Blackbird
+		TNT1 A 0 A_GiveInventory("QuestItem1")//required for Blackbird's "bridge clue"
+		TNT1 A 0 A_GiveInventory("BaseKey")//required for "I need gold" dialog to appear
+	NoSpawn:
+		TNT1 A 0 //create nothing
+		Stop
+	}
+}
+
+//Macil gives additional stuff on first meeting
+Actor MacilGiftPack : Custominventory
+{
+	ConversationID 172
+	
+	States //additional rewards are given when talked to Macil
+	{
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Gold",300)//always give monetary reward	
+		TNT1 A 0 A_TakeInventory("StrifeOfferingChalice",1)//Remove the stolen chalice from inventory
+		TNT1 A 0 A_TakeInventory("QuestItem2",1)//Remove the alarm given by stolen chalice
+		//additional rewards given in sequence (last to first):
+		TNT1 A 0 A_JumpIfInventory("QuestItem13",1,"GiveSSG",AAPTR_PLAYER1)//freed the prisoners
+		Goto GiveSilencedPistol
+	GiveSSG:
+		TNT1 A 0 A_JumpIfInventory("Vanilla_SuperShotgun",1,"GiveSilencedPistol",AAPTR_PLAYER1)
+		TNT1 A 0 A_GiveInventory("Vanilla_SuperShotgun",1)
+		TNT1 A 0 A_Print("One of the prisoners recovered this fine weapon. Wield it for our cause!")
+	GiveSilencedPistol:
+		TNT1 A 0 A_JumpIfInventory("Silenced_Pistol",1,"NoExtraReward",AAPTR_PLAYER1)
+		TNT1 A 0 A_GiveInventory("Silenced_Pistol",1)
+		TNT1 A 0 A_TakeInventory("Vanilla_Pistol",1) //Replaced by the silenced version
+		TNT1 A 0 A_Print("Take this silenced gun. Hope this will help on your covert operations!")
+	NoExtraReward:
+		TNT1 A 0
+		Stop
+	}
+}
+
+//drops chainsaw
+Actor BeldinDropItems
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_DropItem("BeldinsNewRing", 1)
+		//TNT1 A 1 A_DropItem("ChainsawSpawner", 1) //Chainsaw is being dropped elsewhere so we don't need this
+		TNT1 A 1 A_DropItem("Vanilla_ShellBox")
+		Stop
+	}
+}
+
+Actor ChaliceItemSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("StrifeOfferingChalice")
+		TNT1 A 1 A_DropItem("BasicAmmoSpawner")
+		TNT1 A 1 A_DropItem("AdvancedAmmoSpawner")
+		TNT1 AAAAAAAAAA 0 A_Warp(AAPTR_DEFAULT, random(1,4), random(1,4))
+		TNT1 A 1 A_DropItem("ChainsawSpawner")
+		Stop
+	}
+}
+
+//Targeter has no use in VR
+Actor TargeterSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		//TNT1 A 1 A_SpawnItem("StrifeTargeter")
+		TNT1 A 1 A_Jump(256, "SpawnA", "SpawnB")
+		Goto SpawnA
+		Stop
+	SpawnA:
+		TNT1 A 1 A_DropItem("SuperShotgunSpawner")
+		TNT1 A 1 A_Jump(100, "SpawnC", "SpawnD")
+		Stop
+	SpawnB:
+		TNT1 A 1 A_DropItem("ChainsawSpawner")
+		TNT1 A 1 A_Jump(100, "SpawnC", "SpawnD")
+		Stop
+	SpawnC:
+		TNT1 A 1 A_DropItem("BasicAmmoSpawner")
+		Stop
+	SpawnD:
+		TNT1 A 1 A_DropItem("AdvancedAmmoSpawner")
+		Stop
+	}
+}

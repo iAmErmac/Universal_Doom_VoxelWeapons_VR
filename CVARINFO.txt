@@ -1,0 +1,5 @@
+server int vvw_models = 0;
+server int vvw_weapons = 0;
+server bool vvw_tracers = false;
+server int vvw_fastswitch = 0;
+server int vvw_pickupmodel = 0;

@@ -1,0 +1,36 @@
+AddOptionMenu "OptionsMenu"
+{
+	StaticText " "
+	Submenu "Voxel Weapon Settings", "VDW_Settings"
+}
+
+OptionMenu "VDW_Settings" {
+	Title "Voxel Weapon Settings"
+	StaticText " "
+	
+	Option "Weapons models", "vvw_models", "V_Models_Option"
+	Option "Pickup graphics", "vvw_pickupmodel", "V_PickupModel_Option"
+	Option "Weapons mode", "vvw_weapons", "V_Weapons_Option"
+	Option "Bullet Tracers", "vvw_tracers", "OnOff"
+	Option "Weapon switching", "vvw_fastswitch", "V_WeaponSwitch_Option"
+}
+
+OptionValue "V_Models_Option" {
+	0, "Default"
+	1, "Alternative"
+}
+
+OptionValue "V_Weapons_Option" {
+	0, "Vanilla"
+	1, "Enhanced"
+}
+
+OptionValue "V_WeaponSwitch_Option" {
+	0, "Default"
+	1, "Fast"
+}
+
+OptionValue "V_PickupModel_Option" {
+	0, "Sprite"
+	1, "Voxel"
+}

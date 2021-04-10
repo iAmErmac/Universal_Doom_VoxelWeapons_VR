@@ -1,0 +1,3 @@
+//Player class override in-case some mod uses this file
+clearplayerclasses
+addplayerclass DoomMarineGuy

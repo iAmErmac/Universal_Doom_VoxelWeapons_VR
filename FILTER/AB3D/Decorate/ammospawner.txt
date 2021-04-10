@@ -1,0 +1,68 @@
+Actor Vanilla_ClipSpawner : Actor replaces AB3DPulseRifleDrop
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("Vanilla_Chaingun", 1, "DropClip", AAPTR_PLAYER1)
+		TNT1 A 0 A_Jump(190, "DropClip")
+		TNT1 A 0 A_DropItem("Vanilla_Chaingun")
+		Stop
+	DropClip:
+		TNT1 A 0 A_DropItem("Vanilla_Clip")
+		Stop
+	}
+}
+
+Actor Vanilla_ClipBoxSpawner : RandomSpawner replaces AB3DPulseRifleAmmo 15201
+{
+	DropItem "Vanilla_Clip", 256, 15
+	DropItem "Vanilla_ClipBox", 256, 4
+	DropItem "AB3DStimpack", 256, 1
+}
+
+Actor Vanilla_ShellSpawner : Actor replaces AB3DShotgunDrop
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("Vanilla_SuperShotgun", 1, "DropShell", AAPTR_PLAYER1)
+		TNT1 A 0 A_Jump(215, "DropShell")
+		TNT1 A 0 A_DropItem("Vanilla_SuperShotgun")
+		Stop
+	DropShell:
+		TNT1 A 0 A_DropItem("Vanilla_Shell")
+		Stop
+	}
+}
+
+Actor Vanilla_ShellBoxSpawner : RandomSpawner replaces AB3DShotgunAmmo 15202
+{
+	DropItem "Vanilla_ShellBox"
+}
+
+Actor Vanilla_RocketAmmoSpawner : RandomSpawner replaces AB3DRocketLauncherAmmo 15205
+{
+	DropItem "Vanilla_RocketAmmo"
+}
+
+Actor Vanilla_RocketBoxSpawner : RandomSpawner replaces AB3DGrenadeLauncherAmmo 15204
+{
+	DropItem "Vanilla_RocketBox"
+}
+
+Actor Vanilla_CellSpawner : RandomSpawner replaces AB3DPlasmaDrop
+{
+	DropItem "Vanilla_Cell"
+}
+
+Actor Vanilla_CellPackSpawner : RandomSpawner replaces AB3DPlasmaAmmo 15203
+{
+	DropItem "Vanilla_CellPack"
+}
+
+Actor Vanilla_BackpackSpawner : RandomSpawner replaces Backpack 8
+{
+	DropItem "Vanilla_Backpack"
+}

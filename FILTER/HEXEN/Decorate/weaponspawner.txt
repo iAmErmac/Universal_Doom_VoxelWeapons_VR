@@ -1,0 +1,265 @@
+
+//Weapon spawner
+
+ACTOR _FWeapAxe : RandomSpawner replaces FWeapAxe 8010
+{
+	DropItem "Vanilla_Chaingun"
+}
+
+ACTOR _CWeapStaff : RandomSpawner replaces CWeapStaff 10
+{
+	DropItem "Vanilla_Chaingun"
+}
+
+ACTOR _MWeapFrost : RandomSpawner replaces MWeapFrost 53
+{
+	DropItem "Vanilla_Chaingun"
+}
+
+ACTOR _FWeapHammer : RandomSpawner replaces FWeapHammer 123
+{
+	DropItem "Vanilla_RocketLauncher"
+}
+
+ACTOR _CWeapFlame : RandomSpawner replaces CWeapFlame 8009
+{
+	DropItem "Vanilla_RocketLauncher"
+}
+
+ACTOR _MWeapLightning : RandomSpawner replaces MWeapLightning 8040
+{
+	DropItem "Vanilla_RocketLauncher"
+}
+
+ACTOR _FWeaponPiece1 : RandomSpawner replaces FWeaponPiece1 12
+{
+	DropItem "Vanilla_PlasmaRifle"
+}
+
+ACTOR _FWeaponPiece2 : RandomSpawner replaces FWeaponPiece2 13
+{
+	DropItem "Vanilla_BFG9000"
+}
+
+ACTOR _FWeaponPiece3 : RandomSpawner replaces FWeaponPiece3 16
+{
+	DropItem "Vanilla_PlasmaRifle"
+	DropItem "Vanilla_BFG9000"
+}
+
+ACTOR _CWeaponPiece1 : RandomSpawner replaces CWeaponPiece1 18
+{
+	DropItem "Vanilla_PlasmaRifle"
+}
+
+ACTOR _CWeaponPiece2 : RandomSpawner replaces CWeaponPiece2 19
+{
+	DropItem "Vanilla_BFG9000"
+}
+
+ACTOR _CWeaponPiece3 : RandomSpawner replaces CWeaponPiece3 20
+{
+	DropItem "Vanilla_PlasmaRifle"
+	DropItem "Vanilla_BFG9000"
+}
+
+ACTOR _MWeaponPiece1 : RandomSpawner replaces MWeaponPiece1 21
+{
+	DropItem "Vanilla_PlasmaRifle"
+}
+
+ACTOR _MWeaponPiece2 : RandomSpawner replaces MWeaponPiece2 22
+{
+	DropItem "Vanilla_BFG9000"
+}
+
+ACTOR _MWeaponPiece3 : RandomSpawner replaces MWeaponPiece3 23
+{
+	DropItem "Vanilla_PlasmaRifle"
+	DropItem "Vanilla_BFG9000"
+}
+
+ACTOR _FWeapQuietus : RandomSpawner replaces FWeapQuietus
+{
+	DropItem "Vanilla_BFG9000"
+}
+
+ACTOR _CWeapWraithverge : RandomSpawner replaces CWeapWraithverge
+{
+	DropItem "Vanilla_BFG9000"
+}
+
+ACTOR _MWeapBloodscourge : RandomSpawner replaces MWeapBloodscourge
+{
+	DropItem "Vanilla_BFG9000"
+}
+
+
+//Customized item spawner for more weapon drops
+
+Actor ArtiHealth2 : ArtiHealth
+{
+}
+
+Actor _ArtiHealth : QuartzFlaskSpawner replaces ArtiHealth 8003
+{
+	//Here we spawn shotgun
+}
+
+Actor AmuletOfWarding2 : AmuletOfWarding replaces AmuletOfWarding 8008
+{
+	//Here we spawn supershotgun
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("Vanilla_SuperShotgun", 1, "SpawnAmulet", AAPTR_PLAYER1)
+		TNT1 A 0 A_SpawnItemEx("Vanilla_SuperShotgun") //Spawns only once for the first time
+	SpawnAmulet:
+		AR_4 A -1
+		Stop
+	}
+}
+
+Actor PlatinumHelm2 : PlatinumHelm
+{
+}
+
+Actor _PlatinumHelm : HelmSpawner replaces PlatinumHelm 8007
+{
+	//Here we spawn extra weapons
+}
+
+Actor FalconShield2 : FalconShield
+{
+}
+
+Actor _FalconShield : ShieldSpawner replaces FalconShield 8006
+{
+	//Here we spawn extra weapons
+}
+
+Actor MeshArmor2 : MeshArmor
+{
+}
+
+Actor _MeshArmor : MeshArmorSpawner replaces MeshArmor 8005
+{
+	//Here we spawn extra weapons
+}
+
+Actor ArtiPork2 : ArtiPork
+{
+}
+
+Actor _ArtiPork : RandomSpawner replaces ArtiPork 30
+{
+	DropItem "PorkalatorSpawner"
+}
+
+Actor ArtiSuperHealth2 : ArtiSuperHealth
+{
+}
+
+Actor _ArtiSuperHealth : RandomSpawner replaces ArtiSuperHealth 32
+{
+	DropItem "SuperHealthSpawner"
+}
+
+Actor HexenPot1 : Pottery1 replaces Pottery1 104
+{
+	States
+	{
+	Spawn:
+		POT1 A -1
+		Loop
+	Death:
+		POT1 A 0 A_PotteryExplode
+		POT1 A 0 A_JumpIfInventory("Vanilla_Shotgun", 1, "SpawnItems", AAPTR_PLAYER1)
+		POT1 A 0 A_SpawnItemEx("Vanilla_Shotgun") //Spawns only once for the first time
+		Stop
+	SpawnItems:
+		POT1 A 0 A_SpawnItemEx("BasicArsenalSpawner")
+		Stop
+	}
+}
+
+Actor HexenPot2 : Pottery2 replaces Pottery2 105
+{
+	States
+	{
+	Spawn:
+		POT2 A -1
+		Loop
+	Death:
+		POT2 A 0 A_PotteryExplode
+		POT2 A 0 A_SpawnItemEx("BasicArsenalSpawner")
+		Stop
+	}
+}
+
+Actor HexenPot3 : Pottery3 replaces Pottery3 106
+{
+	States
+	{
+	Spawn:
+		POT3 A -1
+		Loop
+	Death:
+		POT3 A 0 A_PotteryExplode
+		POT3 A 0 A_SpawnItemEx("BasicArsenalSpawner")
+		Stop
+	}
+}
+
+Actor HexenBarrel : ZBarrel replaces ZBarrel 8100
+{
+	Health 15
+	Radius 15
+	Height 32
+	Mass 1000
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+DROPOFF
+	+SLIDESONWALLS
+	+PUSHABLE
+	+TELESTOMP
+	+CANPASS
+	+NOICEDEATH
+	DropItem "BarrelLoots"
+	
+	States
+	{
+	Spawn:
+		ZBAR A -1
+		Stop
+	Death:
+		ZBAR B 2 A_PlaySound("FlechetteExplode")
+		ZBAR C 2
+		ZBAR D 2 A_NoBlocking
+		ZBAR EFG 2
+		ZBAR H 100
+	FadeOut:
+		ZBAR H 5 A_FadeOut
+		Loop
+	}
+}
+
+Actor HexenSittingCorpse : ZCorpseSitting
+{
+}
+
+Actor _ZCorpseSitting : SittingCorpseSpawner replaces ZCorpseSitting 110
+{
+	//We spawn extra weapons here
+}
+
+Actor HexenSleepingCorpse : ZCorpseSleeping
+{
+}
+
+Actor _ZCorpseSleeping : SleepingCorpseSpawner replaces ZCorpseSleeping 62
+{
+	//We spawn extra weapons here
+}

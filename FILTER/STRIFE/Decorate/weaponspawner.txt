@@ -1,0 +1,94 @@
+
+//Weapons
+
+Actor ChainsawSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_DropItem("Vanilla_Chainsaw",1)
+		Stop
+	}
+}
+
+Actor ShotgunSpawner: CustomInventory
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_DropItem("Vanilla_Shotgun",1)
+		Stop
+	Pickup:
+		TNT1 A 0
+		TNT1 A 1 A_GiveInventory("Vanilla_Shotgun",1)
+		TNT1 A 1 A_GiveInventory("Shell",20)
+		Stop
+	}
+}
+
+Actor SuperShotgunSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("Vanilla_SuperShotgun",1)
+		Stop
+	}
+}
+
+Actor ChaingunSpawner: CustomInventory
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("Vanilla_Chaingun",1)
+		Stop
+	Pickup:
+		TNT1 A 0
+		TNT1 A 1 A_GiveInventory("Vanilla_Chaingun",1)
+		TNT1 A 1 A_GiveInventory("Clip",25)
+		Stop
+	}
+}
+
+Actor PlasmaRifleSpawner: CustomInventory
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("Vanilla_PlasmaRifle",1)
+		Stop
+	Pickup:
+		TNT1 A 0
+		TNT1 A 1 A_GiveInventory("Cell", 48)
+		TNT1 A 1 A_GiveInventory("Vanilla_PlasmaRifle", 1)
+		Stop
+	}
+}
+
+Actor RocketLauncherSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("Vanilla_RocketLauncher",1)
+		Stop
+	}
+}
+
+Actor BFGSpawnerSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1 A_SpawnItem("Vanilla_BFG9000",1)
+		Stop
+	}
+}

@@ -1,0 +1,143 @@
+//PISTOL
+
+Model Silenced_Pistol
+{ 
+   Path "Models/Weapons/Hud/Pistol"
+   Model 0 "Pistol.md3"
+   Skin 0 "Pistol.png"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 0.0 0.0
+
+   FrameIndex PISG A 0 0   FrameIndex PISG A 1 0
+}
+
+Model Silenced_Pistol
+{ 
+   Path "Models/Weapons/Hud/Pistol"
+   Model 0 "Pistol.md3"
+   Skin 0 "Pistol.png"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 2.0 0.0
+
+   FrameIndex PISG B 0 1   FrameIndex PISG B 1 1
+   FrameIndex PISG C 0 2   FrameIndex PISG C 1 2
+}
+
+
+//Hud WEAPON FLASH
+
+Model Silenced_Pistol
+{ 
+   Path "Models/Weapons/Hud/Pistol"
+   Model 0 "Pistol-MF.MD3"
+   Skin 0 "MF2.png"
+   Scale 1.0 1.0 1.0
+
+   zoffset -2
+
+   FrameIndex PISF A 0 2
+
+}
+
+//Sigil phase 1
+Model Sigil
+{
+   Path "models/weapons/sigil"
+   Model 0 "sigil_handle.md3"
+   Skin 0 "sigil.png"
+
+   Scale -1.6 1.6 1.6
+   Offset 0.0 -28.0 -15.0
+   
+   //Ready
+   FrameIndex SIGH  A 0 0
+}
+
+//Sigil phase 2
+Model Sigil
+{
+   Path "models/weapons/sigil"
+   Model 0 "sigil_handle.md3"
+   Model 1 "sigil_base.md3"
+   Skin 0 "sigil.png"
+   Skin 1 "sigil.png"
+
+   Scale -1.6 1.6 1.6
+   Offset 0.0 -28.0 -15.0
+   
+   //Ready
+   FrameIndex SIGH  B 0 0	FrameIndex SIGH  B 1 0
+}
+
+//Sigil phase 3
+Model Sigil
+{
+   Path "models/weapons/sigil"
+   Model 0 "sigil_handle.md3"
+   Model 1 "sigil_base.md3"
+   Model 2 "sigil_spike_right.md3"
+   Skin 0 "sigil.png"
+   Skin 1 "sigil.png"
+   Skin 2 "sigil.png"
+
+   Scale -1.6 1.6 1.6
+   Offset 0.0 -28.0 -15.0
+   
+   //Ready
+   FrameIndex SIGH  C 0 0	FrameIndex SIGH  C 1 0	FrameIndex SIGH  C 2 0
+}
+
+//Sigil phase 4
+Model Sigil
+{
+   Path "models/weapons/sigil"
+   Model 0 "sigil_handle.md3"
+   Model 1 "sigil_base.md3"
+   Model 2 "sigil_spike_right.md3"
+   Model 3 "sigil_spike_left.md3"
+   Skin 0 "sigil.png"
+   Skin 1 "sigil.png"
+   Skin 2 "sigil.png"
+   Skin 3 "sigil.png"
+
+   Scale -1.6 1.6 1.6
+   Offset 0.0 -28.0 -15.0
+   
+   //Ready
+   FrameIndex SIGH  D 0 0	FrameIndex SIGH D 1 0	FrameIndex SIGH  D 2 0	FrameIndex SIGH  D 3 0
+}
+
+//Sigil phase 5
+Model Sigil
+{
+   Path "models/weapons/sigil"
+   Model 0 "sigil.md3"
+   Skin 0 "sigil.png"
+
+   Scale -1.6 1.6 1.6
+   Offset 0.0 -28.0 -15.0
+   
+   //Ready
+   FrameIndex SIGH  E 0 0
+}
+
+//Sigil flash
+Model Sigil
+{
+   Path "models/weapons/sigil"
+   Model 0 "sigil_mf.md3"
+   Skin 0 "sigil_flash1.png"
+
+   Scale -1.6 1.6 1.6
+   Offset 0.0 -28.0 -15.0
+   ZOffset -21
+   
+   //Ready
+   FrameIndex SIGF  A 0 0
+   Skin 0 "sigil_flash2.png"
+   ZOffset -18
+   FrameIndex SIGF  B 0 0
+   Skin 0 "sigil_flash3.png"
+   ZOffset -15
+   FrameIndex SIGF  C 0 0
+}

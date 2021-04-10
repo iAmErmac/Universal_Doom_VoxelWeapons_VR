@@ -1,0 +1,145 @@
+//Sounds taken from Beautiful Doom
+
+///////////////////////
+//// WEAPON SOUNDS \\\\
+///////////////////////
+
+$random weapons/casing  { weapons/casing1 weapons/casing2 weapons/casing3 } 
+$limit weapons/casing  3
+weapons/casing1	dscasin1
+weapons/casing2	dscasin2
+weapons/casing3	dscasin3
+
+$random weapons/shotgunshells { weapons/shell1 weapons/shell2 weapons/shell3 }
+$limit weapons/shotgunshells 3
+weapons/shell1	DSSHELL1
+weapons/shell2	DSSHELL2
+weapons/shell3	DSSHELL3
+
+$random chaingun/casing { chaingun/casing1 chaingun/casing2 chaingun/casing3 }
+$limit chaingun/casing 3
+chaingun/casing1	CHGNCAS1
+chaingun/casing2	CHGNCAS2
+chaingun/casing3	CHGNCAS3
+
+weapons/draw	WEAPDRAW
+
+$random weapons/tracerwhizz { weapons/tracerwhizz1 weapons/tracerwhizz2 weapons/tracerwhizz3 }
+$limit weapons/tracerwhizz 2
+weapons/tracerwhizz1	TRACER1
+weapons/tracerwhizz2	TRACER2
+weapons/tracerwhizz3	TRACER3
+
+// Fist
+$random weapons/fist/punch { weapons/fist/punch1 weapons/fist/punch2 weapons/fist/punch3 }
+weapons/fist/punch1	FISTPUN1
+weapons/fist/punch2	FISTPUN2
+weapons/fist/punch3	FISTPUN3
+$random weapons/fist/strong { weapons/fist/strong1 weapons/fist/strong2 weapons/fist/strong3 }
+weapons/fist/strong1	FISTSTR1
+weapons/fist/strong2	FISTSTR2
+weapons/fist/strong3	FISTSTR3
+$random weapons/fist/hitwall { weapons/fist/hitwall1 weapons/fist/hitwall2 weapons/fist/hitwall3 weapons/fist/hitwall4 }
+weapons/fist/hitwall1	FISTWAL1
+weapons/fist/hitwall2	FISTWAL2
+weapons/fist/hitwall3	FISTWAL3
+weapons/fist/hitwall4	FISTWAL4
+$random weapons/fist/swing { weapons/fist/swing1 weapons/fist/swing2 }
+weapons/fist/swing1	FISTSW1
+weapons/fist/swing2	FISTSW2
+weapons/doompunch	DSPUNCH //vanilla sound
+
+// Kick
+$random weapons/kick/hit { weapons/kick/hit1 weapons/kick/hit2 }
+weapons/kick/hit1	KICKHIT1
+weapons/kick/hit2	KICKHIT2
+$random weapons/kick/swing { weapons/kick/swing1 weapons/kick/swing2 }
+weapons/kick/swing1	KICKSW1
+weapons/kick/swing2	KICKSW2
+
+// Chainsaw
+weapons/chainsaw/draw	CSAWDRAW
+weapons/chainsaw/start	CSAWSTRT
+weapons/chainsaw/loop	CSAWLOOP
+weapons/chainsaw/stop	CSAWSTOP
+weapons/chainsaw/idle	CSAWREDY
+$random weapons/chainsaw/hitwall { weapons/chainsaw/hitwall1 weapons/chainsaw/hitwall2 weapons/chainsaw/hitwall3 weapons/chainsaw/hitwall4 }
+weapons/chainsaw/hitwall1	DSSAWAL1
+weapons/chainsaw/hitwall2	DSSAWAL2
+weapons/chainsaw/hitwall3	DSSAWAL3
+weapons/chainsaw/hitwall4	DSSAWAL4
+
+// Pistol
+weapons/pistol/fire	PISTSHOT
+weapons/pistol/pickup	PISTPKUP
+weapons/pistol/draw	PISTDRAW
+
+// Shotgun
+weapons/shotgun/draw	STGNDRAW
+weapons/shotgun/fire	STGNSHOT
+weapons/shotgun/pump	STGNPUMP
+weapons/shotgun/in	STGNIN
+weapons/shotgun/melee1 FISTWAL1
+weapons/shotgun/melee2 FISTWAL2
+weapons/shotgun/melee3 FISTWAL3
+weapons/shotgun/melee4 FISTWAL4
+$random weapons/shotgun/melee { weapons/shotgun/melee1 weapons/shotgun/melee2 weapons/shotgun/melee3 weapons/shotgun/melee4 }
+
+// Supershotgun
+weapons/ssg/draw	SSGDRAW
+weapons/ssg/open	SSGOPEN
+weapons/ssg/close	SSGCLOSE
+weapons/ssg/in		SSGIN
+weapons/ssg/fire	SSGSHOT1
+
+// Chaingun
+weapons/chaingun/draw	CHGNDRAW
+$limit weapons/chaingun/fire 0
+weapons/chaingun/fire	CHGNSHOT
+weapons/chaingun/spin	CHGNSPIN
+weapons/chaingun/stop	CHGNSTOP
+weapons/chaingun/start	CHGNSTRT
+weapons/chaingun/pickup	CHGNPKUP
+
+// Rocket Launcher
+weapons/rlan/draw	RLANDRAW
+weapons/rlan/fire	RLANSHOT
+weapons/rlan/explosion	RLANEXPL
+weapons/rlan/fly	RLANFLY
+$volume weapons/rlan/fly 0.65
+$limit weapons/rlan/fire 0
+$limit weapons/rlan/explosion 0
+weapons/rlan/lock		RLANLOCK
+weapons/rlan/seek		RLANSEEK
+
+// Plasma Rifle
+weapons/plasma/draw		PLSDRAW
+$random weapons/plasma/fire { weapons/plasma/fire1 weapons/plasma/fire2 weapons/plasma/fire3 }
+$limit weapons/plasma/fire 0
+weapons/plasma/fire1	PLSSHOT1
+weapons/plasma/fire2	PLSSHOT2
+weapons/plasma/fire3	PLSSHOT3
+weapons/plasma/cool	PLSCOOL
+$limit weapons/plasmax 48
+weapons/plasma/charge	PLSCHARG
+weapons/plasma/railgun	PLSRAIL
+
+// BFG 9000
+weapons/bfg/draw	BFGDRAW
+weapons/bfg/start	BFGCHRG	//BFGSTART //BFGSTRT1
+weapons/bfg/fire	BFGSHOOT
+$random weapons/bfg/explosion { weapons/bfg/explosion1 weapons/bfg/explosion2 weapons/bfg/explosion3 weapons/bfg/explosion4 }
+weapons/bfg/explosion1	BFGEXPL1
+weapons/bfg/explosion2	BFGEXPL2
+weapons/bfg/explosion3	BFGEXPL3
+weapons/bfg/explosion4	BFGEXPL4
+weapons/bfg/cool	PLSCOOL
+$limit weapons/bfg/start 0
+weapons/bfg/fly		BFGFLY //mid-air sound
+weapons/bfg/altcharge	BFGACH1
+weapons/bfg/altidle		BFGACH2
+weapons/bfg/altfire		BFGACH3
+
+weapons/bfg/railcharge	BFGLCHR
+weapons/bfg/railfire	BFGLSH
+weapons/bfg/railcool	BFGLEND

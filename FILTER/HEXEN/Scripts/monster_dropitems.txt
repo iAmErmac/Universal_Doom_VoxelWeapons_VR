@@ -1,0 +1,85 @@
+//Since Hexen doesn't make monsters drop anything we will try to force some drops through this script
+ 
+class DeadMonsterDrops : EventHandler
+{
+	override void WorldThingDied(WorldEvent e)
+	{
+		if ( e.thing.bIsMonster )
+		{
+			//we can use a simple switch(e.thing.getClassName()) case basis monster drops
+			//but dropping weapon/ammo based on monster health seems better approach since it'll work with any custom monster regardless of their class
+			
+			//estimating monster classes through health and dropping items accordingly
+			
+			if(e.thing.SpawnHealth() <= 80){
+				//Console.printf("Heretic Mummy or Hexen gargoyle or Strife Stalker");
+				e.thing.A_DropItem("Vanilla_Clip", -1, 64);
+				e.thing.A_DropItem("Vanilla_Shell", -1, 16);
+			 }
+			 else if(e.thing.SpawnHealth() <= 90){
+				//Console.printf("Serpent");
+				e.thing.A_DropItem("Vanilla_Clip");
+				e.thing.A_DropItem("Vanilla_ClipBox", -1, 32);
+				e.thing.A_DropItem("Vanilla_Shell", -1, 64);
+			 }
+			 else if(e.thing.SpawnHealth() <= 120){
+				//Console.printf("Ice golem");
+				e.thing.A_DropItem("Vanilla_Clip", -1, 16);
+				e.thing.A_DropItem("Vanilla_Shell", -1, 32);
+				e.thing.A_DropItem("Vanilla_Cell", -1, 8);
+			 }
+			 else if(e.thing.SpawnHealth() <= 130){
+				//Console.printf("Bishop");
+				e.thing.A_DropItem("Vanilla_Clip", -1, 64);
+				e.thing.A_DropItem("Vanilla_Shell", -1, 64);
+				e.thing.A_DropItem("Vanilla_Cell", -1, 16);
+			 }
+			 else if(e.thing.SpawnHealth() <= 175){
+				//Console.printf("Ettin");
+				e.thing.A_DropItem("Vanilla_Clip");
+				e.thing.A_DropItem("Vanilla_Shell", -1, 64);
+			 }
+			 else if(e.thing.SpawnHealth() <= 200){
+				//Console.printf("Heretic Knight or Hexen sentaur or Serpent leader");
+				e.thing.A_DropItem("Vanilla_Clip", -1, 64);
+				e.thing.A_DropItem("Vanilla_Shell");
+				e.thing.A_DropItem("Vanilla_ClipBox", -1, 16);
+			 }
+			 else if(e.thing.SpawnHealth() <= 250){
+				//Console.printf("Sentaur leader or chaos serpent");
+				e.thing.A_DropItem("Vanilla_ShellBox", -1, 100);
+				e.thing.A_DropItem("Vanilla_Cell", -1, 192);
+			 }
+			 else if(e.thing.SpawnHealth() <= 640){
+				//Console.printf("Death wyvern");
+				e.thing.A_DropItem("Vanilla_RocketBox", -1, 192);
+				e.thing.A_DropItem("Vanilla_ClipBox", -1, 192);
+				e.thing.A_DropItem("Vanilla_CellPack");
+			 }
+			 else if(e.thing.SpawnHealth() <= 800){
+				//Console.printf("Hexen mirror boss or Loremaster");
+				e.thing.A_DropItem("Vanilla_CellPack", -1, 64);
+				e.thing.A_DropItem("Vanilla_ClipBox", -1, 64);
+				e.thing.A_DropItem("Vanilla_Cell", -1, 32);
+				e.thing.A_DropItem("Vanilla_Backpack", 1, 64);
+			 }
+			 else if(e.thing.SpawnHealth() <= 5000){
+				//Console.printf("Heresiarch or Korax");
+				e.thing.A_DropItem("Vanilla_ClipBox", -1, 128);
+				e.thing.A_DropItem("Vanilla_Cell");
+				e.thing.A_DropItem("Vanilla_CellPack");
+				e.thing.A_DropItem("Vanilla_RocketBox");
+				e.thing.A_DropItem("Vanilla_Shell");
+				e.thing.A_DropItem("Vanilla_Backpack", 1, 128);
+			 }
+			 else {
+				//Console.printf("Cannot detect monster");
+				e.thing.A_DropItem("Vanilla_ClipBox", -1, 128);
+				e.thing.A_DropItem("Vanilla_Cell", -1, 128);
+				e.thing.A_DropItem("Vanilla_RocketAmmo", -1, 128);
+				e.thing.A_DropItem("Vanilla_CellPack", -1, 128);
+				e.thing.A_DropItem("Vanilla_Backpack", 1, 128);
+			 }
+		}
+	}
+}

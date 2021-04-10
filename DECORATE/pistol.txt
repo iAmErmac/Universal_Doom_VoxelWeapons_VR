@@ -1,0 +1,65 @@
+ACTOR Vanilla_Pistol : ZWeapon
+{
+	Weapon.SelectionOrder 1900
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 20
+	Weapon.AmmoType "Clip"
+	Obituary "$OB_MPPISTOL"
+	+WEAPON.WIMPY_WEAPON
+	Inventory.Pickupmessage "$PICKUP_PISTOL_DROPPED"
+	Tag "$TAG_PISTOL"
+	States
+	{
+	Ready:
+		PISG A 0 A_ReplaceSprite("vvw_models","PIAG")
+		"####" A 1 A_WeaponReady
+		Loop
+	Deselect:
+		PISG A 0 A_ReplaceSprite("vvw_models","PIAG")
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_fastswitch")==0, 2)
+		"####" A 1 A_Lower(60)
+		Loop
+		"####" A 1 A_Lower
+		Loop
+	Select:
+		PISG A 0 A_ReplaceSprite("vvw_models","PIAG")
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_fastswitch")==0, 2)
+		"####" A 1 A_Raise(60)
+		Loop
+		"####" A 1 A_Raise
+		Loop
+	Spawn:
+		PIST A -1
+		Stop
+	
+	Fire:
+		PISG A 0 A_ReplaceSprite("vvw_models","PIAG")
+		"####" A 4
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_weapons")==1, "Fire.Enhanced")
+		"####" "#" 0 A_PlaySound("weapons/pistol", CHAN_WEAPON)
+		"####" "#" 0 A_GunFlash
+		"####" B 6 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
+		"####" C 4
+		"####" B 5 A_ReFire
+		Goto Ready
+	Fire.Enhanced:
+		"####" "#" 0 A_PlaySound("weapons/pistol/fire", CHAN_WEAPON) //Enhanced sound
+		"####" "#" 0 A_GunFlash
+		"####" B 6 A_FireBullets(5.6, 0, 1, 5, "EnBulletPuff") //Enhanced hit puffs
+		"####" C 4
+		"####" B 5 A_ReFire
+		TNT1 A 0 A_FireProjectile("GunBarrelSmoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		Goto Ready
+	Flash:
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_tracers")==false, "Flash.Vanilla")
+		TNT1 A 0 A_FireProjectile("BulletTracer",random(-1,1),0,0,0,FPF_NOAUTOAIM,random(-1,1))
+	Flash.Vanilla:
+		PISF A 7 Bright A_Light1
+		Goto LightDone
+		PISF A 7 Bright A_Light1
+		Goto LightDone		
+	Dummy:
+		PIAG ABCDE 0
+		Stop
+	}
+}

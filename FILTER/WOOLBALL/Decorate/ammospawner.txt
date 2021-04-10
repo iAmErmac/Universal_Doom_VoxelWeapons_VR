@@ -1,0 +1,48 @@
+Actor Vanilla_ClipSpawner : RandomSpawner replaces ClipNew 2007
+{
+	DropItem "Vanilla_Clip", 256, 9
+	DropItem "Vanilla_ClipBox", 256, 1
+}
+
+Actor Vanilla_ClipBoxSpawner : RandomSpawner replaces ClipBox 2048
+{
+	DropItem "Vanilla_ClipBox"
+}
+
+Actor Vanilla_ShellSpawner : RandomSpawner replaces ShellNew 2008
+{
+	DropItem "Vanilla_Shell", 256, 9
+	DropItem "Vanilla_ShellBox", 256, 1
+}
+
+Actor Vanilla_ShellBoxSpawner : RandomSpawner replaces ShellBox 2049
+{
+	DropItem "Vanilla_ShellBox"
+}
+
+Actor Vanilla_RocketAmmoSpawner : RandomSpawner replaces RocketAmmoNew 2010
+{
+	DropItem "Vanilla_RocketAmmo", 256, 9
+	DropItem "Vanilla_RocketBox", 256, 1
+}
+
+Actor Vanilla_RocketBoxSpawner : RandomSpawner replaces RocketBox 2046
+{
+	DropItem "Vanilla_RocketBox"
+}
+
+Actor Vanilla_CellSpawner : RandomSpawner replaces Cell 2047
+{
+	DropItem "Vanilla_Cell"
+}
+
+Actor Vanilla_CellPackSpawner : RandomSpawner replaces PewpPack 17
+{
+	DropItem "Vanilla_Cell", 256, 9
+	DropItem "Vanilla_CellPack", 256, 1
+}
+
+Actor Vanilla_BackpackSpawner : RandomSpawner replaces Backpack 8
+{
+	DropItem "Vanilla_Backpack"
+}

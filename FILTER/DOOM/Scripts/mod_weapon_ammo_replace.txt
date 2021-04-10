@@ -1,0 +1,147 @@
+//This will attempt to fix mod specific drops from monsters so everything stays vanilla
+		
+Class ModWeaponAmmoReplacer : EventHandler
+{
+	override void CheckReplacement(ReplaceEvent e)
+	{
+		
+		switch (e.Replacee.GetClassName())
+		{
+
+			//***** Fixes for Pirate Doom *****
+			
+			//ammo drops
+			case 'Bullets' :
+			case 'Bullets2' : e.Replacement = 'Vanilla_Clip';  break;
+			case 'BulletBox' : e.Replacement = 'Vanilla_ClipBox';  break;
+			case 'ballammo' : e.Replacement = 'Vanilla_RocketAmmo';  break;
+			case 'ballsammo' : e.Replacement = 'Vanilla_RocketBox';  break;
+			case 'Dynamite' : e.Replacement = 'Vanilla_Cell';  break;
+			case 'dynamiteammo' : e.Replacement = 'Vanilla_CellPack';  break;
+			
+			//weapon drops
+			case 'gatlingun' : e.Replacement = 'Vanilla_Chaingun';  break;
+			
+			
+			//***** Fixes for D4T *****
+			
+			//ammo drops
+			case 'D4FuelSmall' :
+			case 'D4FuelDM' :
+			case 'D4BulletsSmall' :
+			case 'D4BulletsDM' :
+			case 'D4Bullets' : e.Replacement = 'Vanilla_Clip';  break;
+			case 'D4SlugsDM' :
+			case 'PistolModDropper' :
+			case 'D4Slugs' : e.Replacement = 'Vanilla_ClipBox';  break;
+			case 'D4Fuel' :
+			case 'D4ShellsSmall' :
+			case 'D4ShellsDM' :
+			case 'D4Shells' : e.Replacement = 'Vanilla_Shell';  break;
+			case 'ShotgunModDropper' :
+			case 'D4SlugsSmall' : e.Replacement = 'Vanilla_ShellBox';  break;
+			case 'D4SoulsSmall' :
+			case 'D4CellsDM' :
+			case 'D4CellsSmall' : e.Replacement = 'Vanilla_Cell';  break;
+			case 'D4BFGAmmo' :
+			case 'D4Souls' :
+			case 'D4Cells' : e.Replacement = 'Vanilla_CellPack';  break;
+			case 'D4RocketsDM' :
+			case 'D4RocketsSmall' : e.Replacement = 'Vanilla_RocketAmmo';  break;
+			case 'D4Rockets' : e.Replacement = 'Vanilla_RocketBox';  break;
+			
+			//weapon drops
+			case 'D4Shotgun' : e.Replacement = 'Vanilla_Shotgun';  break;
+			case 'D4SuperShotgun' : e.Replacement = 'Vanilla_SuperShotgun';  break;
+			case 'D4HAR' :
+			case 'D4Chaingun' : e.Replacement = 'Vanilla_Chaingun';  break;
+			case 'D4GrenadeLauncher' : e.Replacement = 'Vanilla_RocketLauncher';  break;
+			case 'D4PlasmaRifle' :
+			case 'D4LightningGun' :
+			case 'D4GaussCannon' : e.Replacement = 'Vanilla_PlasmaRifle';  break;
+			
+			//extra stuff
+			case 'ZombieGrenadeDrop' :
+			case 'DemonGrenadeDrop' :
+			case 'CyberGrenadeDrop' : e.Replacement = 'BasicStuffDrop';  break;
+			
+			case 'PistolModDropper' :
+			case 'ShotgunModDropper' :
+			case 'SuperShotgunModDropper' :
+			case 'StaticRifleModDropper' :
+			case 'HARModDropper' :
+			case 'ChaingunModDropper' :
+			case 'RocketLauncherModDropper' :
+			case 'GrenadeLauncherModDropper' :
+			case 'PlasmaRifleModDropper' :
+			case 'LightningGunModDropper' :
+			case 'ReaperandUpgradesDropper' :
+			case 'GaussCannonModDropper' :
+			case 'BFGModDropper' : e.Replacement = 'AdvanceStuffDrop';  break;
+			
+			
+			//***** Fixes for Wolf3D TC *****
+			
+			//ammo drops
+			case 'WolfClipLost' :
+			case 'WolfClipDrop' :
+			case 'WolfClipDropLost' :
+			case 'WolfClip' : switch(random(0,4)){ case 4: e.Replacement = 'Vanilla_Shell';  break; default: e.Replacement = 'Vanilla_Clip';  break; }; break;
+			case 'WolfClipBoxSoD' :
+			case 'WolfClipBoxLost' :
+			case 'WolfClipBox' : switch(random(0,4)){ case 4: e.Replacement = 'Vanilla_ShellBox';  break; default: e.Replacement = 'Vanilla_ClipBox';  break; }; break;
+			case 'WolfRocketPickup' : e.Replacement = 'Vanilla_RocketAmmo';  break;
+			case 'WolfRocketCrate' : e.Replacement = 'Vanilla_RocketBox';  break;
+			case 'WolfGas' : e.Replacement = 'Vanilla_Cell';  break;
+			case 'WolfGasCan' : e.Replacement = 'Vanilla_CellPack';  break;
+			
+			//weapon drops
+			case 'WolfPistolLost' :
+			case 'WolfPistol' : switch(random(0,4)){ case 4: e.Replacement = 'ShellDrop';  break; default: e.Replacement = 'ClipDrop';  break; }; break;
+			case 'WolfMachineGunLost' :
+			case 'WolfMachineGun' : e.Replacement = 'Vanilla_Shotgun';  break;
+			case 'WolfChaingunSoD' :
+			case 'WolfChaingunLost' :
+			case 'WolfChaingun' : e.Replacement = 'Vanilla_Chaingun';  break;
+			case 'WolfFlamethrower' : e.Replacement = 'Vanilla_PlasmaRifle';  break;
+			case 'WolfRocketLauncher' : e.Replacement = 'Vanilla_RocketLauncher';  break;
+			case 'WolfDualChaingun' : e.Replacement = 'Vanilla_BFG9000';  break;
+
+		}
+	}
+}
+
+Class BasicStuffDrop: Actor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_Jump(256, "SpawnA", "SpawnB");
+		Stop;
+	SpawnA:
+		TNT1 A 0 A_DropItem("Stimpack");
+		Stop;
+	SpawnB:
+		TNT1 A 0 A_DropItem("GreenArmor");
+		Stop;
+	}
+}
+
+Class AdvanceStuffDrop: Actor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_Jump(256, "SpawnA", "SpawnB", "SpawnC");
+		Stop;
+	SpawnA:
+		TNT1 A 0 A_DropItem("Medikit");
+		Stop;
+	SpawnB:
+		TNT1 A 0 A_DropItem("BlueArmor");
+		Stop;
+	SpawnC:
+		TNT1 A 0 A_DropItem("Soulsphere");
+		Stop;
+	}
+}

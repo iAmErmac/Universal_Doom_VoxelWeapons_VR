@@ -1,0 +1,215 @@
+Model Vanilla_Pistol
+{ 
+   Path "Models/Weapons/Hud/Pistol"
+   Model 0 "Pistol-MF.MD3"
+   Skin 0 "MF2.png"
+   Scale 1.5 1.2 1.5
+   Offset 0.0 -3.0 0.0
+   
+   FrameIndex PISF A 0 2
+}
+
+Model Vanilla_Shotgun
+{ 
+   Path "Models/Weapons/Hud/Shotgun"
+   MODEL 0 "Shotgun_MF1.md3"
+   SKIN 0 "MF1.png"
+   MODEL 1 "Shotgun_MF2.md3"
+   SKIN 1 "MF2.png"
+   
+   Scale 1.0 1.0 1.0
+   Offset 0.0 -34.0 13.0
+   NOINTERPOLATION
+	
+   FrameIndex SHTF A 0 0   FrameIndex SHTF A 1 0
+}
+
+Model Vanilla_Shotgun
+{ 
+   Path "Models/Weapons/Hud/Shotgun"
+   MODEL 0 "Shotgun_MF1.md3"
+   MODEL 1 "Shotgun_MF2.md3"
+   SKIN 0 "MF1.png"
+   SKIN 1 "MF2.png"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 -34.0 13.0
+   NOINTERPOLATION
+
+   FrameIndex SHTF B 0 0   FrameIndex SHTF B 1 0
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG"
+   Model 0 "hud_ssg_mf1.md3"
+   SKIN 0 "MF1.png"
+   Model 1 "hud_ssg_mf2.md3"
+   SKIN 1 "MF2.png"
+   Scale 1.5 1.5 1.5
+   Offset 0.0 -4.0 12.0
+   
+   FrameIndex SHT2 I 0 0   FrameIndex SHT2 I 1 0
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG"
+   Model 0 "Hud_ssg_MF1.md3"
+   Model 1 "Hud_ssg_MF2.md3"
+   SKIN 0 "MF1.png"
+   SKIN 1 "MF2.png"
+   Scale 1.5 1.5 1.5
+   Offset 0.0 -4.0 12.0
+
+   FrameIndex SHT2 J 0 1   FrameIndex SHT2 J 1 1
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/Shotgun"
+   MODEL 0 "Shotgun_MF1.md3"
+   SKIN 0 "MF1.png"
+   MODEL 1 "Shotgun_MF2.md3"
+   SKIN 1 "MF2.png"  
+   Scale 1.0 1.0 1.0
+   Offset -2.0 -8.0 14.0
+   NOINTERPOLATION
+	
+   FrameIndex SHTF A 0 0   FrameIndex SHTF A 1 0
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/Shotgun"
+   MODEL 0 "Shotgun_MF1.md3"
+   MODEL 1 "Shotgun_MF2.md3"
+   SKIN 0 "MF1.png"
+   SKIN 1 "MF2.png"
+   Scale 1.0 1.0 1.0
+   Offset 2.0 -8.0 14.0
+   NOINTERPOLATION
+
+   FrameIndex SHTF B 0 0   FrameIndex SHTF B 1 0
+}
+
+MODEL Vanilla_Chaingun
+{
+   Path "Models/Weapons/Hud/Chaingun"
+   Model 0 "CG_MF1.md3"
+   Skin 0 "MF0.png"
+   Model 1 "CG_MF2.md3"
+   Skin 1 "MF2.png"
+   Scale -4.0 4.0 4.0
+   Offset 0.0 -22.0 32.0
+
+   NOINTERPOLATION
+
+   FrameIndex CHGF A 0 0
+}
+
+MODEL Vanilla_Chaingun
+{
+   Path "Models/Weapons/Hud/Chaingun"
+   Model 0 "CG_MF1.md3"
+   Skin 0 "MF1.png"
+   Model 1 "CG_MF2.md3"
+   Skin 1 "MF3.png"
+   Scale -4.0 4.0 4.0
+   Offset 0.0 -22.0 32.0
+
+   NOINTERPOLATION
+
+   FrameIndex CHGF B 0 0
+}
+
+Model Vanilla_RocketLauncher
+{ 
+   Path "Models/Weapons/Hud/RocketLauncher"
+   Model 0 "RocketLauncher-MF.MD2"
+   Skin 0 "Hud_RL_MF0.PNG"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 -16.0 38.0
+
+   FrameIndex MISF A 0 0
+}
+
+Model Vanilla_RocketLauncher
+{ 
+   Path "Models/Weapons/Hud/RocketLauncher"
+   Model 0 "RocketLauncher-MF.MD2"
+   Skin 0 "Hud_RL_MF1.PNG"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 -16.0 38.0
+
+   FrameIndex MISF B 0 0	//   FrameIndex MISF B 1 1
+}
+
+Model Vanilla_RocketLauncher
+{ 
+   Path "Models/Weapons/Hud/RocketLauncher"
+   Model 0 "RocketLauncher-MF.MD2"
+   Skin 0 "Hud_RL_MF2.PNG"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 -16.0 38.0
+
+   FrameIndex MISF C 0 0	 //  FrameIndex MISF C 1 1
+}
+
+Model Vanilla_RocketLauncher
+{ 
+   Path "Models/Weapons/Hud/RocketLauncher"
+   Model 0 "RocketLauncher-MF.MD2"
+   Skin 0 "Hud_RL_MF3.PNG"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 -16.0 38.0
+   
+   FrameIndex MISF D 0 0
+}
+
+Model Vanilla_PlasmaRifle
+{ 
+   Path "Models/Weapons/Hud/PlasmaRifle"
+   Model 0 "PlasmaRifle-FL.MD2"
+   Skin 0 "PlasmaRifle-FL.png"
+   Scale -2.0 1.0 2.0
+   Offset 1.0 -50.0 23.0
+
+   FrameIndex PLSF A 0 5
+} 
+ 
+Model Vanilla_PlasmaRifle
+{ 
+   Path "Models/Weapons/Hud/PlasmaRifle"
+   Model 0 "PlasmaRifle-FL.MD2"
+   Skin 0 "PlasmaRifle-FL1.png"
+   Scale -2.0 1.0 2.0
+   Offset 1.0 -50.0 23.0
+
+   FrameIndex PLSF B 0 7
+}
+
+Model Vanilla_BFG9000
+{
+   Path "Models/Weapons/Hud/BFG9000"
+   Model 0 "bfgexpo.md2"
+   Skin 0 "energy_flash0.png"
+   Scale -4.0 1.0 4.0
+   Offset 0.0 -50.0 50.0
+   
+   NOINTERPOLATION
+
+   FrameIndex BFGF A 0 0
+}
+
+Model Vanilla_BFG9000
+{
+   Path "Models/Weapons/Hud/BFG9000"
+   Model 0 "bfgexpo.md2"
+   Skin 0 "energy_flash1.png"
+   Offset 0.0 -50.0 50.0
+   Scale -4.0 1.0 4.0
+   
+   NOINTERPOLATION
+
+   FrameIndex BFGF B 0 0
+}
