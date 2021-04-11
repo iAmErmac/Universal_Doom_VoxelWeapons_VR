@@ -6,6 +6,8 @@ By design, this mod should allow the Doom Voxel VR weapons working with the othe
 
 There are optional second weapon set, voxel pickup models, bullet tracer and particle/smoke (Enhanced mode) effects for the weapons available in the **Voxel weapons Settings**. When enhanced mode is enabled, the Super Shotgun, Rocket Launcher, Plasma Rifle and BFG will have alt-fire enabled. In vanilla mode only BFG has alt-fire enabled (Doom beta BFG effect as alt-fire).
 
+[![Download Now](https://raster.shields.io/github/downloads/iAmErmac/Universal_Doom_VoxelWeapons_VR/total)](https://github.com/iAmErmac/Universal_Doom_VoxelWeapons_VR/releases/latest)
+
 # Features
 
 * Can switch between 2 sets of voxel weapons anytime
