@@ -1,5 +1,16 @@
 Actor Vanilla_Clip : Clip
 {
+  Inventory.Amount 20
+}
+
+Actor ClipDrop
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_DropItem("Vanilla_Clip")
+		Stop
+	}
 }
 
 Actor Vanilla_ClipBox : ClipBox
@@ -8,6 +19,17 @@ Actor Vanilla_ClipBox : ClipBox
 
 Actor Vanilla_Shell : Shell
 {
+  Inventory.Amount 6
+}
+
+Actor ShellDrop
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_DropItem("Vanilla_Shell")
+		Stop
+	}
 }
 
 Actor Vanilla_ShellBox : ShellBox
@@ -24,6 +46,7 @@ Actor Vanilla_RocketBox : RocketBox
 
 Actor Vanilla_Cell : Cell
 {
+  Inventory.Amount 25
 }
 
 Actor Vanilla_CellPack : CellPack

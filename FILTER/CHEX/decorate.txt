@@ -1,25 +1,6 @@
-//Misc actors
-#include "Decorate/misc.txt"
-
-//Player Class override
-#include "Decorate/doom_marine.txt"
-
-//Weapons override
-#include "Decorate/fist.txt"
-#include "Decorate/chainsaw.txt"
-#include "Decorate/pistol.txt"
-#include "Decorate/shotgun.txt"
-#include "Decorate/supershotgun.txt"
-#include "Decorate/chaingun.txt"
-#include "Decorate/rocketlauncher.txt"
-#include "Decorate/plasmarifle.txt"
-#include "Decorate/bfg9000.txt"
 
 //Overrides the weapon spawner so mod weapons don't drop
 #include "Decorate/weaponspawner.txt"
-
-//Ammo override
-#include "Decorate/ammo.txt"
 
 //Overrides the ammo spawner so mod weapons don't drop
 #include "Decorate/ammospawner.txt"

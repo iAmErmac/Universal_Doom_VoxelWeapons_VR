@@ -1,0 +1,27 @@
+[enu default]
+
+VDW_OPTIONS			= "Voxel Weapon Options";
+
+VDW_WEAPON			= "Voxel VR Weapons";
+VDW_WEAPON_MODEL		= "Weapon Model";
+VDW_WEAPON_PICKUP		= "Pickup Graphics";
+VDW_WEAPON_MODE			= "Weapon Mode";
+VDW_WEAPON_FLASH		= "Muzzle Flash Sprite";
+VDW_WEAPON_SWITCH		= "Weapon Switching";
+VDW_WEAPON_TRACER		= "Bullet Tracers";
+
+VDW_CUSTOM_DROPS		= "Custom Drop Replacement";
+VDW_DROP_REPLACE		= "Custom Drops/Spawns";
+VDW_DROP_REPLACE_NOTE	= "When replacement enabled it will replace an custom weapon/ammo with vanilla ones";
+VDW_DROP_REPLACE_NOTE2	= "Otherwise the custom weapon/ammo will just disappear";
+
+VDW_OPT_DEFAULT			= "Default";
+VDW_OPT_ALT			= "Alternative";
+VDW_OPT_D4T			= "D4T";
+VDW_OPT_VANILLA			= "Vanilla";
+VDW_OPT_ENH			= "Enhanced";
+VDW_OPT_FAST			= "Fast";
+VDW_OPT_SPRITE			= "Sprite";
+VDW_OPT_VOXEL			= "Voxel";
+VDW_OPT_REMOVE			= "Remove All";
+VDW_OPT_REPLACE			= "Replace All";

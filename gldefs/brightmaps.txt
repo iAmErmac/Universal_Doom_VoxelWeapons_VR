@@ -1,0 +1,59 @@
+//default moddels
+
+material texture "models/weapons/Hud/PlasmaRifle/PlasmaRifle.png" {
+	brightmap "models/weapons/Hud/PlasmaRifle/PlasmaRifle_bm.png"
+}
+
+material texture "models/weapons/Hud/BFG9000/BFG.png" {
+	brightmap "models/weapons/Hud/BFG9000/BFG_bm.png"
+}
+material texture "models/weapons/Hud/BFG9000/BFG2.png" {
+	brightmap "models/weapons/Hud/BFG9000/BFG2_bm.png"
+}
+
+//alternate models
+
+material texture "models/weapons/Hud/Pistol_alt/doompistol.png" {
+	brightmap "models/weapons/Hud/Pistol_alt/doompistol_bm.png"
+}
+
+material texture "models/weapons/Hud/Shotgun_alt/doomsg-00.png" {
+	brightmap "models/weapons/Hud/Shotgun_alt/doomsg-00_bm.png"
+}
+
+material texture "models/weapons/Hud/SSG_alt/doomssg-00.png" {
+	brightmap "models/weapons/Hud/SSG_alt/doomssg-00_bm.png"
+}
+
+material texture "models/weapons/Hud/PlasmaRifle_alt/doomplasma-00.png" {
+	brightmap "models/weapons/Hud/PlasmaRifle_alt/doomplasma-00_bm.png"
+}
+
+material texture "models/weapons/Hud/BFG9000_alt/doomfuckgun-00.png" {
+	brightmap "models/weapons/Hud/BFG9000_alt/doomfuckgun-00_bm.png"
+}
+
+material texture "models/weapons/Hud/BFG9000_alt/doomfuckgun-01.png" {
+	brightmap "models/weapons/Hud/BFG9000_alt/doomfuckgun-01_bm.png"
+}
+
+//D4T models
+
+material texture "models/weapons/Hud/Pistol_D4/spistol.png" {
+	brightmap "models/weapons/Hud/Pistol_D4/spistol_bm.png"
+}
+
+material texture "models/weapons/Hud/Shotgun_D4/sshot.png" {
+	brightmap "models/weapons/Hud/Shotgun_D4/sshot_bm.png"
+}
+
+material texture "models/weapons/Hud/PlasmaRifle_D4/splasmagun.png" {
+	brightmap "models/weapons/Hud/PlasmaRifle_D4/splasmagun_bm.png"
+}
+
+material texture "models/weapons/Hud/BFG9000_D4/sbfg.png" {
+	brightmap "models/weapons/Hud/BFG9000_D4/sbfg_bm.png"
+}
+material texture "models/weapons/Hud/BFG9000_D4/sbfg2.png" {
+	brightmap "models/weapons/Hud/BFG9000_D4/sbfg2_bm.png"
+}

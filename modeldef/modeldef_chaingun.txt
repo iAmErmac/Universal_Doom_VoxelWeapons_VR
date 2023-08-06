@@ -1,0 +1,103 @@
+//default model
+
+MODEL Vanilla_Chaingun
+{
+   Path "Models/Weapons/Hud/Chaingun"
+   Model 0 "Chaingun.md3"
+   Skin 0 "Chaingun.png"
+
+   Scale 0.85 0.85 0.85
+   Offset 0.0 -10.0 4.0
+
+   NOINTERPOLATION
+
+   FrameIndex CHGG A 0 0
+}
+
+MODEL Vanilla_Chaingun
+{
+   Path "Models/Weapons/Hud/Chaingun"
+   Model 0 "Chaingun2.md3"
+   Skin 0 "Chaingun.png"
+
+   Scale 0.85 0.85 0.85
+   Offset 0.0 -10.0 4.0
+
+   NOINTERPOLATION
+
+   FrameIndex CHGG B 0 0
+}
+
+//alternate model
+
+MODEL Vanilla_Chaingun
+{
+   Path "Models/Weapons/Hud/Chaingun_alt"
+   Model 0 "doomchaingun-00.md3"
+   Skin 0 "doomchaingun-00.png"
+   Scale -1.5 1.5 1.5
+   Offset 0.0 -63.0 -20.0
+
+   NOINTERPOLATION
+   
+   FrameIndex CHGA A 0 0
+}
+
+MODEL Vanilla_Chaingun
+{
+   Path "Models/Weapons/Hud/Chaingun_alt"
+   Model 0 "doomchaingun-01.md3"
+   Skin 0 "doomchaingun-00.png"
+   Scale -1.5 1.5 1.5
+   Offset 0.0 -63.0 -20.0
+
+   NOINTERPOLATION
+
+   FrameIndex CHGA B 0 0
+}
+
+//D4T model
+
+MODEL Vanilla_Chaingun
+{
+   Path "Models/Weapons/Hud/Chaingun_D4"
+   Model 0 "schaingun.md3"
+   Skin 0 "schaingun.png"
+   Scale -1.7 1.7 1.8
+   Offset 0.0 -13.0 -4.0
+   
+   FrameIndex CGD4 A 0 0
+   FrameIndex CGD4 B 0 1
+}
+
+//gun flash default
+
+MODEL Vanilla_Chaingun
+{
+   Path "Models/Weapons/Hud/Chaingun"
+   Model 0 "CG_MF1.md3"
+   Skin 0 "MF0.png"
+   Model 1 "CG_MF2.md3"
+   Skin 1 "MF2.png"
+   Scale -4.0 4.0 4.0
+   Offset 0.0 -22.0 32.0
+
+   NOINTERPOLATION
+
+   FrameIndex CHGF A 0 0
+}
+
+MODEL Vanilla_Chaingun
+{
+   Path "Models/Weapons/Hud/Chaingun"
+   Model 0 "CG_MF1.md3"
+   Skin 0 "MF1.png"
+   Model 1 "CG_MF2.md3"
+   Skin 1 "MF3.png"
+   Scale -4.0 4.0 4.0
+   Offset 0.0 -22.0 32.0
+
+   NOINTERPOLATION
+
+   FrameIndex CHGF B 0 0
+}

@@ -1,0 +1,125 @@
+//default model
+
+
+
+Model Vanilla_Shotgun
+{ 
+   Path "Models/Weapons/Hud/SHOTGUN"
+   Model 0 "Shotgun.md3"
+   Skin 0 "Shotgun.png"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 6.0 0.0
+   ZOffset 4.0
+   
+   FrameIndex SHTG A 0 0   FrameIndex SHTG A 1 0
+   FrameIndex SHTG B 0 1   FrameIndex SHTG B 1 1
+}
+
+Model Vanilla_Shotgun
+{ 
+   Path "Models/Weapons/Hud/SHOTGUN"
+   Model 0 "Shotgun2.md3"
+   Skin 0 "Shotgun.png"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 6.0 0.0
+   ZOffset 4.0
+   
+   FrameIndex SHTG C 0 3   FrameIndex SHTG C 1 3
+   FrameIndex SHTG D 0 4   FrameIndex SHTG D 1 4
+
+}
+
+//alternate model
+
+Model Vanilla_Shotgun
+{ 
+   Path "Models/Weapons/Hud/Shotgun_alt"
+   Model 0 "doomsg-00.md3"
+   Skin 0 "doomsg-00.png"
+   Scale 1.3 -1.3 1.3
+   Offset 0.0 -46.0 -14.0
+
+   NOINTERPOLATION
+
+   FrameIndex SHTA A 0 0
+
+}
+
+Model Vanilla_Shotgun
+{ 
+   Path "Models/Weapons/Hud/Shotgun_alt"
+   Model 0 "doomsg-pump1.md3"
+   Skin 0 "doomsg-00.png"
+   Scale 1.2 -1.2 1.2
+   Offset 0.0 -46.0 -14.0
+
+   NOINTERPOLATION
+
+   FrameIndex SHTA B 0 0
+
+}
+
+Model Vanilla_Shotgun
+{ 
+   Path "Models/Weapons/Hud/Shotgun_alt"
+   Model 0 "doomsg-pump2.md3"
+   Skin 0 "doomsg-00.png"
+   Scale 1.2 -1.2 1.2
+   Offset 0.0 -46.0 -14.0
+
+   NOINTERPOLATION
+
+   FrameIndex SHTA C 0 0
+
+}
+
+Model Vanilla_Shotgun
+{ 
+   Path "Models/Weapons/Hud/Shotgun_alt"
+   Model 0 "doomsg-pump3.md3"
+   Skin 0 "doomsg-00.png"
+   Scale 1.2 -1.2 1.2
+   Offset 0.0 -46.0 -14.0
+
+   NOINTERPOLATION
+
+   FrameIndex SHTA D 0 0
+
+}
+
+//D4T model
+
+Model Vanilla_Shotgun
+{ 
+   Path "Models/Weapons/Hud/Shotgun_D4"
+   Model 0 "sshot.md3"
+   Skin 0 "sshot.png"
+   Scale -1.05 1.05 1.05
+   Offset 0.0 -27.0 -8.0
+
+   NOINTERPOLATION
+
+   FrameIndex SHD4 A 0 0
+   FrameIndex SHD4 B 0 1
+   FrameIndex SHD4 C 0 2
+   FrameIndex SHD4 D 0 3
+}
+
+//gun flash default
+
+Model Vanilla_Shotgun
+{ 
+   Path "Models/Weapons/Hud/Shotgun"
+   MODEL 0 "Shotgun_MF1.md3"
+   SKIN 0 "MF1.png"
+   MODEL 1 "Shotgun_MF2.md3"
+   SKIN 1 "MF2.png"
+   
+   Scale 1.0 1.0 1.0
+   Offset 0.0 -26.0 13.0
+   
+   NOINTERPOLATION
+	
+   FrameIndex SHTF A 0 0   FrameIndex SHTF A 1 0
+   FrameIndex SHTF B 0 0   FrameIndex SHTF B 1 0
+}

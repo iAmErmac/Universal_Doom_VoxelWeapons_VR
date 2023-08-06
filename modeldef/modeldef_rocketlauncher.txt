@@ -1,0 +1,71 @@
+//default model
+
+Model Vanilla_RocketLauncher
+{ 
+   Path "Models/Weapons/Hud/RocketLauncher"
+   Model 0 "Launcher.md3"
+   Skin 0 "Launcher.png"
+   Scale 1.15 1.15 1.15
+   Offset 0.0 25.0 7.0
+   
+   FrameIndex MISG A 0 0
+
+   Offset 0.0 35.0 7.0
+   FrameIndex MISG B 0 1
+}
+
+//alternate model
+
+Model Vanilla_RocketLauncher
+{ 
+   Path "Models/Weapons/Hud/RocketLauncher_alt"
+   Model 0 "doomrocket.md3"
+   Skin 0 "doomrocket.png"
+   Scale -1.7 1.7 1.7
+   Offset 0.0 -50.0 -12.0
+
+   NOINTERPOLATION
+
+   FrameIndex MISA A 0 0
+   
+   Offset 0.0 -35.0 -12.0
+   FrameIndex MISA B 0 0
+}
+
+//D4T model
+
+Model Vanilla_RocketLauncher
+{ 
+   Path "Models/Weapons/Hud/RocketLauncher_D4"
+   Model 0 "srpg.md3"
+   Skin 0 "srpg.png"
+   Scale -1.85 1.6 1.85
+   Offset 0.0 -17.0 1.0
+   
+   FrameIndex RLD4 A 0 0
+   
+   Offset 0.0 -10.0 1.0
+   FrameIndex RLD4 B 0 0
+}
+
+//gun flash default
+
+Model Vanilla_RocketLauncher
+{ 
+   Path "Models/Weapons/Hud/RocketLauncher"
+   Model 0 "RocketLauncher-MF.MD2"
+   Skin 0 "Hud_RL_MF0.PNG"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 -20.0 34.0
+
+   FrameIndex MISF A 0 0
+   
+   Skin 0 "Hud_RL_MF1.PNG"
+   FrameIndex MISF B 0 0
+   
+   Skin 0 "Hud_RL_MF2.PNG"
+   FrameIndex MISF C 0 0
+   
+   Skin 0 "Hud_RL_MF3.PNG"
+   FrameIndex MISF D 0 0
+}

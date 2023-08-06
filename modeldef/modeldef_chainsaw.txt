@@ -1,0 +1,120 @@
+//default model
+
+Model Vanilla_Chainsaw
+{
+   Path "Models/Weapons/Hud/Chainsaw"
+   Model 0 "Chainsaw.md3"
+   Skin 0 "Chainsaw.png"
+   Scale 0.8 0.8 0.8
+   Offset 0.0 5.0 2.0
+
+   FrameIndex SAWG A 0 0
+}
+
+Model Vanilla_Chainsaw
+{
+   Path "Models/Weapons/Hud/Chainsaw"
+   Model 0 "Chainsaw2.md3"
+   Skin 0 "Chainsaw.png"
+   Scale 0.8 0.8 0.8
+   Offset 0.0 5.0 2.0
+
+   FrameIndex SAWG B 0 0
+}
+
+Model Vanilla_Chainsaw
+{
+   Path "Models/Weapons/Hud/Chainsaw"
+   Model 0 "Chainsaw.md3"
+   Skin 0 "Chainsaw.png"
+   Scale 0.8 0.8 0.8
+   Offset 0.0 8.0 -6.0
+   PitchOffset 15
+
+   FrameIndex SAWG C 0 2
+   FrameIndex SAWG D 0 1
+}
+
+//alternate model
+
+Model Vanilla_Chainsaw
+{
+   Path "Models/Weapons/Hud/Chainsaw_alt"
+   Model 0 "doomchainsaw-00.md3"
+   Skin 0 "doomchainsaw-00.png"
+   Scale -2.2 2.2 2.2
+   Offset -1.0 -62.0 -22.0
+
+   NOINTERPOLATION
+
+   FrameIndex SAWA A 0 0
+}
+
+Model Vanilla_Chainsaw
+{
+   Path "Models/Weapons/Hud/Chainsaw_alt"
+   Model 0 "doomchainsaw-01.md3"
+   Skin 0 "doomchainsaw-00.png"
+   Scale -2.2 2.2 2.2
+   Offset -1.0 -62.0 -22.0
+
+   NOINTERPOLATION
+
+   FrameIndex SAWA B 0 0
+}
+
+Model Vanilla_Chainsaw
+{
+   Path "Models/Weapons/Hud/Chainsaw_alt"
+   Model 0 "doomchainsaw-idle1.md3"
+   Skin 0 "doomchainsaw-00.png"
+   Scale -2.2 2.2 2.2
+   Offset -1.0 -60.0 -3.0
+
+   NOINTERPOLATION
+
+   FrameIndex SAWA C 0 0
+}
+
+Model Vanilla_Chainsaw
+{
+   Path "Models/Weapons/Hud/Chainsaw_alt"
+   //Model 0 "doomchainsaw-idle2.md3"
+   Model 0 "doomchainsaw-idle1.md3"
+   Skin 0 "doomchainsaw-00.png"
+   Scale -2.2 2.2 2.2
+   Offset -1.0 -60.0 -4.0
+
+   NOINTERPOLATION
+
+   FrameIndex SAWA D 0 0
+}
+
+//D4T model
+
+Model Vanilla_Chainsaw
+{
+   Path "Models/Weapons/Hud/Chainsaw_D4"
+   Model 0 "ssaw.md3"
+   Skin 0 "ssaw.png"
+   Scale -1.45 1.45 1.45
+   Offset 0.0 -32.0 -12.0
+
+   NOINTERPOLATION
+
+   FrameIndex SWD4 A 0 0
+   FrameIndex SWD4 B 0 1
+}
+
+Model Vanilla_Chainsaw
+{
+   Path "Models/Weapons/Hud/Chainsaw_D4"
+   Model 0 "ssaw.md3"
+   Skin 0 "ssaw.png"
+   Scale -1.45 1.45 1.45
+   Offset 0.0 -29.0 -12.0
+   PitchOffset 15
+   
+   FrameIndex SWD4 C 0 0
+   FrameIndex SWD4 D 0 0
+}

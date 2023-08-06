@@ -1,0 +1,101 @@
+class ZWeapon : Weapon
+{
+	action void A_ReplaceSprite(String myvar, String listSprite, bool pickup=false, float sscale=0.7)
+	{
+		int readsetting = CVar.FindCVar(myvar).GetInt();
+		
+		Array<String> sSprites;
+		listSprite.Split(sSprites, ",");
+
+		if (readsetting && readsetting > 0) {
+		
+			String ssprite;
+			if(sSprites.Size() == 1)
+				ssprite = sSprites[0];
+			else
+				ssprite = sSprites[readsetting-1];
+			
+			if(pickup)
+			{
+				invoker.sprite = GetSpriteIndex(ssprite);
+				invoker.A_SetScale(sscale);
+			}
+			else
+			{
+				if(player && GetSpriteIndex(ssprite)) Player.GetPSprite(PSP_WEAPON).sprite = GetSpriteIndex(ssprite);
+			}
+		}
+	}
+	
+	action void A_CheckSpawnModel()
+	{
+		int weap_model = CVar.FindCVar("vvw_models").GetInt();
+		if(weap_model == 2) SetStateLabel("Spawn2");
+	}
+}
+
+class ZFist : Fist
+{
+	action void A_ReplaceSprite(String myvar, String listSprite, bool pickup=false, float sscale=0.7)
+	{
+		int readsetting = CVar.FindCVar(myvar).GetInt();
+		
+		Array<String> sSprites;
+		listSprite.Split(sSprites, ",");
+
+		if (readsetting && readsetting > 0) {
+		
+			String ssprite;
+			if(sSprites.Size() == 1)
+				ssprite = sSprites[0];
+			else
+				ssprite = sSprites[readsetting-1];
+			
+			if(pickup)
+			{
+				invoker.sprite = GetSpriteIndex(ssprite);
+				invoker.A_SetScale(sscale);
+			}
+			else
+			{
+				if(player && GetSpriteIndex(ssprite)) Player.GetPSprite(PSP_WEAPON).sprite = GetSpriteIndex(ssprite);
+			}
+		}
+	}
+}
+
+class ZChainsaw : Chainsaw
+{
+	action void A_ReplaceSprite(String myvar, String listSprite, bool pickup=false, float sscale=0.7)
+	{
+		int readsetting = CVar.FindCVar(myvar).GetInt();
+		
+		Array<String> sSprites;
+		listSprite.Split(sSprites, ",");
+
+		if (readsetting && readsetting > 0) {
+		
+			String ssprite;
+			if(sSprites.Size() == 1)
+				ssprite = sSprites[0];
+			else
+				ssprite = sSprites[readsetting-1];
+			
+			if(pickup)
+			{
+				invoker.sprite = GetSpriteIndex(ssprite);
+				invoker.A_SetScale(sscale);
+			}
+			else
+			{
+				if(player && GetSpriteIndex(ssprite)) Player.GetPSprite(PSP_WEAPON).sprite = GetSpriteIndex(ssprite);
+			}
+		}
+	}
+	
+	action void A_CheckSpawnModel()
+	{
+		int weap_model = CVar.FindCVar("vvw_models").GetInt();
+		if(weap_model == 2) SetStateLabel("Spawn2");
+	}
+}

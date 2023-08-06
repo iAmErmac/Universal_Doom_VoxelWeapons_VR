@@ -1,0 +1,68 @@
+//default model
+
+Model Vanilla_PlasmaRifle
+{ 
+   Path "Models/Weapons/Hud/PlasmaRifle"
+   Model 0 "PlasmaRifle.md3"
+   Skin 0 "PlasmaRifle.png"
+   Scale 1.1 1.1 1.1
+   Offset 0.0 23.0 8.0
+	
+   NOINTERPOLATION
+
+   FrameIndex PLSG A 0 0
+   
+   Offset 0.0 28.0 0.0
+   PitchOffset 15
+
+   FrameIndex PLSG B 0 0
+}
+
+//alternate model
+
+Model Vanilla_PlasmaRifle
+{ 
+   Path "Models/Weapons/Hud/PlasmaRifle_alt"
+   Model 0 "doomplasma-00.md3"
+   Skin 0 "doomplasma-00.png"
+   Scale -1.2 1.4 1.1
+   Offset 0.0 -50.0 -11.0
+	
+   NOINTERPOLATION
+
+   FrameIndex PLSA A 0 0
+   
+   Model 0 "doomplasma-03.md3"
+   
+   FrameIndex PLSA B 0 0
+}
+
+//D4T model
+
+Model Vanilla_PlasmaRifle
+{ 
+   Path "Models/Weapons/Hud/PlasmaRifle_D4"
+   Model 0 "splasmaun.md3"
+   Skin 0 "splasmaun.png"
+   Scale 1.5 1.5 1.5
+   Offset 0.0 -28.0 -8.0
+
+   FrameIndex PLD4 A 0 0
+   FrameIndex PLD4 B 0 1
+}
+
+//gun flash default
+
+Model Vanilla_PlasmaRifle
+{ 
+   Path "Models/Weapons/Hud/PlasmaRifle"
+   Model 0 "PlasmaRifle-FL.MD2"
+   Skin 0 "PlasmaRifle-FL.png"
+   Scale -2.0 1.0 2.0
+   Offset 3.0 -33.0 22.0
+
+   FrameIndex PLSF A 0 5
+   
+   Skin 0 "PlasmaRifle-FL1.png"
+   FrameIndex PLSF B 0 7
+}

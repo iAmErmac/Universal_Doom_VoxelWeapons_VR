@@ -1,5 +1,0 @@
-//Player class override in-case some mod uses this file
-Gameinfo
-{
-	Playerclasses = "DoomMarineGuy"
-}

@@ -1,36 +1,49 @@
 AddOptionMenu "OptionsMenu"
 {
-	StaticText " "
-	Submenu "Voxel Weapon Settings", "VDW_Settings"
+	Submenu "$VDW_OPTIONS", "VDW_Settings"
 }
 
 OptionMenu "VDW_Settings" {
-	Title "Voxel Weapon Settings"
+	Title "$VDW_OPTIONS"
 	StaticText " "
 	
-	Option "Weapons models", "vvw_models", "V_Models_Option"
-	Option "Pickup graphics", "vvw_pickupmodel", "V_PickupModel_Option"
-	Option "Weapons mode", "vvw_weapons", "V_Weapons_Option"
-	Option "Bullet Tracers", "vvw_tracers", "OnOff"
-	Option "Weapon switching", "vvw_fastswitch", "V_WeaponSwitch_Option"
+	StaticText "$VDW_WEAPON", "Gold"
+	Option "$VDW_WEAPON_MODEL", 		"vvw_models", 			"V_Models_Option"
+	Option "$VDW_WEAPON_PICKUP", 		"vvw_pickupmodel", 		"V_PickupModel_Option"
+	Option "$VDW_WEAPON_MODE", 		"vvw_weapons", 			"V_Weapons_Option"
+	Option "$VDW_WEAPON_FLASH", 		"vvw_flash_sprite", 		"OnOff"
+	Option "$VDW_WEAPON_TRACER", 		"vvw_tracers", 			"OnOff"
+	Option "$VDW_WEAPON_SWITCH", 		"vvw_fastswitch", 		"V_WeaponSwitch_Option"
+	
+	StaticText " "
+	StaticText "$VDW_CUSTOM_DROPS", "Gold"
+	Option "$VDW_DROP_REPLACE", 		"vvw_drop_replace", 	"V_DropReplace_Option"
+	StaticText "$VDW_DROP_REPLACE_NOTE", "DarkGrey"
+	StaticText "$VDW_DROP_REPLACE_NOTE2", "DarkGrey"
 }
 
 OptionValue "V_Models_Option" {
-	0, "Default"
-	1, "Alternative"
+	0, "$VDW_OPT_DEFAULT"
+	1, "$VDW_OPT_ALT"
+	2, "$VDW_OPT_D4T"
 }
 
 OptionValue "V_Weapons_Option" {
-	0, "Vanilla"
-	1, "Enhanced"
+	0, "$VDW_OPT_VANILLA"
+	1, "$VDW_OPT_ENH"
 }
 
 OptionValue "V_WeaponSwitch_Option" {
-	0, "Default"
-	1, "Fast"
+	0, "$VDW_OPT_DEFAULT"
+	1, "$VDW_OPT_FAST"
 }
 
 OptionValue "V_PickupModel_Option" {
-	0, "Sprite"
-	1, "Voxel"
+	0, "$VDW_OPT_SPRITE"
+	1, "$VDW_OPT_VOXEL"
+}
+
+OptionValue "V_DropReplace_Option" {
+	0, "$VDW_OPT_REMOVE"
+	1, "$VDW_OPT_REPLACE"
 }

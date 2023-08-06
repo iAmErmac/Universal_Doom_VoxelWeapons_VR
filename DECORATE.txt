@@ -1,19 +1,21 @@
-//Misc actors
-#include "Decorate/misc.txt"
+
+//Effects
+#include "decorate/effects.txt"
 
 //Player Class override
-#include "Decorate/doom_marine.txt"
+#include "decorate/doom_marine.txt"
 
 //Weapons override
-#include "Decorate/fist.txt"
-#include "Decorate/chainsaw.txt"
-#include "Decorate/pistol.txt"
-#include "Decorate/shotgun.txt"
-#include "Decorate/supershotgun.txt"
-#include "Decorate/chaingun.txt"
-#include "Decorate/rocketlauncher.txt"
-#include "Decorate/plasmarifle.txt"
-#include "Decorate/bfg9000.txt"
+#include "decorate/weapons/fist.txt"
+#include "decorate/weapons/chainsaw.txt"
+#include "decorate/weapons/pistol.txt"
+#include "decorate/weapons/shotgun.txt"
+#include "decorate/weapons/supershotgun.txt"
+#include "decorate/weapons/chaingun.txt"
+#include "decorate/weapons/rocketlauncher.txt"
+#include "decorate/weapons/plasmarifle.txt"
+#include "decorate/weapons/bfg9000.txt"
 
 //Ammo override
-#include "Decorate/ammo.txt"
+#include "decorate/ammo.txt"
+

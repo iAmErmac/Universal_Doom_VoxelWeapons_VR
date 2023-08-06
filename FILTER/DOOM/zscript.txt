@@ -1,4 +1,0 @@
-version "3.6"
-
-#include "Scripts/mod_weapon_ammo_replace.txt"
-#include "Scripts/wolf3d_inventory_fix.txt"

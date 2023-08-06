@@ -1,0 +1,4 @@
+
+//replace the custom drop eventhandler with an empty one
+//so the items from this iwad won't get replaced
+Class CustomDropReplacer : EventHandler {}

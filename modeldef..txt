@@ -1,0 +1,13 @@
+//weapons
+#include "modeldef/modeldef_fist.txt"
+#include "modeldef/modeldef_chainsaw.txt"
+#include "modeldef/modeldef_pistol.txt"
+#include "modeldef/modeldef_shotgun.txt"
+#include "modeldef/modeldef_ssg.txt"
+#include "modeldef/modeldef_chaingun.txt"
+#include "modeldef/modeldef_rocketlauncher.txt"
+#include "modeldef/modeldef_plasmarifle.txt"
+#include "modeldef/modeldef_bfg.txt"
+
+//tracer
+#include "modeldef/modeldef_tracer.txt"

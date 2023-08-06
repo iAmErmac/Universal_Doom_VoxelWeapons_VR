@@ -1,4 +1,0 @@
-Gameinfo
-{
-	Playerclasses = "DoomMarineGuy"
-}

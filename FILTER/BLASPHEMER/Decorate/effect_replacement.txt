@@ -1,0 +1,9 @@
+Actor BD_BFGBall2 : BD_BFGBall replaces BD_BFGBall
+{
+	translation "192:207=224:209"
+}
+
+Actor BFBeam2 : BFBeam replaces BFBeam
+{
+	translation "192:207=112:127"
+}

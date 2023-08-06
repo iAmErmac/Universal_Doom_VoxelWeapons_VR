@@ -1,0 +1,142 @@
+ACTOR Vanilla_SuperShotgun : ZWeapon
+{
+	Weapon.SelectionOrder 400
+	Weapon.AmmoUse 2
+	Weapon.AmmoGive 8
+	Weapon.AmmoType "Shell"
+	Inventory.PickupMessage "$GOTSHOTGUN2"
+	Obituary "$OB_MPSSHOTGUN"
+	Tag "$TAG_SUPERSHOTGUN"
+	
+	Weapon.AmmoType2 "Shell"
+	Weapon.AmmoUse2 1
+	States
+	{
+	Ready:
+		SHT2 A 0 A_ReplaceSprite("vvw_models","SHT3,SGD4")
+		"####" A 1 A_WeaponReady
+		Loop
+	Deselect:
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_fastswitch")==0, 2)
+		"####" A 1 A_Lower(60)
+		Loop
+		"####" A 1 A_Lower
+		Loop
+	Select:
+		SHT2 A 0 A_ReplaceSprite("vvw_models","SHT3,SGD4")
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_fastswitch")==0, 2)
+		"####" A 1 A_Raise(60)
+		Loop
+		"####" A 1 A_Raise
+		Loop
+	Fire:
+		"####" A 3
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_weapons")==1, "Fire.Enhanced")
+		"####" "#" 0 A_FireBullets (11.2, 7.1, 20, 5, "BulletPuff")
+		"####" "#" 0 A_PlaySound ("weapons/sshotf", CHAN_WEAPON)
+		"####" A 7 A_GunFlash
+		"####" B 7
+		"####" C 7 A_CheckReload
+		"####" D 7 A_PlaySound ("weapons/sshoto", CHAN_WEAPON)
+		"####" E 7
+		"####" F 7 A_PlaySound ("weapons/sshotl", CHAN_WEAPON)
+		"####" G 6
+		"####" "#" 0 A_PlaySound ("weapons/sshotc", CHAN_WEAPON)
+		"####" H 6 A_ReFire
+		"####" A 5 A_ReFire
+		Goto Ready
+	Fire.Enhanced:
+		"####" "#" 0 A_JumpIfInventory("SSGshotfired",1,"AltFireSecond")
+		"####" "#" 0 bright A_FireBullets (11.2, 7.1, 20, 5, "EnShotPuff")
+		"####" "#" 0 A_PlaySound ("weapons/ssg/fire", CHAN_WEAPON)
+		"####" A 7 A_GunFlash
+		"####" "#" 0 A_FireProjectile("ShotgunBarrelSmoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		"####" B 7
+		"####" C 7 A_CheckReload
+		"####" D 7 A_PlaySound ("weapons/ssg/open", CHAN_WEAPON)
+		"####" E 7
+		"####" F 7 A_PlaySound ("weapons/ssg/in", CHAN_WEAPON)
+		"####" G 6
+		"####" "#" 0 A_PlaySound ("weapons/ssg/close", CHAN_WEAPON)
+		"####" H 6 A_ReFire
+		"####" A 5 A_ReFire
+		TNT1 A 0 A_FireProjectile("ShotgunBarrel1Smoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		TNT1 A 0 A_FireProjectile("ShotgunBarrel2Smoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		Goto Ready
+	AltFire:
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_weapons")==0, "Ready") //Alt fire is available on enhanced mode only
+		"####" "#" 0 A_JumpIfInventory("SSGshotfired",1,"AltFireSecond")
+		"####" A 3
+		"####" "#" 0 A_GiveInventory("SSGshotFired",1)
+		"####" "#" 0 bright A_FireBullets(10,6.5,10,5,"EnShotPuff")
+		"####" "#" 0 A_PlaySound ("weapons/ssg/fire", CHAN_WEAPON)
+		"####" A 1 A_GunFlash("AltFlash")
+		"####" A 0 A_FireProjectile("ShotgunBarrel1Smoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		"####" BC 3
+		goto ready
+	AltFireSecond:
+		"####" A 3
+		"####" "#" 0 A_Takeinventory("SSGshotFired",1)
+		"####" "#" 0 bright A_FireBullets(10,6.5,10,5,"EnShotPuff")
+		"####" "#" 0 A_PlaySound ("weapons/ssg/fire", CHAN_WEAPON)
+		"####" A 1 A_GunFlash("AltFlash")
+		"####" A 0 A_FireProjectile("ShotgunBarrel2Smoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		"####" B 5
+		"####" C 5 A_CheckReload
+		"####" D 7 A_PlaySound ("weapons/ssg/open", CHAN_WEAPON)
+		"####" E 7
+		"####" F 7 A_PlaySound ("weapons/ssg/in", CHAN_WEAPON)
+		"####" G 6
+		"####" "#" 0 A_PlaySound ("weapons/ssg/close", CHAN_WEAPON)
+		"####" H 6 A_ReFire
+		"####" A 5 A_ReFire
+		goto ready
+	Flash:
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_tracers")==false, "Flash.Vanilla")
+		TNT1 AAAAAA 0 A_FireProjectile("BulletTracer",random(-3,3),0,0,0,FPF_NOAUTOAIM,random(-1,1))
+	Flash.Vanilla:
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_flash_sprite")==false, "NoFlashSprite")
+		SHT2 I 4 Bright A_Light1
+		SHT2 J 3 Bright A_Light2
+		Goto LightDone
+	AltFlash:
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_tracers")==false, "Flash.Vanilla")
+		TNT1 AAA 0 A_FireProjectile("BulletTracer",random(-6,6),0,0,0,FPF_NOAUTOAIM,random(-3,3))
+	AltFlash1:
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_flash_sprite")==false, "NoFlashSprite")
+		TNT1 A 0 A_JumpIfInventory("SSGshotfired",1,"NoFlashSpriteAlt")
+		SHTF A 4 Bright A_Light1
+		Goto LightDone
+	AltFlash2:
+		SHTF B 4 Bright A_Light1
+		Goto LightDone
+	NoFlashSprite:
+		TNT1 A 4 A_Light1
+		TNT1 A 3 A_Light2
+		Goto LightDone
+	NoFlashSpriteAlt:
+		TNT1 A 4 A_Light1
+		Goto LightDone
+	Spawn:
+		SGN2 A 0 A_CheckSpawnModel()
+		SGN2 A 0 A_ReplaceSprite("vvw_pickupmodel","VSSG", true, 1)
+		"####" A 1
+		Loop
+	Spawn2:
+		VSSS A 0 A_ReplaceSprite("vvw_pickupmodel","VSS4", true, 1)
+		"####" A 1
+		Goto Spawn
+	Dummy:
+		SHT3 ABCDEFGH 0
+		SGD4 ABCDEFGH 0
+		VSSG A 0
+		VSS4 A 0
+		Stop
+	}
+}
+
+//Used as flag for enhanced mode alt fire only
+Actor SSGshotFired : DummyChecker
+{
+	inventory.maxamount 1
+}

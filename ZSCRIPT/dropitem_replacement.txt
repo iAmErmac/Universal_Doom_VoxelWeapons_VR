@@ -1,0 +1,546 @@
+//This will attempt to fix mod specific drops from monsters so everything stays vanilla
+		
+Class CustomDropReplacer : EventHandler
+{
+	override void WorldLoaded(WorldEvent event)
+	{
+		_isTitlemap = CheckTitlemap();
+	}
+	
+	override void WorldTick()
+	{
+		if(_isTitlemap) return;
+		
+		let player = Players[ConsolePlayer].mo;
+		if(!player) return;
+		
+		//if some mod forcibly clears player inventory and remove our custom weapon
+		//then give player the basic weapons
+		//an example is Wolf3D TC mod
+		if(player.GetAge() > 35 && !player.FindInventory("Vanilla_Pistol"))
+		{
+			player.SetInventory("Vanilla_ChainSaw", 1);
+			player.SetInventory("Vanilla_Fist", 1);
+			player.SetInventory("Vanilla_Pistol", 1);
+			if(!player.CountInv("Clip")) player.SetInventory("Clip", 50);
+		}
+	}
+
+	override void CheckReplacement(ReplaceEvent e)
+	{
+		if(_isTitlemap) return;
+		
+		switch (e.Replacee.GetClassName())
+		{
+
+			//***** Fixes for Pirate Doom *****
+			
+			//ammo drops
+			case 'Bullets' :
+			case 'Bullets2' : e.Replacement = 'Vanilla_Clip';  break;
+			case 'BulletBox' : e.Replacement = 'Vanilla_ClipBox';  break;
+			case 'ballammo' : e.Replacement = 'Vanilla_RocketAmmo';  break;
+			case 'ballsammo' : e.Replacement = 'Vanilla_RocketBox';  break;
+			case 'Dynamite' : e.Replacement = 'Vanilla_Cell';  break;
+			case 'dynamiteammo' : e.Replacement = 'Vanilla_CellPack';  break;
+			
+			//weapon drops
+			case 'gatlingun' : e.Replacement = 'Vanilla_Chaingun';  break;
+			
+			
+			//***** Fixes for D4T *****
+			
+			//ammo drops
+			case 'D4FuelSmall' :
+			case 'D4FuelDM' :
+			case 'D4BulletsSmall' :
+			case 'D4BulletsDM' :
+			case 'D4Bullets' : e.Replacement = 'Vanilla_Clip';  break;
+			case 'D4SlugsDM' :
+			case 'PistolModDropper' :
+			case 'D4Slugs' : e.Replacement = 'Vanilla_ClipBox';  break;
+			case 'D4Fuel' :
+			case 'D4ShellsSmall' :
+			case 'D4ShellsDM' :
+			case 'D4Shells' : e.Replacement = 'Vanilla_Shell';  break;
+			case 'ShotgunModDropper' :
+			case 'D4SlugsSmall' : e.Replacement = 'Vanilla_ShellBox';  break;
+			case 'D4SoulsSmall' :
+			case 'D4CellsDM' :
+			case 'D4CellsSmall' : e.Replacement = 'Vanilla_Cell';  break;
+			case 'D4BFGAmmo' :
+			case 'D4Souls' :
+			case 'D4Cells' : e.Replacement = 'Vanilla_CellPack';  break;
+			case 'D4RocketsDM' :
+			case 'D4RocketsSmall' : e.Replacement = 'Vanilla_RocketAmmo';  break;
+			case 'D4Rockets' : e.Replacement = 'Vanilla_RocketBox';  break;
+			
+			//weapon drops
+			case 'D4Shotgun' : e.Replacement = 'Vanilla_Shotgun';  break;
+			case 'D4SuperShotgun' : e.Replacement = 'Vanilla_SuperShotgun';  break;
+			case 'D4HAR' :
+			case 'D4Chaingun' : e.Replacement = 'Vanilla_Chaingun';  break;
+			case 'D4GrenadeLauncher' : e.Replacement = 'Vanilla_RocketLauncher';  break;
+			case 'D4PlasmaRifle' :
+			case 'D4LightningGun' :
+			case 'D4GaussCannon' : e.Replacement = 'Vanilla_PlasmaRifle';  break;
+			
+			//extra stuff
+			case 'ZombieGrenadeDrop' :
+			case 'DemonGrenadeDrop' :
+			case 'CyberGrenadeDrop' : e.Replacement = 'BasicStuffDrop';  break;
+			
+			case 'PistolModDropper' :
+			case 'ShotgunModDropper' :
+			case 'SuperShotgunModDropper' :
+			case 'StaticRifleModDropper' :
+			case 'HARModDropper' :
+			case 'ChaingunModDropper' :
+			case 'RocketLauncherModDropper' :
+			case 'GrenadeLauncherModDropper' :
+			case 'PlasmaRifleModDropper' :
+			case 'LightningGunModDropper' :
+			case 'ReaperandUpgradesDropper' :
+			case 'GaussCannonModDropper' :
+			case 'BFGModDropper' : e.Replacement = 'AdvanceStuffDrop';  break;
+			
+			
+			//***** Fixes for Wolf3D TC *****
+			
+			//ammo drops
+			case 'WolfClipLost' :
+			case 'WolfClipDrop' :
+			case 'WolfClipDropLost' :
+			case 'WolfClip' : switch(random(0,4)){ case 4: e.Replacement = 'Vanilla_Shell';  break; default: e.Replacement = 'Vanilla_Clip';  break; }; break;
+			case 'WolfClipBoxSoD' :
+			case 'WolfClipBoxLost' :
+			case 'WolfClipBox' : switch(random(0,4)){ case 4: e.Replacement = 'Vanilla_ShellBox';  break; default: e.Replacement = 'Vanilla_ClipBox';  break; }; break;
+			case 'WolfRocketPickup' : e.Replacement = 'Vanilla_RocketAmmo';  break;
+			case 'WolfRocketCrate' : e.Replacement = 'Vanilla_RocketBox';  break;
+			case 'WolfGas' : e.Replacement = 'Vanilla_Cell';  break;
+			case 'WolfGasCan' : e.Replacement = 'Vanilla_CellPack';  break;
+			
+			//weapon drops
+			case 'WolfPistolLost' :
+			case 'WolfPistol' : switch(random(0,4)){ case 4: e.Replacement = 'ShellDrop';  break; default: e.Replacement = 'ClipDrop';  break; }; break;
+			case 'WolfMachineGunLost' :
+			case 'WolfMachineGun' : e.Replacement = 'Vanilla_Shotgun';  break;
+			case 'WolfChaingunSoD' :
+			case 'WolfChaingunLost' :
+			case 'WolfChaingun' : e.Replacement = 'Vanilla_Chaingun';  break;
+			case 'WolfFlamethrower' : e.Replacement = 'Vanilla_PlasmaRifle';  break;
+			case 'WolfRocketLauncher' : e.Replacement = 'Vanilla_RocketLauncher';  break;
+			case 'WolfDualChaingun' : e.Replacement = 'Vanilla_BFG9000';  break;
+
+		}
+	}
+	
+	//must replace all custom weapons and ammo drops
+	override void WorldThingSpawned(WorldEvent e)
+	{
+		_isTitlemap = CheckTitlemap();
+		if(_isTitlemap) return;
+		
+		let player = Players[ConsolePlayer].mo;
+		if(!player) return;
+	
+		//do no replace drops from heretic/hexen/strife. they will be handled by filter lumps
+		if((GameInfo.GameType & GAME_Heretic) || (GameInfo.GameType & GAME_Hexen) || (GameInfo.GameType & GAME_Strife)) return;
+		
+		let spawned_thing = e.Thing;
+		
+		bool custom_drop_replace = Cvar.FindCvar("vvw_drop_replace").GetBool();
+	
+		String pickup_class = spawned_thing.GetClassName();
+		pickup_class = pickup_class.MakeLower();
+		
+		//check first if it's the items from this mod
+		for(int i = 0; i < VDW_pickup_list.Size(); i++) {
+			if(spawned_thing && pickup_class == VDW_pickup_list[i]) {
+				return;
+				break;
+			}
+		}
+		
+		//now try to match weapons based on parent class
+		if(spawned_thing is "weapon")
+		{
+			bool weapon_replaced;
+			if(spawned_thing is "supershotgun" || pickup_class.IndexOf("supershotgun") >= 0 || pickup_class.IndexOf("ssg") >= 0 || pickup_class.IndexOf("sawed") >= 0)
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_supershotgun", 1);
+				else
+					Actor.Spawn("vanilla_supershotgun", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "shotgun" || pickup_class.IndexOf("shotgun") >= 0 || pickup_class.IndexOf("shotty") >= 0 || pickup_class.IndexOf("boomstick") >= 0)
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_shotgun", 1);
+				else
+					Actor.Spawn("vanilla_shotgun", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "rocketlauncher" || pickup_class.IndexOf("rpg") >= 0 || pickup_class.IndexOf("rocket") >= 0 || pickup_class.IndexOf("missile") >= 0 || pickup_class.IndexOf("grenade") >= 0 || pickup_class.IndexOf("flak") >= 0)
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_rocketlauncher", 1);
+				else
+					Actor.Spawn("vanilla_rocketlauncher", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "plasmarifle" || pickup_class.IndexOf("plasma") >= 0 || pickup_class.IndexOf("laser") >= 0 || pickup_class.IndexOf("flame") >= 0 || pickup_class.IndexOf("lightning") >= 0)
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_plasmarifle", 1);
+				else
+					Actor.Spawn("vanilla_plasmarifle", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "bfg9000" || pickup_class.IndexOf("bfg") >= 0 || pickup_class.IndexOf("blackhole") >= 0 || pickup_class.IndexOf("mass") >= 0)
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_bfg9000", 1);
+				else
+					Actor.Spawn("vanilla_bfg9000", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "chaingun" || pickup_class.IndexOf("chaingun") >= 0 || pickup_class.IndexOf("machinegun") >= 0 || pickup_class.IndexOf("smg") >= 0 || pickup_class.IndexOf("assault") >= 0 || pickup_class.IndexOf("rifle") >= 0 || pickup_class.IndexOf("mp") >= 0 || pickup_class.IndexOf("machine") >= 0 || pickup_class.IndexOf("carbine") >= 0 || pickup_class.IndexOf("ak47") >= 0)
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_chaingun", 1);
+				else
+					Actor.Spawn("vanilla_chaingun", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "pistol" || pickup_class.IndexOf("pistol") >= 0 || pickup_class.IndexOf("magnum") >= 0 || pickup_class.IndexOf("colt") >= 0 || pickup_class.IndexOf("berreta") >= 0 || pickup_class.IndexOf("luger") >= 0)
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_pistol", 1);
+				else
+					Actor.Spawn("vanilla_pistol", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "chainsaw" || pickup_class.IndexOf("saw") >= 0 || pickup_class.IndexOf("grind") >= 0)
+			{
+				if(player.FindInventory(pickup_class)) //check if it went into inventory
+					player.GiveInventory("vanilla_chainsaw", 1);
+				else
+					Actor.Spawn("vanilla_chainsaw", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			if(weapon_replaced)
+			{
+				spawned_thing.Destroy();
+				return;
+			}
+		}
+		
+		
+		//now try to match ammo based on parent class
+		if(spawned_thing is "weapon")
+		{
+			bool ammo_replaced;
+			if(spawned_thing is "clipbox" || pickup_class.IndexOf("clipbox") >= 0 || pickup_class.IndexOf("mag") >= 0 || (pickup_class.IndexOf("box") >= 0 && (pickup_class.IndexOf("bullet") >= 0 || pickup_class.IndexOf("clip") >= 0)))
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_clipbox", 1);
+				else
+					Actor.Spawn("vanilla_clipbox", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(spawned_thing is "clip" || pickup_class.IndexOf("clip") >= 0 || pickup_class.IndexOf("bullet") >= 0)
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_clip", 1);
+				else
+					Actor.Spawn("vanilla_clip", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(spawned_thing is "shellbox" || pickup_class.IndexOf("shellbox") >= 0 || (pickup_class.IndexOf("box") >= 0 && (pickup_class.IndexOf("shell") >= 0 || pickup_class.IndexOf("slug") >= 0)))
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_shellbox", 1);
+				else
+					Actor.Spawn("vanilla_shellbox", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(spawned_thing is "shell" || pickup_class.IndexOf("shell") >= 0|| pickup_class.IndexOf("slug") >= 0)
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_shell", 1);
+				else
+					Actor.Spawn("vanilla_shell", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(spawned_thing is "rocketbox" || pickup_class.IndexOf("rocketbox") >= 0 || (pickup_class.IndexOf("box") >= 0 && (pickup_class.IndexOf("rocket") >= 0 || pickup_class.IndexOf("grenade") >= 0 || pickup_class.IndexOf("flak") >= 0)))
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_rocketbox", 1);
+				else
+					Actor.Spawn("vanilla_rocketbox", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(spawned_thing is "rocketammo" || pickup_class.IndexOf("rocketammo") >= 0 || pickup_class.IndexOf("rocket") >= 0 || pickup_class.IndexOf("grenade") >= 0|| pickup_class.IndexOf("flak") >= 0)
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_rocketammo", 1);
+				else
+					Actor.Spawn("vanilla_rocketammo", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(spawned_thing is "cellpack" || pickup_class.IndexOf("cellpack") >= 0 || (pickup_class.IndexOf("box") >= 0 && (pickup_class.IndexOf("cell") >= 0 || pickup_class.IndexOf("plasma") >= 0 || pickup_class.IndexOf("energy") >= 0 || pickup_class.IndexOf("electric") >= 0 || pickup_class.IndexOf("laser") >= 0 || pickup_class.IndexOf("flame") >= 0)))
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_cellpack", 1);
+				else
+					Actor.Spawn("vanilla_cellpack", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(spawned_thing is "cell" || pickup_class.IndexOf("cell") >= 0 || pickup_class.IndexOf("plasma") >= 0 || pickup_class.IndexOf("energy") >= 0 || pickup_class.IndexOf("electric") >= 0 || pickup_class.IndexOf("laser") >= 0 || pickup_class.IndexOf("flame") >= 0)
+			{
+				if(player.FindInventory(pickup_class))
+					player.GiveInventory("vanilla_cell", 1);
+				else
+					Actor.Spawn("vanilla_cell", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			if(ammo_replaced)
+			{
+				spawned_thing.Destroy();
+				return;
+			}
+		}
+		
+		if(spawned_thing is "BackpackItem")
+		{
+			Actor.Spawn("vanilla_backpack", spawned_thing.pos);
+			spawned_thing.Destroy();
+			return;
+		}
+		
+		//here we deal with all the unknown weapons and ammo
+		if(spawned_thing is "Ammo" || spawned_thing is "Weapon")
+		{
+			//if this thing is given by the game into player iventory then destroy it immediately
+			if(player.FindInventory(spawned_thing.GetClassName()))
+			{
+				spawned_thing.Destroy();
+				return;
+			}
+		
+			//Remove all custom ammo or weapon from inventory
+			let invitem = Inventory(spawned_thing);
+			if(invitem.owner && (spawned_thing is "Ammo" || spawned_thing is "Weapon"))
+			{
+				invitem.owner.RemoveInventory(invitem);
+			}
+			
+			if(custom_drop_replace)
+			{
+				//Replace all spawned custom weapon and ammo
+				if(spawned_thing is "Weapon") { spawned_thing.Spawn("UnknownWeaponReplacer", spawned_thing.pos); }
+				if(spawned_thing is "Ammo") { spawned_thing.Spawn("UnknownAmmoReplacer", spawned_thing.pos); }
+			}
+			
+			spawned_thing.Destroy();
+		}
+	}
+	
+	static const string VDW_pickup_list[] = {
+	
+		"fist", "vanilla_fist",
+		"chainsaw", "vanilla_chainsaw", "vanilla_chainsawspawner",
+		"pistol", "vanilla_pistol", "vanilla_pistolspawner",
+		"shotgun", "vanilla_shotgun", "vanilla_shotgunspawner",
+		"supershotgun", "vanilla_supershotgun", "vanilla_supershotgunspawner",
+		"chaingun", "vanilla_chaingun", "vanilla_chaingunspawner",
+		"rocketlauncher", "vanilla_rocketlauncher", "vanilla_rocketlauncherspawner",
+		"plasmarifle", "vanilla_plasmarifle", "vanilla_plasmariflespawner",
+		"bfg9000", "vanilla_bfg9000", "vanilla_bfgspawner",
+		
+		"clip", "vanilla_clip", "vanilla_clipspawner",
+		"clipbox", "vanilla_clipbox", "vanilla_clipboxspawner",
+		"shell", "vanilla_shell", "vanilla_shellspawner",
+		"shellbox", "vanilla_shellbox", "vanilla_shellboxspawner",
+		"rocketammo", "vanilla_rocketammo", "vanilla_rocketammospawner",
+		"rocketbox", "vanilla_rocketbox", "vanilla_rocketboxspawner",
+		"cell", "vanilla_cell", "vanilla_cellspawner",
+		"cellpack", "vanilla_cellpack", "vanilla_cellpackspawner",
+		"backpack", "vanilla_backpack", "vanilla_backpackspawner"
+	};
+
+	private static bool CheckTitlemap()
+	{
+		bool isTitlemap = (level.mapname == "TITLEMAP");
+		return isTitlemap;
+	}
+	
+	private bool _isTitlemap;
+}
+
+Class BasicAmmoPack : Actor
+{
+	Default
+	{
+	Speed 15;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+		TNT1 AAAAAAAAAA 1 A_Wander;
+		TNT1 A 1 A_Jump(16, "SpawnA");
+		TNT1 A 1 A_Jump(64, "SpawnB");
+		TNT1 A 1 A_Jump(128, "SpawnC");
+		Stop;
+	SpawnA:
+		TNT1 A 1 A_DropItem("vanilla_clipbox");
+		Stop;
+	SpawnB:
+		TNT1 A 1 A_DropItem("vanilla_shell");
+		Stop;
+	SpawnC:
+		TNT1 A 1 A_DropItem("vanilla_clip");
+		Stop;
+	}
+}
+
+Class AdvancedAmmoPack : Actor
+{
+	Default
+	{
+	Speed 15;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+		TNT1 AAAAAAAAAA 1 A_Wander;
+		TNT1 A 1 A_Jump(16, "SpawnA");
+		TNT1 A 1 A_Jump(32, "SpawnB");
+		TNT1 A 1 A_Jump(64, "SpawnC");
+		TNT1 A 1 A_Jump(128, "SpawnD");
+		Stop;
+	SpawnA:
+		TNT1 A 1 A_DropItem("vanilla_cellpack");
+		Stop;
+	SpawnB:
+		TNT1 A 1 A_DropItem("vanilla_cell");
+		Stop;
+	SpawnC:
+		TNT1 A 1 A_DropItem("vanilla_rocketammo");
+		Stop;
+	SpawnD:
+		TNT1 A 1 A_DropItem("vanilla_shellbox");
+		Stop;
+	}
+}
+
+Class BasicArsenalDrop : Actor
+{
+	Default
+	{
+	Speed 15;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+		TNT1 AAAAAAAAAA 1 A_Wander;
+		TNT1 A 0 A_Gravity;
+		TNT1 A 0 A_Fall;
+		TNT1 A 0 A_Jump(16, "SpawnA");
+		TNT1 A 0 A_Jump(32, "SpawnB");
+		Goto SpawnBonusAmmo;
+	SpawnA:
+		TNT1 AAAAAAAAAA 1 A_Wander; // a simple hack to scatter the drops
+		TNT1 A 0 A_DropItem("vanilla_chaingun");
+		Goto SpawnBonusAmmo;
+	SpawnB:
+		TNT1 AAAAAAAAAA 1 A_Wander;
+		TNT1 A 0 A_DropItem("vanilla_shotgun");
+	SpawnBonusAmmo:
+		TNT1 A 0 A_DropItem("BasicAmmoPack");
+		Stop;
+	}
+}
+
+Class AdvancedArsenalDrop : Actor
+{
+	Default
+	{
+	Speed 15;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+		TNT1 AAAAAAAAAA 1 A_Wander;
+		TNT1 A 0 A_Fall;
+		TNT1 A 1 A_Jump(32, "SpawnA", "SpawnB");
+		Goto SpawnBonusAmmo;
+	SpawnA:
+		TNT1 A 1 A_DropItem("vanilla_plasmarifle");
+		Goto SpawnBonusAmmo;
+	SpawnB:
+		TNT1 A 1 A_DropItem("vanilla_rocketlauncher");
+	SpawnBonusAmmo:
+		TNT1 A 1 A_DropItem("AdvancedAmmoPack");
+		Stop;
+	}
+}
+
+Class NoArsenalDrop : Actor
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1;
+		Stop;
+	}
+}
+
+Class UnknownAmmoReplacer : RandomSpawner 
+{
+	Default
+	{
+	DropItem "BasicAmmoPack", 255, 12;
+	DropItem "AdvancedAmmoPack", 255, 7;
+	DropItem "NoArsenalDrop", 255, 1;
+	}
+}
+
+Class UnknownWeaponReplacer : RandomSpawner
+{
+	Default
+	{
+	DropItem "NoArsenalDrop", 255, 10;
+	DropItem "BasicArsenalDrop", 255, 7;
+	DropItem "AdvancedArsenalDrop", 255, 3;
+	}
+}
+
+Class BasicStuffDrop: RandomSpawner
+{
+	Default
+	{
+	DropItem "Stimpack", 128, 6;
+	DropItem "GreenArmor", 128, 4;
+	}
+}
+
+Class AdvanceStuffDrop: RandomSpawner
+{
+	Default
+	{
+	DropItem "Medikit", 128, 6;
+	DropItem "BlueArmor", 128, 3;
+	DropItem "Soulsphere", 128, 1;
+	}
+}

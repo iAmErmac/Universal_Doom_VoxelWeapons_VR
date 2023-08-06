@@ -12,10 +12,10 @@ Actor _Mana2 : RandomSpawner replaces Mana2 124
 
 Actor _Mana3 : RandomSpawner replaces Mana3 8004
 {
-	DropItem "Vanilla_ClipBox"
-	DropItem "Vanilla_ShellBox"
-	DropItem "Vanilla_RocketBox"
-	DropItem "Vanilla_CellPack"
+	DropItem "Vanilla_ClipBox", 256, 3
+	DropItem "Vanilla_ShellBox", 256, 3
+	DropItem "Vanilla_RocketBox", 256, 2
+	DropItem "Vanilla_CellPack", 256, 2
 }
 
 Actor _ArtiBoostMana : Vanilla_Backpack replaces ArtiBoostMana 8003

@@ -1,0 +1,5 @@
+Gameinfo
+{
+	Playerclasses = "DoomMarineGuy"
+	AddEventHandlers = "CustomDropReplacer"
+}

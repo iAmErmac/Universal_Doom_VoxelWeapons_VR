@@ -1,0 +1,149 @@
+//default model
+
+Model Vanilla_Fist
+{
+   Path "Models/Weapons/Hud/Fist"
+   Model 0 "Fist.md3"
+   Skin 0 "Fist.png"
+   Scale 1.2 1.2 1.2
+   Offset 0.0 6.0 2.0
+
+   NOINTERPOLATION
+
+   FrameIndex PUNG A 0 16
+   FrameIndex PUNG B 0 12
+}
+
+Model Vanilla_Fist
+{
+   Path "Models/Weapons/Hud/Fist"
+   Model 0 "Fist.md3"
+   Skin 0 "Fist.png"
+   Scale 1.2 1.2 1.2
+   Offset 0.0 -13.0 2.0
+
+   NOINTERPOLATION
+
+   FrameIndex PUNG C 0 8
+}
+
+Model Vanilla_Fist
+{
+   Path "Models/Weapons/Hud/Fist"
+   Model 0 "Fist.md3"
+   Skin 0 "Fist.png"
+   Scale 1.2 1.2 1.2
+   Offset 0.0 -34.0 2.0
+
+   NOINTERPOLATION
+
+   FrameIndex PUNG D 0 1
+}
+
+//alternate model
+
+Model Vanilla_Fist
+{
+   Path "Models/Weapons/Hud/Fist_alt"
+   Model 0 "doomknuckles.md3"
+   Skin 0 "doomknuckles.png"
+   Scale 1.0 -1.0 1.0
+   Offset 0.0 -24.0 -20.0
+
+   NOINTERPOLATION
+
+   FrameIndex PUNA A 0 0
+}
+
+Model Vanilla_Fist
+{
+   Path "Models/Weapons/Hud/Fist_alt"
+   Model 0 "doomknuckles.md3"
+   Skin 0 "doomknuckles.png"
+   Scale 1.0 -1.0 1.0
+   Offset 0.0 -34.0 -20.0
+
+   NOINTERPOLATION
+
+   FrameIndex PUNA B 0 0
+}
+
+Model Vanilla_Fist
+{
+   Path "Models/Weapons/Hud/Fist_alt"
+   Model 0 "doomknuckles.md3"
+   Skin 0 "doomknuckles.png"
+   Scale 1.0 -1.0 1.0
+   Offset 0.0 -47.0 -20.0
+
+   NOINTERPOLATION
+
+   FrameIndex PUNA C 0 0
+}
+
+Model Vanilla_Fist
+{
+   Path "Models/Weapons/Hud/Fist_alt"
+   Model 0 "doomknuckles.md3"
+   Skin 0 "doomknuckles.png"
+   Scale 1.0 -1.0 1.0
+   Offset 0.0 -59.0 -20.0
+
+   NOINTERPOLATION
+
+   FrameIndex PUNA D 0 0
+}
+
+//D4T model
+
+Model Vanilla_Fist
+{
+   Path "Models/Weapons/Hud/Fist_D4"
+   Model 0 "dfist.md3"
+   Skin 0 "dfist.png"
+   Scale -0.7 0.7 0.7
+   Offset 0.0 -26.0 -9.0
+
+   NOINTERPOLATION
+
+   FrameIndex PND4 A 0 0
+}
+
+Model Vanilla_Fist
+{
+   Path "Models/Weapons/Hud/Fist_D4"
+   Model 0 "dfist.md3"
+   Skin 0 "dfist.png"
+   Scale -0.7 0.7 0.7
+   Offset 0.0 -39.0 -9.0
+
+   NOINTERPOLATION
+
+   FrameIndex PND4 B 0 0
+}
+
+Model Vanilla_Fist
+{
+   Path "Models/Weapons/Hud/Fist_D4"
+   Model 0 "dfist.md3"
+   Skin 0 "dfist.png"
+   Scale -0.7 0.7 0.7
+   Offset 0.0 -52.0 -9.0
+
+   NOINTERPOLATION
+
+   FrameIndex PND4 C 0 0
+}
+
+Model Vanilla_Fist
+{
+   Path "Models/Weapons/Hud/Fist_D4"
+   Model 0 "dfist.md3"
+   Skin 0 "dfist.png"
+   Scale -0.7 0.7 0.7
+   Offset 0.0 -65.0 -9.0
+
+   NOINTERPOLATION
+
+   FrameIndex PND4 D 0 0
+}

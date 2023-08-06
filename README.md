@@ -1,12 +1,16 @@
-# Universal Doom Voxel Weapons for VR
+# Doom Voxel Weapons for VR (Universal compatibility)
+
+![Voxel Weapons for Doom VR](https://i.imgflip.com/7uxv4e.gif)
 
 A GZDoom voxel weapon mod for Doom/Heretic/Hexen/Strife/Chex by Ermac (https://www.reddit.com/user/iAmErmac)
 
 By design, this mod should allow the Doom Voxel VR weapons working with the other map-packs and gameplay mods which don't change the monsters and weapon system too much from the vanilla Doom/Heretic/Hexen/Chex/Strife etc.
 
-There are optional second weapon set, voxel pickup models, bullet tracer and particle/smoke (Enhanced mode) effects for the weapons available in the **Voxel weapons Settings**. When enhanced mode is enabled, the Super Shotgun, Rocket Launcher, Plasma Rifle and BFG will have alt-fire enabled. In vanilla mode only BFG has alt-fire enabled (Doom beta BFG effect as alt-fire).
+There are other optional weapon sets included, voxel pickup models, bullet tracer and particle/smoke (Enhanced mode) effects for the weapons available in the **Voxel weapons Options**. When enhanced mode is enabled, the Super Shotgun, Rocket Launcher, Plasma Rifle and BFG will have alt-fire enabled. In vanilla mode only BFG has alt-fire enabled (Doom beta BFG effect as alt-fire).
 
 [![Download Now](https://raster.shields.io/github/downloads/iAmErmac/Universal_Doom_VoxelWeapons_VR/total)](https://github.com/iAmErmac/Universal_Doom_VoxelWeapons_VR/releases/latest)
+
+[<img src="https://cdn.ko-fi.com/cdn/kofi2.png?v=2" height="36" alt="Buy me a Cofee!">](https://ko-fi.com/ermac)
 
 # Features
 

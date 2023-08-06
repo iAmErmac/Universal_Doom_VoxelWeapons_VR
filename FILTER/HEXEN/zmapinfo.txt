@@ -2,5 +2,5 @@
 Gameinfo
 {
 	Playerclasses = "DoomMarineGuy"
-	EventHandlers = "DeadMonsterDrops"
+	AddEventHandlers = "DeadMonsterDrops"
 }

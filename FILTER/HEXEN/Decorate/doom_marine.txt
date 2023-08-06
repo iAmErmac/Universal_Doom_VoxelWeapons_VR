@@ -16,6 +16,7 @@ ACTOR DoomMarineGuy : PlayerPawn
   Player.FlechetteType "ArtiPoisonBag1"
   Player.StartItem "Vanilla_Pistol"
   Player.StartItem "Vanilla_Fist"
+  Player.StartItem "Vanilla_ChainSaw"
   Player.StartItem "Vanilla_Clip", 120
   Player.WeaponSlot 1, Vanilla_Fist, Vanilla_Chainsaw
   Player.WeaponSlot 2, Vanilla_Pistol
@@ -24,6 +25,7 @@ ACTOR DoomMarineGuy : PlayerPawn
   Player.WeaponSlot 5, Vanilla_RocketLauncher
   Player.WeaponSlot 6, Vanilla_PlasmaRifle
   Player.WeaponSlot 7, Vanilla_BFG9000
+  Player.CrouchSprite "PLYC"
   Player.ColorRange 112, 127
   Player.ColorSet 0, "Green",         0x70, 0x7F,  0x72
   Player.ColorSet 1, "Gray",          0x60, 0x6F,  0x62 // Called "Indigo" originally so as to have a unique initial

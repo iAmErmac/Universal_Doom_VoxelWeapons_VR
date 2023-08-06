@@ -1,0 +1,78 @@
+//default model
+
+Model Vanilla_BFG9000
+{
+   Path "Models/Weapons/Hud/BFG9000"
+   Model 0 "BFG.md3"
+   Skin 0 "BFG.png"
+   Scale 1.1 1.1 1.1
+   Offset 0.0 -7.0 10.0
+
+   NOINTERPOLATION
+
+   FrameIndex BFGG A 0 0
+   
+   Skin 0 "BFG2.png"
+
+   FrameIndex BFGG B 0 0
+   FrameIndex BFGG C 0 0
+}
+
+//alternate model
+
+Model Vanilla_BFG9000
+{
+   Path "Models/Weapons/Hud/BFG9000_alt"
+   Model 0 "doomfuckgun-00.md3"
+   Skin 0 "doomfuckgun-00.png"
+   Scale -2.0 2.0 2.0
+   Offset 0.0 -37.0 -22.0
+
+   NOINTERPOLATION
+
+   FrameIndex BFGA A 0 0
+   
+   Model 0 "doomfuckgun-01.md3"
+   Skin 0 "doomfuckgun-01.png"
+
+   NOINTERPOLATION
+
+   FrameIndex BFGA B 0 0
+   FrameIndex BFGA C 0 0
+}
+
+//D4T model
+
+Model Vanilla_BFG9000
+{
+   Path "Models/Weapons/Hud/BFG9000_D4"
+   Model 0 "sbfg.md3"
+   Skin 0 "sbfg.png"
+   Scale -1.7 1.7 1.7
+   Offset 0.0 -26.0 -4.0
+
+   NOINTERPOLATION
+
+   FrameIndex BFD4 A 0 0
+   
+   Skin 0 "sbfg2.png"
+   FrameIndex BFD4 B 0 0
+}
+
+//gun flash default
+
+Model Vanilla_BFG9000
+{
+   Path "Models/Weapons/Hud/BFG9000"
+   Model 0 "bfgexpo.md2"
+   Skin 0 "energy_flash0.png"
+   Scale -3.0 1.0 3.0
+   Offset 0.0 -40.0 35.0
+   
+   NOINTERPOLATION
+
+   FrameIndex BFGF A 0 0
+   
+   Skin 0 "energy_flash1.png"
+   FrameIndex BFGF B 0 0
+}

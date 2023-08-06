@@ -1,0 +1,179 @@
+ACTOR Vanilla_RocketLauncher : ZWeapon
+{
+	Weapon.SelectionOrder 2500
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 2
+	Weapon.AmmoType "RocketAmmo"
+	+WEAPON.NOAUTOFIRE
+	Inventory.PickupMessage "$GOTLAUNCHER"
+	Tag "$TAG_ROCKETLAUNCHER"
+  
+	Weapon.AmmoType2 "RocketAmmo"
+	Weapon.AmmoUse2 1
+	
+	States
+	{
+	Ready:
+		MISG A 0 A_ReplaceSprite("vvw_models","MISA,RLD4")
+		"####" A 1 A_WeaponReady
+		Loop
+	Deselect:
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_fastswitch")==0, 2)
+		"####" A 1 A_Lower(60)
+		Wait
+		"####" A 1 A_Lower
+		Wait
+	Select:
+		MISG A 0 A_ReplaceSprite("vvw_models","MISA,RLD4")
+		"####" "#" 0 A_JumpIf(GetCVAR("vvw_fastswitch")==0, 2)
+		"####" A 1 A_Raise(60)
+		Wait
+		"####" A 1 A_Raise
+		Wait
+	Fire:
+		"####" A 0 A_JumpIf(GetCVAR("vvw_weapons")==1, "Fire.Enhanced")
+		"####" B 8 A_GunFlash
+		"####" "#" 0 A_FireProjectile("RocketBarrelSmoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		"####" B 12 A_FireProjectile("Rocket")
+		"####" "#" 0 A_ReFire
+		Goto Ready
+	Fire.Enhanced:
+		"####" B 8 A_GunFlash
+		"####" "#" 0 A_FireProjectile("RocketBarrelSmoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		"####" B 12 A_firecustommissile("BD_Rocket",0,1)
+		"####" "#" 0 A_ReFire
+		"####" "#" 0 A_FireProjectile("RocketBarrelSmoke2",0,0,0,0,FPF_NOAUTOAIM,0)
+		Goto Ready
+	AltFire:
+		"####" A 0 A_JumpIf(GetCVAR("vvw_weapons")==0, "Ready") //Alt fire is available on enhanced mode only
+		"####" A 20 A_PlaySound("weapons/rlan/lock")
+		"####" "#" 0 A_GunFlash
+		"####" "#" 0 A_FireProjectile("RocketBarrelSmoke",0,0,0,0,FPF_NOAUTOAIM,0)
+		"####" B 8 A_firecustommissile("BD_Rocket",0,1)
+		"####" B 9
+		"####" B 15 A_WeaponReady(WRF_NOSECONDARY)
+		"####" B 8 A_ReFire
+		"####" "#" 0 A_FireProjectile("RocketBarrelSmoke2",0,0,0,0,FPF_NOAUTOAIM,0)
+		Goto Ready
+	Flash:
+		TNT1 A 0 A_JumpIf(GetCVAR("vvw_flash_sprite")==false, "NoFlashSprite")
+		MISF A 3 Bright A_Light1
+		MISF B 4 Bright
+		MISF CD 4 Bright A_Light2
+		Goto LightDone
+	NoFlashSprite:
+		TNT1 A 3 A_Light1
+		TNT1 A 4
+		TNT1 AA 4 A_Light2
+		Goto LightDone
+	Spawn:
+		LAUN A 0 A_CheckSpawnModel()
+		LAUN A 0 A_ReplaceSprite("vvw_pickupmodel","VRPG", true, 1)
+		"####" A 1
+		Loop
+	Spawn2:
+		VRLS A 0 A_ReplaceSprite("vvw_pickupmodel","VRL4", true, 1)
+		"####" A 1
+		Goto Spawn
+	Dummy:
+		MISA AB 0
+		RLD4 AB 0
+		VRPG A 0
+		VRL4 A 0
+		Stop
+	}
+}
+
+Actor BD_Rocket : Rocket
+{
++DONTBLAST
+damagetype Normal
+scale 1.0
+-ROCKETTRAIL
++SKYEXPLODE
++THRUGHOST //so that it doesn't explode upon hitting shootable decorations, as they all have +GHOST flag for that
+decal bigscorch
+seesound ""
+deathsound ""
+states
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("RocketFlare",-36,0,7,velx,vely,velz,0,SXF_SETMASTER|SXF_ORIGINATOR|SXF_ABSOLUTEVELOCITY)
+		TNT1 A 0 A_PlaySoundEx("weapons/rocklf","voice",0)
+		TNT1 A 0 A_Jump(256,2)
+		TNT1 A 0 A_PlaySoundEx("weapons/rlan/fire","voice",0)
+		TNT1 A 0 A_SpawnItemEx("BD_RocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
+		MISL A 1 bright
+		TNT1 A 0 A_SpawnItemEx("BD_RocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
+		MISL A 1 bright
+		TNT1 A 0 A_SpawnItemEx("BD_RocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
+		MISL A 1 bright
+		TNT1 A 0 A_SpawnItemEx("BD_RocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
+		MISL A 1 bright
+		TNT1 A 0 A_PlaySoundEx("weapons/rlan/fly","body",1,-1)
+	Spawn1:
+		TNT1 A 0 A_SpawnItemEx("BD_RocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
+		MISL A 1 bright
+		loop
+	Death.Sky:
+		TNT1 A 0 A_RemoveChildren(1,RMVF_EVERYTHING)
+		stop
+	Death:
+		TNT1 A 0 A_RemoveChildren(1,RMVF_EVERYTHING)
+		TNT1 A 0 A_StopSoundEx("body")
+		TNT1 A 0 A_PlaySoundEx("weapons/rocklx","voice",0)
+		TNT1 A 0 A_Jump(256,2)
+		TNT1 A 0 A_PlaySoundEx("weapons/rlan/explosion","voice",0)
+		TNT1 A 0 Radius_Quake(1,6,0,4,0)
+		TNT1 A 0 A_ChangeFlag("FORCEXYBILLBOARD",1)
+		TNT1 A 0 A_SetTranslucent(0.5,1)
+		TNT1 A 0 A_SetScale(0.9*randompick(-1,1),0.9*randompick(-1,1))
+		TNT1 AAAAAAA 0 A_SpawnItemEx("SmokingPiece",0,0,0, random(3,6),0,random(5,8),random(0,360),0,120)
+		BOM2 A 1 bright A_Explode
+		TNT1 AAAAAA 0 A_CustomMissile ("ExplosionParticleSpawner", 2, 0, random (0, 360), 2, random (0, 360))
+		BOM2 BCDEFGHIJKLMNOPQRSTUVWXY 1 bright
+		stop
+	}
+}
+
+Actor BD_HomingRocket : BD_Rocket
+{
++SEEKERMISSILE
++SCREENSEEKER
+speed 17
+seesound "weapons/rlan/fire"
+states
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_SpawnItemEx("HomingRocketFlare",-36,0,7,velx,vely,velz,0,SXF_SETMASTER|SXF_ORIGINATOR|SXF_ABSOLUTEVELOCITY)
+			TNT1 A 0 A_SpawnItemEx("BD_SeekerRocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
+			MISS A 1 bright
+			TNT1 A 0 A_SpawnItemEx("BD_SeekerRocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
+			MISS A 1 bright
+			TNT1 A 0 A_SpawnItemEx("BD_SeekerRocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
+			MISS A 1 bright
+			TNT1 A 0 A_SpawnItemEx("BD_SeekerRocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
+			MISS A 1 bright
+			TNT1 A 0 A_PlaySoundEx("weapons/rlan/fly","body",1,-1)
+		Seeker:
+			TNT1 A 0
+			TNT1 A 0 A_GiveInventory("SeekerCount",1)
+			TNT1 A 0 A_SpawnItemEx("BD_SeekerRocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
+			MISS A 1 bright
+			TNT1 A 0 A_SpawnItemEx("BD_SeekerRocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
+			MISS A 1 bright A_SeekerMissile(0,4, SMF_LOOK | SMF_PRECISE | SMF_CURSPEED,200)
+			TNT1 A 0 A_jumpIfInventory("SeekerCount",10,1)
+			loop
+
+			TNT1 A 0 A_TakeInventory("SeekerCount",10)
+			TNT1 A 0 A_SpawnItemEx("SeekerFlare",8,0,8,velx,vely,velz,0,SXF_ABSOLUTEMOMENTUM)
+			loop
+	}
+}
+
+Actor SeekerCount : DummyChecker
+{
+inventory.maxamount 40
+}

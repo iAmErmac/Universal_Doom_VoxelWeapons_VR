@@ -1,0 +1,113 @@
+//Chainsaw
+vcswa = "vcswa"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//Pistol
+vpsta = "vpsta"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//Shotgun
+vshta = "vshta"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//Super Shotgun
+vssga = "vssga"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//Minigun
+vmgna = "vmgna"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//Rocket Launcher
+vrpga = "vrpga"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//Plasma Gun
+vplsa = "vplsa"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//The BFG
+vbfga = "vbfga"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//D4T voxels
+
+//Chainsaw
+vcs4a = "vcs4a"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//Pistol
+vps4a = "vps4a"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//Shotgun
+vsg4a = "vsg4a"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//Super Shotgun
+vss4a = "vss4a"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//Minigun
+vcg4a = "vcg4a"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//Rocket Launcher
+vrl4a = "vrl4a"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//Plasma Gun
+vpg4a = "vpg4a"
+{
+	Scale = 0.8
+	spin = 50
+}
+
+//The BFG
+vbg4a = "vbg4a"
+{
+	Scale = 0.8
+	spin = 50
+}

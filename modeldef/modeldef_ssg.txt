@@ -1,0 +1,234 @@
+//default model
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG"
+   Model 0 "DoubleSG.md3"
+   Skin 0 "DoubleSG.png"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 5.0 3.0
+   
+   INTERPOLATEDOUBLEDFRAMES
+
+   FrameIndex SHT2 A 0 0
+   FrameIndex SHT2 B 0 0
+   FrameIndex SHT2 C 0 0
+   FrameIndex SHT2 D 0 0
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG"
+   Model 0 "DoubleSG2.md3"
+   Skin 0 "DoubleSG.png"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 5.0 3.0
+   
+   INTERPOLATEDOUBLEDFRAMES
+
+   FrameIndex SHT2 E 0 0
+   FrameIndex SHT2 F 0 0
+   FrameIndex SHT2 H 0 0
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG"
+   Model 0 "DoubleSG2.md3"
+   Skin 0 "DoubleSG.png"
+   Scale 1.0 1.0 1.0
+   Offset 0.0 5.0 3.0
+
+   INTERPOLATEDOUBLEDFRAMES
+
+   FrameIndex SHT2 G 0 0
+}
+
+//alternate model
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG_alt"
+   Model 0 "doomssg-00.md3"
+   Skin 0 "doomssg-00.png"
+   Scale -1.3 1.3 1.3
+   Offset 0.0 -35.0 -30.0
+
+   NOINTERPOLATION
+
+   FrameIndex SHT3 A 0 0
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG_alt"
+   Model 0 "doomssg-reloadend.md3"
+   Skin 0 "doomssg-00.png"
+   Scale -1.3 1.3 1.3
+   Offset 0.0 -35.0 -30.0
+
+   NOINTERPOLATION
+
+   FrameIndex SHT3 B 0 0 
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG_alt"
+   Model 0 "doomssg-maximum.md3"
+   Skin 0 "doomssg-00.png"
+   Scale -1.3 1.3 1.3
+   Offset 0.0 -35.0 -30.0
+
+   NOINTERPOLATION
+
+   FrameIndex SHT3 C 0 0
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG_alt"
+   Model 0 "doomssg-01.md3"
+   Skin 0 "doomssg-00.png"
+   Scale -1.3 1.3 1.3
+   Offset 0.0 -35.0 -30.0
+
+   NOINTERPOLATION
+
+   FrameIndex SHT3 D 0 0 
+   FrameIndex SHT3 G 0 0
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG_alt"
+   Model 0 "doomssg-03.md3"
+   Skin 0 "doomssg-03.png"
+   Scale -1.3 1.3 1.3
+   Offset 0.0 -35.0 -30.0
+
+   NOINTERPOLATION
+
+   FrameIndex SHT3 E 0 0 
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG_alt"
+   Model 0 "doomssg-04.md3"
+   Skin 0 "doomssg-03.png"
+   Scale -1.3 1.3 1.3
+   Offset 0.0 -35.0 -30.0
+
+   NOINTERPOLATION
+
+   FrameIndex SHT3 F 0 0 
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG_alt"
+   Model 0 "doomssg-reloadend.md3"
+   Skin 0 "doomssg-00.png"
+   Scale -1.3 1.3 1.3
+   Offset 0.0 -35.0 -30.0
+
+   NOINTERPOLATION
+
+   FrameIndex SHT3 H 0 0 
+
+}
+
+//D4T model
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG_D4"
+   Model 0 "sssg.md3"
+   Skin 0 "sssg.png"
+   Scale -1.0 1.0 1.0
+   Offset 0.0 -25.0 -4.0
+   
+   INTERPOLATEDOUBLEDFRAMES
+
+   FrameIndex SGD4 A 0 0
+   FrameIndex SGD4 B 0 1
+   FrameIndex SGD4 C 0 2
+   FrameIndex SGD4 D 0 3
+   FrameIndex SGD4 H 0 7
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG_D4"
+   Model 0 "sssg.md3"
+   Skin 0 "sssg.png"
+   Model 1 "sssg_shell.md3"
+   Skin 1 "sshell.png"
+   Scale -1.0 1.0 1.0
+   Offset 0.0 -25.0 -4.0
+   
+   INTERPOLATEDOUBLEDFRAMES
+
+   FrameIndex SGD4 E 0 4	FrameIndex SGD4 E 1 4
+   FrameIndex SGD4 F 0 5	FrameIndex SGD4 F 1 5
+   FrameIndex SGD4 G 0 6	FrameIndex SGD4 G 1 6
+}
+
+//gun flash default
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG"
+   Model 0 "hud_ssg_mf1.md3"
+   SKIN 0 "MF1.png"
+   Model 1 "hud_ssg_mf2.md3"
+   SKIN 1 "MF2.png"
+   Scale 1.5 1.5 1.5
+   Offset 0.0 -20.0 11.0
+   
+   FrameIndex SHT2 I 0 0   FrameIndex SHT2 I 1 0
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/SSG"
+   Model 0 "Hud_ssg_MF1.md3"
+   SKIN 0 "MF1.png"
+   Model 1 "Hud_ssg_MF2.md3"
+   SKIN 1 "MF2.png"
+   Scale 1.5 1.5 1.5
+   Offset 0.0 -20.0 11.0
+
+   FrameIndex SHT2 J 0 1   FrameIndex SHT2 J 1 1
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/Shotgun"
+   MODEL 0 "Shotgun_MF1.md3"
+   SKIN 0 "MF1.png"
+   MODEL 1 "Shotgun_MF2.md3"
+   SKIN 1 "MF2.png"  
+   Scale 1.0 1.0 1.0
+   Offset 0.0 -20.0 11.0
+   
+   NOINTERPOLATION
+	
+   FrameIndex SHTF A 0 0   FrameIndex SHTF A 1 0
+}
+
+Model Vanilla_SuperShotgun
+{ 
+   Path "Models/Weapons/Hud/Shotgun"
+   MODEL 0 "Shotgun_MF1.md3"
+   SKIN 0 "MF1.png"
+   MODEL 1 "Shotgun_MF2.md3"
+   SKIN 1 "MF2.png"
+   Scale 1.0 1.0 1.0
+   Offset 2.0 -20.0 11.0
+   
+   NOINTERPOLATION
+
+   FrameIndex SHTF B 0 0   FrameIndex SHTF B 1 0
+}

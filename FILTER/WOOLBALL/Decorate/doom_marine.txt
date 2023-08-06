@@ -10,4 +10,5 @@ ACTOR DoomMarineGuy : DoomPlayer
   Player.WeaponSlot 5, Vanilla_RocketLauncher
   Player.WeaponSlot 6, Vanilla_PlasmaRifle
   Player.WeaponSlot 7, Vanilla_BFG9000
+  Player.CrouchSprite "PLYC"
 }

@@ -1,4 +1,4 @@
-//PISTOL
+//default model
 
 Model Silenced_Pistol
 { 
@@ -6,7 +6,7 @@ Model Silenced_Pistol
    Model 0 "Pistol.md3"
    Skin 0 "Pistol.png"
    Scale 1.0 1.0 1.0
-   Offset 0.0 0.0 0.0
+   Offset 0.0 4.0 2.0
 
    FrameIndex PISG A 0 0   FrameIndex PISG A 1 0
 }
@@ -17,12 +17,83 @@ Model Silenced_Pistol
    Model 0 "Pistol.md3"
    Skin 0 "Pistol.png"
    Scale 1.0 1.0 1.0
-   Offset 0.0 2.0 0.0
+   Offset 0.0 7.0 2.0
 
    FrameIndex PISG B 0 1   FrameIndex PISG B 1 1
    FrameIndex PISG C 0 2   FrameIndex PISG C 1 2
 }
 
+//alternate model
+
+Model Silenced_Pistol
+{ 
+   Path "Models/Weapons/Hud/Pistol_alt"
+   Model 0 "doompistol-00.md3"
+   Skin 0 "doompistol.png"
+   Scale 0.6 -0.6 0.6
+   Offset 0.0 -32.0 -16.0
+
+   NOINTERPOLATION
+
+   FrameIndex PIAG A 0 0
+
+}
+
+Model Silenced_Pistol
+{ 
+   Path "Models/Weapons/Hud/Pistol_alt"
+   Model 0 "doompistol-01.md3"
+   Skin 0 "doompistol.png"
+   Scale 0.6 -0.6 0.6
+   Offset 0.0 -32.0 -16.0
+
+   NOINTERPOLATION
+
+   FrameIndex PIAG B 0 0
+
+}
+
+Model Silenced_Pistol
+{ 
+   Path "Models/Weapons/Hud/Pistol_alt"
+   Model 0 "doompistol-slideback.md3"
+   Skin 0 "doompistol.png"
+   Scale 0.6 -0.6 0.6
+   Offset 0.0 -32.0 -16.0
+
+   NOINTERPOLATION
+
+   FrameIndex PIAG C 0 0
+
+}
+
+Model Silenced_Pistol
+{ 
+   Path "Models/Weapons/Hud/Pistol_alt"
+   Model 0 "doompistol-02.md3"
+   Skin 0 "doompistol.png"
+   Scale 0.6 -0.6 0.6
+   Offset 0.0 -32.0 -16.0
+
+   NOINTERPOLATION
+
+   FrameIndex PIAG D 0 0
+
+}
+
+Model Silenced_Pistol
+{ 
+   Path "Models/Weapons/Hud/Pistol_alt"
+   Model 0 "doompistol-03.md3"
+   Skin 0 "doompistol.png"
+   Scale 0.6 -0.6 0.6
+   Offset 0.0 -32.0 -16.0
+
+   NOINTERPOLATION
+
+   FrameIndex PIAG E 0 0
+
+}
 
 //Hud WEAPON FLASH
 
