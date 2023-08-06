@@ -14,24 +14,12 @@ There are other optional weapon sets included, voxel pickup models, bullet trace
 
 # Features
 
-* Can switch between 2 sets of voxel weapons anytime
+* Can switch between 3 sets of voxel weapons anytime
 * Optional enhanced mode. More SFX and smokes, enables alt-fire
 * Optional voxel pickup models
 * Optional bullet tracer for pistol, shotgun and machinegun (works regardless of enhanced mode)
 * Optional fast weapon switching mode
-
-# Installation
-
-GZDoom VR: https://github.com/hh79/gz3doom/releases
-
-To install:
-
-    Extract GZDoom-VR to a folder.
-    Copy original doom wads into the folder.
-    Copy this mod into the folder.
-    Run with gzdoomvr.exe -file LATEST_MOD_FILE_NAME
-  
-OR use ZDL: https://github.com/lcferrum/qzdl/releases to load mods with GZDoom
+* Built-in compatibility extension to adapt to any custom iwad/wad with custom weapons/ammo
 
 # Wad and mod support:
 
@@ -55,10 +43,63 @@ This has also been adapted to work well specifically with these mods:
 * Pirate Doom (https://www.moddb.com/mods/pirate-doom)
 * Consolidated Wolfenstein 3D TC (https://www.afadoomer.com/wolf3d/downloads.html)
 
+## Installation
+
+Always load this mod after the main wad and level wad so weapons can get replaced properly
+
+### GZDoom VR (PC-VR)
+
+Latest GZDoom VR: https://github.com/hh79/gz3doom/releases/latest
+
+Latest GZDoom VR Dual Wield version: https://github.com/iAmErmac/gzdoomvr/releases/latest
+
+To install:
+
+    Extract GZDoom-VR to a folder.
+    Copy original doom wads into the folder.
+    Copy this mod into the folder.
+    Run with gzdoomvr.exe -iwad zbloody_hell.wad -file LATEST_ZBLOOD_MOD LATEST_ZBLOOD_WEAPONS LATEST_ZBLOOD_VOXELS
+  
+OR use DoomRunner: https://github.com/Youda008/DoomRunner/releases/latest to load mods with GZDoom
+
+### QuestZDoom (Oculus Quest)
+
+Official QuestZDoom: https://github.com/DrBeef/QuestZDoom/releases/latest
+
+Unofficial QuestZDoom: https://github.com/emawind84/QuestZDoom/releases/latest
+
+QuestZDoom launcher: https://github.com/baggyg/QuestZDoomLauncher/releases/latest
+
+To install:
+
+    Copy this mod into /sdcard/QuestZDoom/mods/
+    Load QuestZDoom Launcher. select this mod along with others mods
+
+## Recommended mods to combine with:
+
+* [Voxel Doom:](https://www.moddb.com/mods/voxel-doom-ii)
+  - Voxel doom replace all monster, weapons, props and items with fully 3d voxel models
+
+* [VR Flashlight:](https://github.com/iAmErmac/VR-Flashlight)
+  - A flashlight that you can hold at your hand, or mount on weapons
+
+* [Hyper-V:](https://github.com/iAmErmac/Hyper-V)
+  - Enables a lot of VR focused features such as positional melee attacks and item pulling
+
+* [PyWeapon Wheel:](https://github.com/iAmErmac/PyWeaponWheel-VR)
+  - A weapon wheel adapted to use in VR
+
+* [Gearbox:](https://github.com/iAmErmac/gearbox)
+  - Another weapon wheel mod to use in VR
+  
+* [DamNums:](https://forum.zdoom.org/viewtopic.php?t=55048)
+  - DamNums is a pretty simple concept: shoot monsters and little numbers pop out that tell you how much damage you did
+
 # Credits
 
 * -Chell - for voxel weapon set
 * Rogue_Steve - for the alternate voxel weapon set
+* DooMAD, DooMGoaT, ReaperMan, Conrad RDW - for D4T voxel weapons
 * Sgt Mark IV (Brutal Doom) - for enhanced effect sprites and codes
-* Jekyll Grim Payne (Beautiful Doom) - for enhanced effect sprites, sounds, codes and ideas on zscript
+* Agent Ash (Beautiful Doom) - for enhanced effect sprites, sounds, codes and ideas on zscript
 * Ryuhi (Heretical Doom) - for ideads on wad support (filter) codes
