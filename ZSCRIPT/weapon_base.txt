@@ -22,7 +22,14 @@ class ZWeapon : Weapon
 			}
 			else
 			{
-				if(player && GetSpriteIndex(ssprite)) Player.GetPSprite(PSP_WEAPON).sprite = GetSpriteIndex(ssprite);
+				if(player)
+				{
+					int mainhand = !invoker.bOffhandWeapon;
+					if(mainhand)
+						Player.GetPSprite(PSP_WEAPON).sprite = GetSpriteIndex(ssprite);
+					else
+						Player.GetPSprite(PSP_OFFHANDWEAPON).sprite = GetSpriteIndex(ssprite);
+				}
 			}
 		}
 	}
@@ -58,7 +65,14 @@ class ZFist : Fist
 			}
 			else
 			{
-				if(player && GetSpriteIndex(ssprite)) Player.GetPSprite(PSP_WEAPON).sprite = GetSpriteIndex(ssprite);
+				if(player)
+				{
+					int mainhand = !invoker.bOffhandWeapon;
+					if(mainhand)
+						Player.GetPSprite(PSP_WEAPON).sprite = GetSpriteIndex(ssprite);
+					else
+						Player.GetPSprite(PSP_OFFHANDWEAPON).sprite = GetSpriteIndex(ssprite);
+				}
 			}
 		}
 	}
@@ -88,7 +102,14 @@ class ZChainsaw : Chainsaw
 			}
 			else
 			{
-				if(player && GetSpriteIndex(ssprite)) Player.GetPSprite(PSP_WEAPON).sprite = GetSpriteIndex(ssprite);
+				if(player)
+				{
+					int mainhand = !invoker.bOffhandWeapon;
+					if(mainhand)
+						Player.GetPSprite(PSP_WEAPON).sprite = GetSpriteIndex(ssprite);
+					else
+						Player.GetPSprite(PSP_OFFHANDWEAPON).sprite = GetSpriteIndex(ssprite);
+				}
 			}
 		}
 	}
