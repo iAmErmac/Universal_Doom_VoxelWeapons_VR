@@ -6,7 +6,7 @@ Model Vanilla_Fist
    Model 0 "Fist.md3"
    Skin 0 "Fist.png"
    Scale 1.2 1.2 1.2
-   Offset 0.0 6.0 2.0
+   Offset 0.0 4.0 5.0
 
    NOINTERPOLATION
 
@@ -20,7 +20,7 @@ Model Vanilla_Fist
    Model 0 "Fist.md3"
    Skin 0 "Fist.png"
    Scale 1.2 1.2 1.2
-   Offset 0.0 -13.0 2.0
+   Offset 0.0 -13.0 5.0
 
    NOINTERPOLATION
 
@@ -33,7 +33,7 @@ Model Vanilla_Fist
    Model 0 "Fist.md3"
    Skin 0 "Fist.png"
    Scale 1.2 1.2 1.2
-   Offset 0.0 -34.0 2.0
+   Offset 0.0 -34.0 5.0
 
    NOINTERPOLATION
 
@@ -48,7 +48,7 @@ Model Vanilla_Fist
    Model 0 "doomknuckles.md3"
    Skin 0 "doomknuckles.png"
    Scale 1.0 -1.0 1.0
-   Offset 0.0 -24.0 -20.0
+   Offset 0.0 -27.0 -16.0
 
    NOINTERPOLATION
 
@@ -61,7 +61,7 @@ Model Vanilla_Fist
    Model 0 "doomknuckles.md3"
    Skin 0 "doomknuckles.png"
    Scale 1.0 -1.0 1.0
-   Offset 0.0 -34.0 -20.0
+   Offset 0.0 -37.0 -16.0
 
    NOINTERPOLATION
 
@@ -74,7 +74,7 @@ Model Vanilla_Fist
    Model 0 "doomknuckles.md3"
    Skin 0 "doomknuckles.png"
    Scale 1.0 -1.0 1.0
-   Offset 0.0 -47.0 -20.0
+   Offset 0.0 -47.0 -16.0
 
    NOINTERPOLATION
 
@@ -87,7 +87,7 @@ Model Vanilla_Fist
    Model 0 "doomknuckles.md3"
    Skin 0 "doomknuckles.png"
    Scale 1.0 -1.0 1.0
-   Offset 0.0 -59.0 -20.0
+   Offset 0.0 -59.0 -16.0
 
    NOINTERPOLATION
 
@@ -102,7 +102,7 @@ Model Vanilla_Fist
    Model 0 "dfist.md3"
    Skin 0 "dfist.png"
    Scale -0.7 0.7 0.7
-   Offset 0.0 -26.0 -9.0
+   Offset 0.0 -28.0 -7.0
 
    NOINTERPOLATION
 
@@ -115,7 +115,7 @@ Model Vanilla_Fist
    Model 0 "dfist.md3"
    Skin 0 "dfist.png"
    Scale -0.7 0.7 0.7
-   Offset 0.0 -39.0 -9.0
+   Offset 0.0 -39.0 -7.0
 
    NOINTERPOLATION
 
@@ -128,7 +128,7 @@ Model Vanilla_Fist
    Model 0 "dfist.md3"
    Skin 0 "dfist.png"
    Scale -0.7 0.7 0.7
-   Offset 0.0 -52.0 -9.0
+   Offset 0.0 -52.0 -7.0
 
    NOINTERPOLATION
 

@@ -6,7 +6,7 @@ Model Vanilla_SuperShotgun
    Model 0 "DoubleSG.md3"
    Skin 0 "DoubleSG.png"
    Scale 1.0 1.0 1.0
-   Offset 0.0 5.0 3.0
+   Offset 0.0 -1.0 3.0
    
    INTERPOLATEDOUBLEDFRAMES
 
@@ -22,7 +22,7 @@ Model Vanilla_SuperShotgun
    Model 0 "DoubleSG2.md3"
    Skin 0 "DoubleSG.png"
    Scale 1.0 1.0 1.0
-   Offset 0.0 5.0 3.0
+   Offset 0.0 -1.0 3.0
    
    INTERPOLATEDOUBLEDFRAMES
 
@@ -37,7 +37,7 @@ Model Vanilla_SuperShotgun
    Model 0 "DoubleSG2.md3"
    Skin 0 "DoubleSG.png"
    Scale 1.0 1.0 1.0
-   Offset 0.0 5.0 3.0
+   Offset 0.0 -1.0 3.0
 
    INTERPOLATEDOUBLEDFRAMES
 
@@ -52,7 +52,7 @@ Model Vanilla_SuperShotgun
    Model 0 "doomssg-00.md3"
    Skin 0 "doomssg-00.png"
    Scale -1.3 1.3 1.3
-   Offset 0.0 -35.0 -30.0
+   Offset 0.0 -38.0 -30.0
 
    NOINTERPOLATION
 
@@ -65,7 +65,7 @@ Model Vanilla_SuperShotgun
    Model 0 "doomssg-reloadend.md3"
    Skin 0 "doomssg-00.png"
    Scale -1.3 1.3 1.3
-   Offset 0.0 -35.0 -30.0
+   Offset 0.0 -38.0 -30.0
 
    NOINTERPOLATION
 
@@ -78,7 +78,7 @@ Model Vanilla_SuperShotgun
    Model 0 "doomssg-maximum.md3"
    Skin 0 "doomssg-00.png"
    Scale -1.3 1.3 1.3
-   Offset 0.0 -35.0 -30.0
+   Offset 0.0 -38.0 -30.0
 
    NOINTERPOLATION
 
@@ -91,7 +91,7 @@ Model Vanilla_SuperShotgun
    Model 0 "doomssg-01.md3"
    Skin 0 "doomssg-00.png"
    Scale -1.3 1.3 1.3
-   Offset 0.0 -35.0 -30.0
+   Offset 0.0 -38.0 -30.0
 
    NOINTERPOLATION
 
@@ -105,7 +105,7 @@ Model Vanilla_SuperShotgun
    Model 0 "doomssg-03.md3"
    Skin 0 "doomssg-03.png"
    Scale -1.3 1.3 1.3
-   Offset 0.0 -35.0 -30.0
+   Offset 0.0 -38.0 -30.0
 
    NOINTERPOLATION
 
@@ -118,7 +118,7 @@ Model Vanilla_SuperShotgun
    Model 0 "doomssg-04.md3"
    Skin 0 "doomssg-03.png"
    Scale -1.3 1.3 1.3
-   Offset 0.0 -35.0 -30.0
+   Offset 0.0 -38.0 -30.0
 
    NOINTERPOLATION
 
@@ -131,12 +131,11 @@ Model Vanilla_SuperShotgun
    Model 0 "doomssg-reloadend.md3"
    Skin 0 "doomssg-00.png"
    Scale -1.3 1.3 1.3
-   Offset 0.0 -35.0 -30.0
+   Offset 0.0 -38.0 -30.0
 
    NOINTERPOLATION
 
    FrameIndex SHT3 H 0 0 
-
 }
 
 //D4T model
@@ -147,7 +146,7 @@ Model Vanilla_SuperShotgun
    Model 0 "sssg.md3"
    Skin 0 "sssg.png"
    Scale -1.0 1.0 1.0
-   Offset 0.0 -25.0 -4.0
+   Offset 0.0 -28.0 -4.0
    
    INTERPOLATEDOUBLEDFRAMES
 
@@ -166,7 +165,7 @@ Model Vanilla_SuperShotgun
    Model 1 "sssg_shell.md3"
    Skin 1 "sshell.png"
    Scale -1.0 1.0 1.0
-   Offset 0.0 -25.0 -4.0
+   Offset 0.0 -28.0 -4.0
    
    INTERPOLATEDOUBLEDFRAMES
 
@@ -185,7 +184,7 @@ Model Vanilla_SuperShotgun
    Model 1 "hud_ssg_mf2.md3"
    SKIN 1 "MF2.png"
    Scale 1.5 1.5 1.5
-   Offset 0.0 -20.0 11.0
+   Offset 0.0 -23.0 11.0
    
    FrameIndex SHT2 I 0 0   FrameIndex SHT2 I 1 0
 }
@@ -198,7 +197,7 @@ Model Vanilla_SuperShotgun
    Model 1 "Hud_ssg_MF2.md3"
    SKIN 1 "MF2.png"
    Scale 1.5 1.5 1.5
-   Offset 0.0 -20.0 11.0
+   Offset 0.0 -23.0 11.0
 
    FrameIndex SHT2 J 0 1   FrameIndex SHT2 J 1 1
 }
@@ -211,7 +210,7 @@ Model Vanilla_SuperShotgun
    MODEL 1 "Shotgun_MF2.md3"
    SKIN 1 "MF2.png"  
    Scale 1.0 1.0 1.0
-   Offset 0.0 -20.0 11.0
+   Offset 0.0 -23.0 11.0
    
    NOINTERPOLATION
 	
@@ -226,7 +225,7 @@ Model Vanilla_SuperShotgun
    MODEL 1 "Shotgun_MF2.md3"
    SKIN 1 "MF2.png"
    Scale 1.0 1.0 1.0
-   Offset 2.0 -20.0 11.0
+   Offset 2.0 -23.0 11.0
    
    NOINTERPOLATION
 

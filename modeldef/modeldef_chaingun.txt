@@ -36,7 +36,7 @@ MODEL Vanilla_Chaingun
    Model 0 "doomchaingun-00.md3"
    Skin 0 "doomchaingun-00.png"
    Scale -1.5 1.5 1.5
-   Offset 0.0 -63.0 -20.0
+   Offset 0.0 -63.0 -18.0
 
    NOINTERPOLATION
    
@@ -49,7 +49,7 @@ MODEL Vanilla_Chaingun
    Model 0 "doomchaingun-01.md3"
    Skin 0 "doomchaingun-00.png"
    Scale -1.5 1.5 1.5
-   Offset 0.0 -63.0 -20.0
+   Offset 0.0 -63.0 -18.0
 
    NOINTERPOLATION
 
